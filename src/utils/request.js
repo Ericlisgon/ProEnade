@@ -13,29 +13,32 @@ const withBaseURLContext = () =>
 const HTTPClient = axios.create({
 	baseURL: withBaseURLContext(),
 	headers: {
-		UsuarioId: getStorage('usuarioId'),
-		GrupoUsuarioId: getStorage('GrupoUsuarioId'),
-		EmpresaId: getStorage('EmpresaId'),
+		// UsuarioId: getStorage('usuarioId'),
+		// GrupoUsuarioId: getStorage('GrupoUsuarioId'),
+		// EmpresaId: getStorage('EmpresaId'),
+		UsuarioId: 1,
+		GrupoUsuarioId: 1,
+		EmpresaId: 1,
 	},
 })
 
-HTTPClient.interceptors.request.use(
-	config => {
-		const token = getStorage('token')
-		if (token) {
-			config.headers.common.Authorization = `Bearer ${token}`
-		}
+// HTTPClient.interceptors.request.use(
+// 	config => {
+// 		const token = getStorage('token')
+// 		if (token) {
+// 			config.headers.common.Authorization = `Bearer ${token}`
+// 		}
 
-		return config
-	},
-	response => Promise.reject(response)
-)
+// 		return config
+// 	},
+// 	response => Promise.reject(response)
+// )
 
-HTTPClient.interceptors.response.use(
-	response => {
-		return response
-	},
-	error => Promise.reject(error)
-)
+// HTTPClient.interceptors.response.use(
+// 	response => {
+// 		return response
+// 	},
+// 	error => Promise.reject(error)
+// )
 
-export { HTTPClient }
+export default  HTTPClient

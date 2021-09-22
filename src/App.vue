@@ -1,6 +1,8 @@
 <template>
 	<v-app>
-		<v-main> </v-main>
+		<v-main class="app">
+			<router-view />
+		</v-main>
 	</v-app>
 </template>
 
@@ -12,3 +14,8 @@ export default {
 	}),
 }
 </script>
+<style lang="scss" scoped>
+.app {
+	background-image: url('./assets/Degradeok.jpg');
+}
+</style>
