@@ -103,7 +103,9 @@
 							class="modal__form__text"
 							v-model="prova"
 						/>
-						<button @click="addAluno" class="modal__form__btn">Enviar</button>
+						<button @click="cadastrarProva" class="modal__form__btn">
+							Enviar
+						</button>
 					</form>
 				</div>
 			</Modal>
@@ -174,10 +176,10 @@ export default {
 			alunos: [],
 			editar: {
 				id: '',
-				nome: '',
-				email: '',
-				ra: '',
-				turma: '',
+				curso: '',
+				disciplina: '',
+				ano: '',
+				prova: '',
 			},
 		}
 	},
@@ -187,70 +189,69 @@ export default {
 		// Footer,
 	},
 	mounted() {
-		this.carregarAlunos()
+		// this.carregarAlunos()
 	},
 	methods: {
 		logout() {
 			this.$router.push({ name: 'Login' })
 		},
-		async addAluno(e) {
+		async cadastrarProva(e) {
 			e.preventDefault()
 			if (
-				this.nome === '' ||
-				this.email === '' ||
-				this.ra === '' ||
-				this.turma === ''
+				this.curso === '' ||
+				this.disciplina === '' ||
+				this.ano === '' ||
+				this.prova === ''
 			) {
 				alert('Preencha todos os campos')
 			} else {
-				const { data } = await axios.post('http://localhost:3000/alunos', {
-					nome: this.nome,
-					email: this.email,
-					ra: this.ra,
-					turma: this.turma,
+				const { data } = await axios.post('http://localhost:3000/provas', {
+					curso: this.curso,
+					disciplina: this.disciplina,
+					ano: this.ano,
+					prova: this.prova,
 				})
-				this.modal = false
 			}
-			this.carregarAlunos()
-			this.nome = ''
-			this.email = ''
-			this.ra = ''
-			this.turma = ''
+			// this.carregarAlunos()
+			this.curso = ''
+			this.disciplina = ''
+			this.ano = ''
+			this.prova = ''
 		},
-		async carregarAlunos() {
-			const { data } = await axios.get('http://localhost:3000/alunos')
-			this.alunos = data
-		},
-		async deletarAluno(e, id) {
-			e.preventDefault()
+		// async carregarAlunos() {
+		// 	const { data } = await axios.get('http://localhost:3000/alunos')
+		// 	this.alunos = data
+		// },
+		// async deletarAluno(e, id) {
+		// 	e.preventDefault()
 
-			const { data } = await axios.delete(`http://localhost:3000/alunos/${id}`)
+		// 	const { data } = await axios.delete(`http://localhost:3000/alunos/${id}`)
 
-			this.carregarAlunos()
-		},
+		// 	this.carregarAlunos()
+		// },
 
-		carregarInfo(e, aluno) {
-			e.preventDefault()
-			this.editar.id = aluno.id
-			this.editar.nome = aluno.nome
-			this.editar.email = aluno.email
-			this.editar.ra = aluno.ra
-			this.editar.turma = aluno.turma
-		},
-		async editarAluno(e) {
-			e.preventDefault()
-			const { data } = await axios.put(
-				`http://localhost:3000/alunos/${this.editar.id}`,
-				{
-					nome: this.editar.nome,
-					email: this.editar.email,
-					ra: this.editar.ra,
-					turma: this.editar.turma,
-				}
-			)
-			this.modalEditar = false
-			this.carregarAlunos()
-		},
+		// carregarInfo(e, aluno) {
+		// 	e.preventDefault()
+		// 	this.editar.id = aluno.id
+		// 	this.editar.nome = aluno.nome
+		// 	this.editar.email = aluno.email
+		// 	this.editar.ra = aluno.ra
+		// 	this.editar.turma = aluno.turma
+		// },
+		// async editarAluno(e) {
+		// 	e.preventDefault()
+		// 	const { data } = await axios.put(
+		// 		`http://localhost:3000/alunos/${this.editar.id}`,
+		// 		{
+		// 			nome: this.editar.nome,
+		// 			email: this.editar.email,
+		// 			ra: this.editar.ra,
+		// 			turma: this.editar.turma,
+		// 		}
+		// 	)
+		// 	this.modalEditar = false
+		// 	this.carregarAlunos()
+		// },
 	},
 }
 </script>
