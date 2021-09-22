@@ -219,7 +219,7 @@ export default {
 			this.prova = ''
 		},
 		// async carregarAlunos() {
-		// 	const { data } = await axios.get('http://localhost:3000/alunos')
+		// 	const { data } = await axios.get('http://localhost:3000/Provas')
 		// 	this.alunos = data
 		// },
 		// async deletarAluno(e, id) {
