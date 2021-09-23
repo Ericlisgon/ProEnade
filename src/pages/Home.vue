@@ -7,15 +7,15 @@
 					<v-icon color="#fff" size="50">
 						description
 					</v-icon>
-					<h1>Cadastrar Provas</h1>
-					<p>Click para acessar a área de cadastro de provas</p>
+					<h1>Cadastrar Questões</h1>
+					<p>Click para acessar a área de cadastro de questões</p>
 				</v-card>
 				<v-card class="home__cards__card" outlined>
 					<v-icon color="#fff" size="50">
 						plagiarism
 					</v-icon>
 					<h1>Consultar Provas</h1>
-					<p>Click para consultar, editar ou excluir provas</p>
+					<p>Click para consultar, editar ou excluir questões</p>
 				</v-card>
 			</div>
 			<!-- <table class="home__table content ">
@@ -70,48 +70,187 @@
 				</button> -->
 			</div>
 			<Modal v-if="modal">
-				<div class="modal">
+				<v-card class="modal">
 					<div class="modal__header">
-						<h3 class="modal__header__title">Cadastrar nova Prova</h3>
+						<h3 class="modal__header__title">Cadastrar nova questão</h3>
 						<a @click="modal = false" href="#">
 							<img src="@/assets/Vector.svg" alt="" />
 						</a>
 					</div>
-					<form class="modal__form">
-						<input
+					<v-form class="modal__form">
+						<v-row>
+							<v-col md="12" lg="4">
+								<v-text-field
+									type="text"
+									label="Cursos"
+									class="modal__form__input"
+									v-model="curso"
+									outlined
+								/>
+							</v-col>
+							<v-col md="12" lg="4">
+								<v-text-field
+									type="text"
+									label="Disciplina"
+									class="modal__form__input"
+									v-model="disciplina"
+									outlined
+								/>
+							</v-col>
+
+							<v-col md="12" lg="4">
+								<v-text-field
+									type="text"
+									label="Ano"
+									class="modal__form__input"
+									v-model="ano"
+									outlined
+								/>
+							</v-col>
+						</v-row>
+						<div class="modal__form__coluna">
+							<v-row>
+								<v-col md="14" lg="14">
+									<v-textarea
+										type="text"
+										label="Insira questão"
+										class="modal__form__text"
+										v-model="questao"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="12">
+									<v-textarea
+										type="text"
+										label="Alternativa A"
+										class="modal__form__text"
+										v-model="alternativaA"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="12">
+									<v-textarea
+										type="text"
+										label="Alternativa B"
+										class="modal__form__text"
+										v-model="alternativaB"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="12">
+									<v-textarea
+										type="text"
+										label="Alternativa C"
+										class="modal__form__text"
+										v-model="alternativaC"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="12">
+									<v-textarea
+										type="text"
+										label="Alternativa D"
+										class="modal__form__text"
+										v-model="alternativaD"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="12">
+									<v-textarea
+										type="text"
+										label="Alternativa E"
+										class="modal__form__text"
+										v-model="alternativaE"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="4">
+									<v-text-field
+										type="text"
+										label="Alternativa Correta"
+										class="modal__form__input"
+										v-model="alternativaCorreta"
+										outlined
+										hide-details
+									/>
+								</v-col>
+								<div class="d-flex align-center">
+									<strong class="mx-4">Dificuldade:</strong>
+									<v-radio-group row v-model="dificuldade">
+										<v-radio
+											v-for="(radio, index) in radios"
+											:key="index"
+											:label="radio.label"
+											:value="radio.value"
+										/>
+									</v-radio-group>
+								</div>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="4">
+									<v-text-field
+										type="text"
+										label="Palavra chave 1"
+										class="modal__form__input"
+										v-model="palavraChave1"
+										outlined
+									/>
+								</v-col>
+								<v-col md="12" lg="4">
+									<v-text-field
+										type="text"
+										label="Palavra chave 2"
+										class="modal__form__input"
+										v-model="palavraChave2"
+										outlined
+									/>
+								</v-col>
+
+								<v-col md="12" lg="4">
+									<v-text-field
+										type="text"
+										label="Palavra chave 3"
+										class="modal__form__input"
+										v-model="palavraChave3"
+										outlined
+									/>
+								</v-col>
+							</v-row>
+						</div>
+						<!-- <v-text-area
 							type="text"
-							placeholder="Cursos"
-							class="modal__form__input"
-							v-model="curso"
-						/>
-						<input
-							type="text"
-							placeholder="Disciplina"
-							class="modal__form__input"
-							v-model="disciplina"
-						/>
-						<input
-							type="text"
-							placeholder="Ano"
-							class="modal__form__input"
-							v-model="ano"
-						/>
-						<!-- <h3 class="modal__form__title">Insira sua prova</h3> -->
-						<textarea
-							type="text"
-							placeholder="Insira sua prova"
+							label="Insira sua prova"
 							class="modal__form__text"
-							v-model="prova"
-						/>
-						<button @click="cadastrarProva" class="modal__form__btn">
-							Enviar
-						</button>
-					</form>
-				</div>
+							v-model="questao"
+							outlined
+						/> -->
+					</v-form>
+					<v-btn @click="cadastrarProva" class="modal__form__btn">
+						Enviar
+					</v-btn>
+				</v-card>
 			</Modal>
 
 			<Modal v-if="modalEditar">
-				<div class="modal">
+				<!-- <div class="modal">
 					<div class="modal__header">
 						<h3 class="modal__header__title">Consultar Provas</h3>
 						<a href="#" @click="modalEditar = false">
@@ -152,7 +291,7 @@
 						</button>
 						<button class="modal__form__btn">Editar</button>
 					</form>
-				</div>
+				</div> -->
 			</Modal>
 		</div>
 		<!-- <Footer /> -->
@@ -170,17 +309,32 @@ export default {
 			curso: '',
 			disciplina: '',
 			ano: '',
-			prova: '',
+			questao: '',
+			alternativaA: '',
+			alternativaB: '',
+			alternativaC: '',
+			alternativaD: '',
+			alternativaE: '',
+			alternativaCorreta: '',
+			dificuldade: '',
+			palavraChave1: '',
+			palavraChave2: '',
+			palavraChave3: '',
 			modal: false,
 			modalEditar: false,
-			alunos: [],
-			editar: {
-				id: '',
-				curso: '',
-				disciplina: '',
-				ano: '',
-				prova: '',
-			},
+			radios: [
+				{ label: 'Fácil', value: 'F' },
+				{ label: 'Médio', value: 'M' },
+				{ label: 'Difícil', value: 'D' },
+			],
+			// alunos: [],
+			// editar: {
+			// 	id: '',
+			// 	curso: '',
+			// 	disciplina: '',
+			// 	ano: '',
+			// 	prova: '',
+			// },
 		}
 	},
 	components: {
@@ -201,7 +355,17 @@ export default {
 				this.curso === '' ||
 				this.disciplina === '' ||
 				this.ano === '' ||
-				this.prova === ''
+				this.questao === '' ||
+				this.alternativaA === '' ||
+				this.alternativaB === '' ||
+				this.alternativaC === '' ||
+				this.alternativaD === '' ||
+				this.alternativaE === '' ||
+				this.alternativaCorreta === '' ||
+				this.dificuldade === '' ||
+				this.palavraChave1 === '' ||
+				this.palavraChave2 === '' ||
+				this.palavraChave3 === ''
 			) {
 				alert('Preencha todos os campos')
 			} else {
@@ -209,14 +373,34 @@ export default {
 					curso: this.curso,
 					disciplina: this.disciplina,
 					ano: this.ano,
-					prova: this.prova,
+					questao: this.questao,
+					alternativaA: this.alternativaA,
+					alternativaB: this.alternativaB,
+					alternativaC: this.alternativaC,
+					alternativaD: this.alternativaD,
+					alternativaE: this.alternativaE,
+					alternativaCorreta: this.alternativaCorreta,
+					dificuldade: this.dificuldade,
+					palavraChave1: this.palavraChave1,
+					palavraChave2: this.palavraChave2,
+					palavraChave3: this.palavraChave3,
 				})
 			}
 			// this.carregarAlunos()
 			this.curso = ''
 			this.disciplina = ''
 			this.ano = ''
-			this.prova = ''
+			this.questao = ''
+			this.alternativaA = ''
+			this.alternativaB = ''
+			this.alternativaC = ''
+			this.alternativaD = ''
+			this.alternativaE = ''
+			this.alternativaCorreta = ''
+			this.dificuldade = ''
+			this.palavraChave1 = ''
+			this.palavraChave2 = ''
+			this.palavraChave3 = ''
 		},
 		// async carregarAlunos() {
 		// 	const { data } = await axios.get('http://localhost:3000/Provas')
@@ -382,6 +566,8 @@ export default {
 		flex-direction: column;
 		padding: 15px;
 		width: 100%;
+		height: auto;
+		// background: black;
 		&__header {
 			display: flex;
 			justify-content: space-between;
@@ -400,33 +586,10 @@ export default {
 				margin: 20px 0;
 				text-align: initial;
 			}
-			&__input {
-				outline: 0;
-				padding: 10px;
-				margin-bottom: 10px;
-				border-radius: 5px;
-				border: 0;
-				background: #fff;
-				border: 1px solid #0082ff;
-				width: 240px;
-				height: 55px;
-				// &:nth-child(1) {
-				// 	margin-right: 5px;
-				// }
-				// &:nth-child(3) {
-				// 	margin-right: 5px;
-				// }
-			}
-			&__text {
-				outline: 0;
-				padding: 10px;
-				margin-bottom: 10px;
-				border-radius: 5px;
-				border: 0;
-				background: #fff;
-				width: 740px;
-				height: 300px;
-				border: 1px solid #0082ff;
+			&__coluna {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
 			}
 			&__btn {
 				width: 116px;
@@ -461,5 +624,8 @@ export default {
 			}
 		}
 	}
+}
+strong {
+	color: #003fff;
 }
 </style>
