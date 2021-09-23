@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/Home'
 import Cadastro from '@/pages/Cadastro'
+import Consulta from '@/pages/Consulta'
 import Login from '@/pages/Login'
 
 Vue.use(VueRouter)
@@ -21,6 +22,11 @@ const routes = [
     path: '/cadastro',
     name: 'Cadastro',
     component: Cadastro
+  },
+  {
+    path: '/consulta',
+    name: 'Consulta',
+    component: Consulta
   },
 ]
 

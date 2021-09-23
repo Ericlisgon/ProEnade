@@ -327,7 +327,7 @@ export default {
 				{ label: 'Médio', value: 'M' },
 				{ label: 'Difícil', value: 'D' },
 			],
-			// alunos: [],
+			alunos: [],
 			// editar: {
 			// 	id: '',
 			// 	curso: '',
@@ -481,20 +481,6 @@ export default {
 			}
 		}
 	}
-	&__header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 30px 0;
-		&__img {
-			width: 150px;
-		}
-		&__sair {
-			color: #fff;
-			text-decoration: none;
-			cursor: pointer;
-		}
-	}
 	&__title {
 		color: #fff;
 		margin: 10px auto 40px;
@@ -523,41 +509,6 @@ export default {
 						cursor: pointer;
 					}
 				}
-			}
-		}
-	}
-	&__buttons {
-		display: flex;
-		justify-content: flex-end;
-		margin-top: 20px;
-		&__voltar {
-			border: 1px solid #fff;
-			border-radius: 5px;
-			outline: 0;
-			background: transparent;
-			color: #fff;
-			padding: 10px;
-			width: 182px;
-			margin-right: 10px;
-			transition: 800ms;
-			cursor: pointer;
-			outline: 0;
-			&:hover {
-				background: #30438f;
-				color: #fff;
-			}
-		}
-		&__adicionar {
-			border: 0;
-			background: #4388ae;
-			border-radius: 5px;
-			color: #fff;
-			width: 182px;
-			transition: 800ms;
-			cursor: pointer;
-			outline: 0;
-			&:hover {
-				background: #30438f;
 			}
 		}
 	}
@@ -594,6 +545,7 @@ export default {
 			&__btn {
 				width: 116px;
 				padding: 10px;
+				margin-left: 10px;
 				border: 0;
 				border-radius: 5px;
 				background: #003fff;
@@ -604,22 +556,6 @@ export default {
 				transition: 800ms;
 				&:hover {
 					background: #0082ff;
-				}
-			}
-			&__btn-voltar {
-				border: 1px solid #fff;
-				border-radius: 5px;
-				outline: 0;
-				background: transparent;
-				color: #fff;
-				padding: 10px;
-				width: 116px;
-				margin-right: 10px;
-				transition: 800ms;
-				cursor: pointer;
-				&:hover {
-					background: #30438f;
-					color: #fff;
 				}
 			}
 		}
