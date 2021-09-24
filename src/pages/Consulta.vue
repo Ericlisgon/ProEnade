@@ -1,7 +1,27 @@
 <template>
 	<v-card height="100%">
 		<Header />
-		<div class="home"></div>
+		<div class="home content">
+			<!-- <v-card>Filtros</v-card> -->
+			<v-card class="mx-auto home__list">
+				<v-card-text>
+					<div>Word of the Day</div>
+					<p class="text-h4 text--primary">
+						el·ee·mos·y·nar·y
+					</p>
+					<p>adjective</p>
+					<div class="text--primary">
+						relating to or dependent on charity; charitable.<br />
+						"an eleemosynary educational institution."
+					</div>
+				</v-card-text>
+				<v-card-actions>
+					<v-btn text color="teal accent-4" @click="reveal = true">
+						Learn More
+					</v-btn>
+				</v-card-actions>
+			</v-card>
+		</div>
 	</v-card>
 </template>
 <script>
@@ -172,6 +192,10 @@ export default {
 	&__title {
 		color: #fff;
 		margin: 10px auto 40px;
+	}
+	&__list {
+		width: 50%;
+		height: auto;
 	}
 	// &__table {
 	// 	background: #303030;

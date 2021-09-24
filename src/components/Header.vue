@@ -14,16 +14,8 @@
 					>
 						<v-icon color="#FF5A00">logout</v-icon>
 					</v-btn>
-					<!-- <router-link
-						v-bind="attrs"
-						v-on="on"
-						to="/"
-						class="home__header__logout"
-					>
-						<img src="@/assets/logout.svg"
-					/></router-link> -->
 				</template>
-				<span>Sair</span>
+				<span>Lais</span>
 			</v-tooltip>
 		</div>
 	</v-card>

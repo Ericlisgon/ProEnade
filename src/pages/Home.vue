@@ -10,7 +10,7 @@
 					<h1>Cadastrar Questões</h1>
 					<p>Click para acessar a área de cadastro de questões</p>
 				</v-card>
-				<v-card class="home__cards__card" outlined>
+				<v-card class="home__cards__card" outlined @click="pageConsultar">
 					<v-icon color="#fff" size="50">
 						plagiarism
 					</v-icon>
@@ -346,8 +346,8 @@ export default {
 		// this.carregarAlunos()
 	},
 	methods: {
-		logout() {
-			this.$router.push({ name: 'Login' })
+		pageConsultar() {
+			this.$router.push({ name: 'Consulta' })
 		},
 		async cadastrarProva(e) {
 			e.preventDefault()
