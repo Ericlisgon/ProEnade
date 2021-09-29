@@ -80,7 +80,7 @@
 					<v-form class="modal__form">
 						<v-row>
 							<div class="d-flex align-center">
-								<strong class="mx-4">Tipo de prova:</strong>
+								<strong class="mx-4">Tipo de questão:</strong>
 								<v-radio-group row v-model="tipoQuestao">
 									<v-radio
 										v-for="(radio, index) in radiosQuestoes"
@@ -253,16 +253,16 @@
 								</div>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="4">
+								<v-col md="12" lg="12">
 									<v-text-field
 										type="text"
-										label="Palavra chave 1"
+										label="Digite frase ou palavra-chave"
 										class="modal__form__input"
-										v-model="palavraChave1"
+										v-model="palavraChave"
 										outlined
 									/>
 								</v-col>
-								<v-col md="12" lg="4">
+								<!-- <v-col md="12" lg="4">
 									<v-text-field
 										type="text"
 										label="Palavra chave 2"
@@ -280,7 +280,7 @@
 										v-model="palavraChave3"
 										outlined
 									/>
-								</v-col>
+								</v-col> -->
 							</v-row>
 						</div>
 						<!-- <v-text-area
@@ -369,9 +369,9 @@ export default {
 			alternativaE: '',
 			alternativaCorreta: '',
 			dificuldade: 'F',
-			palavraChave1: '',
-			palavraChave2: '',
-			palavraChave3: '',
+			palavraChave: '',
+			// palavraChave2: '',
+			// palavraChave3: '',
 			modal: false,
 			modalEditar: false,
 			radios: [
@@ -386,14 +386,6 @@ export default {
 			provas: [],
 			itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
 			itemsDisciplina: ['Engenharia de software'],
-			// itemsAno: ['2008', '2011', '2017'],
-			// editar: {
-			// 	id: '',
-			// 	curso: '',
-			// 	disciplina: '',
-			// 	ano: '',
-			// 	prova: '',
-			// },
 		}
 	},
 	components: {
@@ -422,7 +414,7 @@ export default {
 				// this.alternativaE === '' ||
 				// this.alternativaCorreta === '' ||
 				this.dificuldade === '' ||
-				this.palavraChave1 === ''
+				this.palavraChave === ''
 			) {
 				alert('Preencha todos os campos')
 			} else {
@@ -442,9 +434,9 @@ export default {
 					alternativaE: this.alternativaE,
 					alternativaCorreta: this.alternativaCorreta,
 					dificuldade: this.dificuldade,
-					palavraChave1: this.palavraChave1,
-					palavraChave2: this.palavraChave2,
-					palavraChave3: this.palavraChave3,
+					palavraChave: this.palavraChave,
+					// palavraChave2: this.palavraChave2,
+					// palavraChave3: this.palavraChave3,
 				})
 			}
 			// this.carregarAlunos()
@@ -462,9 +454,9 @@ export default {
 			this.alternativaE = ''
 			this.alternativaCorreta = ''
 			this.dificuldade = ''
-			this.palavraChave1 = ''
-			this.palavraChave2 = ''
-			this.palavraChave3 = ''
+			this.palavraChave = ''
+			// this.palavraChave2 = ''
+			// this.palavraChave3 = ''
 		},
 		// async carregarAlunos() {
 		// 	const { data } = await axios.get('http://localhost:3000/Provas')

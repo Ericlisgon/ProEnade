@@ -16,9 +16,7 @@
       "alternativaE": "Teste E",
       "alternativaCorreta": "D",
       "dificuldade": "D",
-      "palavraChave1": "Diego",
-      "palavraChave2": "Gatão",
-      "palavraChave3": "SQN",
+      "palavraChave": "Diego",
       "id": 1
     },
     {
@@ -37,10 +35,27 @@
       "alternativaE": "",
       "alternativaCorreta": "",
       "dificuldade": "M",
-      "palavraChave1": "CMMI",
-      "palavraChave2": "",
-      "palavraChave3": "",
+      "palavraChave": "CMMI",
       "id": 2
+    },
+    {
+      "tipoQuestao": "M",
+      "curso": "Ciências da Computação",
+      "disciplina1": "Engenharia de software",
+      "disciplina2": "Engenharia de software",
+      "disciplina3": "Engenharia de software",
+      "disciplina4": "Engenharia de software",
+      "ano": "2000",
+      "questao": "Teste 2",
+      "alternativaA": "a",
+      "alternativaB": "b",
+      "alternativaC": "c",
+      "alternativaD": "d",
+      "alternativaE": "e",
+      "alternativaCorreta": "E",
+      "dificuldade": "D",
+      "palavraChave": "Testando denovo 16:25",
+      "id": 3
     }
   ],
   "usuarios": [
