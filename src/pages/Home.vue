@@ -350,7 +350,7 @@ export default {
 			provas: [],
 			itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
 			itemsDisciplina: ['Engenharia de software'],
-			itemsAno: ['ADS'],
+			itemsAno: ['2008', '2011', '2017'],
 			// editar: {
 			// 	id: '',
 			// 	curso: '',
