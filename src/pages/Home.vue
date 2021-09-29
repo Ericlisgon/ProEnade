@@ -14,7 +14,7 @@
 					<v-icon color="#fff" size="50">
 						plagiarism
 					</v-icon>
-					<h1>Consultar Provas</h1>
+					<h1>Consultar Questões</h1>
 					<p>Click para consultar, editar ou excluir questões</p>
 				</v-card>
 			</div>
@@ -79,53 +79,81 @@
 					</div>
 					<v-form class="modal__form">
 						<v-row>
-							<v-col md="12" lg="4">
+							<div class="d-flex align-center">
+								<strong class="mx-4">Tipo de prova:</strong>
+								<v-radio-group row v-model="tipoQuestao">
+									<v-radio
+										v-for="(radio, index) in radiosQuestoes"
+										:key="index"
+										:label="radio.label"
+										:value="radio.value"
+									/>
+								</v-radio-group>
+							</div>
+						</v-row>
+						<v-row>
+							<v-col md="12" lg="6">
 								<v-autocomplete
 									:items="itemsCurso"
 									label="Cursos"
 									class="modal__form__input"
 									v-model="curso"
 									outlined
+									hide-details
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Cursos"
-									class="modal__form__input"
-									v-model="curso"
-									outlined
-								/> -->
 							</v-col>
-							<v-col md="12" lg="4">
+							<v-col md="12" lg="6">
+								<v-text-field
+									type="text"
+									label="Ano"
+									class="modal__form__input"
+									v-model="ano"
+									outlined
+									maxLength="4"
+									hide-details
+								/>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col md="12" lg="6">
 								<v-autocomplete
 									:items="itemsDisciplina"
-									label="Disciplinas"
+									label="Disciplina 1"
 									class="modal__form__input"
-									v-model="disciplina"
+									v-model="disciplina1"
 									outlined
+									hide-details
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina"
-									class="modal__form__input"
-									v-model="disciplina"
-									outlined
-								/> -->
 							</v-col>
-							<v-col md="12" lg="4">
+							<v-col md="12" lg="6">
 								<v-autocomplete
-									:items="itemsAno"
-									label="Ano"
+									:items="itemsDisciplina"
+									label="Disciplinas 2"
 									class="modal__form__input"
-									v-model="ano"
+									v-model="disciplina2"
+									outlined
+									hide-details
+								/>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col md="12" lg="6">
+								<v-autocomplete
+									:items="itemsDisciplina"
+									label="Disciplina 3"
+									class="modal__form__input"
+									v-model="disciplina3"
 									outlined
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Ano"
+							</v-col>
+							<v-col md="12" lg="6">
+								<v-autocomplete
+									:items="itemsDisciplina"
+									label="Disciplina 4"
 									class="modal__form__input"
-									v-model="ano"
+									v-model="disciplina4"
 									outlined
-								/> -->
+								/>
 							</v-col>
 						</v-row>
 						<div class="modal__form__coluna">
@@ -141,7 +169,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row>
+							<v-row v-if="tipoQuestao === 'M'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -153,7 +181,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row>
+							<v-row v-if="tipoQuestao === 'M'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -165,7 +193,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row>
+							<v-row v-if="tipoQuestao === 'M'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -177,7 +205,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row>
+							<v-row v-if="tipoQuestao === 'M'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -189,7 +217,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row>
+							<v-row v-if="tipoQuestao === 'M'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -202,7 +230,7 @@
 								</v-col>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="4">
+								<v-col md="12" lg="4" v-if="tipoQuestao === 'M'">
 									<v-text-field
 										type="text"
 										label="Alternativa Correta"
@@ -326,8 +354,12 @@ import Header from '@/components/Header'
 export default {
 	data() {
 		return {
+			tipoQuestao: 'M',
 			curso: '',
-			disciplina: '',
+			disciplina1: '',
+			disciplina2: '',
+			disciplina3: '',
+			disciplina4: '',
 			ano: '',
 			questao: '',
 			alternativaA: '',
@@ -336,7 +368,7 @@ export default {
 			alternativaD: '',
 			alternativaE: '',
 			alternativaCorreta: '',
-			dificuldade: '',
+			dificuldade: 'F',
 			palavraChave1: '',
 			palavraChave2: '',
 			palavraChave3: '',
@@ -347,10 +379,14 @@ export default {
 				{ label: 'Médio', value: 'M' },
 				{ label: 'Difícil', value: 'D' },
 			],
+			radiosQuestoes: [
+				{ label: 'Múltipla escolha', value: 'M' },
+				{ label: 'Discursiva', value: 'D' },
+			],
 			provas: [],
 			itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
 			itemsDisciplina: ['Engenharia de software'],
-			itemsAno: ['2008', '2011', '2017'],
+			// itemsAno: ['2008', '2011', '2017'],
 			// editar: {
 			// 	id: '',
 			// 	curso: '',
@@ -379,22 +415,24 @@ export default {
 				this.disciplina === '' ||
 				this.ano === '' ||
 				this.questao === '' ||
-				this.alternativaA === '' ||
-				this.alternativaB === '' ||
-				this.alternativaC === '' ||
-				this.alternativaD === '' ||
-				this.alternativaE === '' ||
-				this.alternativaCorreta === '' ||
+				// this.alternativaA === '' ||
+				// this.alternativaB === '' ||
+				// this.alternativaC === '' ||
+				// this.alternativaD === '' ||
+				// this.alternativaE === '' ||
+				// this.alternativaCorreta === '' ||
 				this.dificuldade === '' ||
-				this.palavraChave1 === '' ||
-				this.palavraChave2 === '' ||
-				this.palavraChave3 === ''
+				this.palavraChave1 === ''
 			) {
 				alert('Preencha todos os campos')
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {
+					tipoQuestao: this.tipoQuestao,
 					curso: this.curso,
-					disciplina: this.disciplina,
+					disciplina1: this.disciplina1,
+					disciplina2: this.disciplina2,
+					disciplina3: this.disciplina3,
+					disciplina4: this.disciplina4,
 					ano: this.ano,
 					questao: this.questao,
 					alternativaA: this.alternativaA,
@@ -411,7 +449,10 @@ export default {
 			}
 			// this.carregarAlunos()
 			this.curso = ''
-			this.disciplina = ''
+			this.disciplina1 = ''
+			this.disciplina2 = ''
+			this.disciplina3 = ''
+			this.disciplina4 = ''
 			this.ano = ''
 			this.questao = ''
 			this.alternativaA = ''
@@ -555,6 +596,9 @@ export default {
 			flex-wrap: wrap;
 			justify-content: space-around;
 			padding: 10px;
+			strong {
+				color: #0082ff;
+			}
 			&__title {
 				color: #fff;
 				margin: 20px 0;
@@ -585,6 +629,6 @@ export default {
 	}
 }
 strong {
-	color: #003fff;
+	color: #0082ff;
 }
 </style>

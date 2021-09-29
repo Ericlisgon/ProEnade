@@ -15,7 +15,7 @@
 						<v-icon color="#FF5A00">logout</v-icon>
 					</v-btn>
 				</template>
-				<span>Lais</span>
+				<span>SAIR</span>
 			</v-tooltip>
 		</div>
 	</v-card>
