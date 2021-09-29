@@ -80,32 +80,52 @@
 					<v-form class="modal__form">
 						<v-row>
 							<v-col md="12" lg="4">
-								<v-text-field
-									type="text"
+								<v-autocomplete
+									:items="itemsCurso"
 									label="Cursos"
 									class="modal__form__input"
 									v-model="curso"
 									outlined
 								/>
+								<!-- <v-text-field
+									type="text"
+									label="Cursos"
+									class="modal__form__input"
+									v-model="curso"
+									outlined
+								/> -->
 							</v-col>
 							<v-col md="12" lg="4">
-								<v-text-field
+								<v-autocomplete
+									:items="itemsDisciplina"
+									label="Disciplinas"
+									class="modal__form__input"
+									v-model="disciplina"
+									outlined
+								/>
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina"
 									class="modal__form__input"
 									v-model="disciplina"
 									outlined
-								/>
+								/> -->
 							</v-col>
-
 							<v-col md="12" lg="4">
-								<v-text-field
-									type="text"
+								<v-autocomplete
+									:items="itemsAno"
 									label="Ano"
 									class="modal__form__input"
 									v-model="ano"
 									outlined
 								/>
+								<!-- <v-text-field
+									type="text"
+									label="Ano"
+									class="modal__form__input"
+									v-model="ano"
+									outlined
+								/> -->
 							</v-col>
 						</v-row>
 						<div class="modal__form__coluna">
@@ -327,7 +347,10 @@ export default {
 				{ label: 'Médio', value: 'M' },
 				{ label: 'Difícil', value: 'D' },
 			],
-			alunos: [],
+			provas: [],
+			itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
+			itemsDisciplina: ['Engenharia de software'],
+			itemsAno: ['ADS'],
 			// editar: {
 			// 	id: '',
 			// 	curso: '',
