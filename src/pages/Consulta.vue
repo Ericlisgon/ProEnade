@@ -2,7 +2,115 @@
 	<v-card height="100%">
 		<Header />
 		<div class="home content">
-			<!-- <v-card>Filtros</v-card> -->
+			<div class="home__form">
+				<v-card class="mb-5 pl-5" height="60">
+					<v-row>
+						<div class="d-flex align-center mr-5">
+							<strong class="mx-4">Tipo de questão:</strong>
+							<v-radio-group row v-model="tipoQuestao">
+								<v-radio
+									v-for="(radio, index) in radiosQuestoes"
+									:key="index"
+									:label="radio.label"
+									:value="radio.value"
+									color="#1481FF"
+								/>
+							</v-radio-group>
+						</div>
+						<div class="d-flex align-center">
+							<strong class="mx-4">Dificuldade:</strong>
+							<v-radio-group row v-model="dificuldade">
+								<v-radio
+									v-for="(radio, index) in radios"
+									:key="index"
+									:label="radio.label"
+									:value="radio.value"
+									color="#1481FF"
+								/>
+							</v-radio-group>
+						</div>
+					</v-row>
+				</v-card>
+				<v-row>
+					<v-col md="12" lg="6">
+						<v-autocomplete
+							:items="itemsCurso"
+							label="Cursos"
+							class="home__form__input"
+							v-model="curso"
+							solo
+							hide-details
+						/>
+					</v-col>
+					<v-col md="12" lg="6">
+						<v-text-field
+							type="text"
+							label="Ano"
+							class="home__form__input"
+							v-model="ano"
+							solo
+							maxLength="4"
+							hide-details
+						/>
+					</v-col>
+				</v-row>
+				<v-row>
+					<v-col md="12" lg="6">
+						<v-autocomplete
+							:items="itemsDisciplina"
+							label="Disciplina 1"
+							class="home__form__input"
+							v-model="disciplina1"
+							solo
+							hide-details
+						/>
+					</v-col>
+					<v-col md="12" lg="6">
+						<v-autocomplete
+							:items="itemsDisciplina"
+							label="Disciplinas 2"
+							class="home__form__input"
+							v-model="disciplina2"
+							solo
+							hide-details
+						/>
+					</v-col>
+				</v-row>
+				<v-row>
+					<v-col md="12" lg="6">
+						<v-autocomplete
+							:items="itemsDisciplina"
+							label="Disciplina 3"
+							class="home__form__input"
+							v-model="disciplina3"
+							solo
+							hide-details
+						/>
+					</v-col>
+					<v-col md="12" lg="6">
+						<v-autocomplete
+							:items="itemsDisciplina"
+							label="Disciplina 4"
+							class="home__form__input"
+							v-model="disciplina4"
+							solo
+							hide-details
+						/>
+					</v-col>
+				</v-row>
+				<v-row>
+					<v-col md="12" lg="12">
+						<v-text-field
+							type="text"
+							label="Digite frase ou palavra-chave"
+							class="home__form__input"
+							v-model="palavraChave"
+							solo
+							hide-details
+						/>
+					</v-col>
+				</v-row>
+			</div>
 			<v-card class="mx-auto home__list">
 				<v-card-text>
 					<div>Word of the Day</div>
@@ -32,8 +140,12 @@ import Header from '@/components/Header'
 export default {
 	data() {
 		return {
+			tipoQuestao: 'M',
 			curso: '',
-			disciplina: '',
+			disciplina1: '',
+			disciplina2: '',
+			disciplina3: '',
+			disciplina4: '',
 			ano: '',
 			questao: '',
 			alternativaA: '',
@@ -42,10 +154,10 @@ export default {
 			alternativaD: '',
 			alternativaE: '',
 			alternativaCorreta: '',
-			dificuldade: '',
-			palavraChave1: '',
-			palavraChave2: '',
-			palavraChave3: '',
+			dificuldade: 'F',
+			palavraChave: '',
+			// palavraChave2: '',
+			// palavraChave3: '',
 			modal: false,
 			modalEditar: false,
 			radios: [
@@ -53,6 +165,13 @@ export default {
 				{ label: 'Médio', value: 'M' },
 				{ label: 'Difícil', value: 'D' },
 			],
+			radiosQuestoes: [
+				{ label: 'Múltipla escolha', value: 'M' },
+				{ label: 'Discursiva', value: 'D' },
+			],
+			itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
+			itemsDisciplina: ['Engenharia de software'],
+
 			// provas: [],
 			// editar: {
 			// 	id: '',
@@ -79,77 +198,76 @@ export default {
 		// Footer,
 	},
 	mounted() {
-		// this.carregarAlunos()
+		this.carregarAlunos()
+		this.radios.label = 'red'
 	},
+
 	methods: {
-		logout() {
-			this.$router.push({ name: 'Login' })
-		},
-		async cadastrarProva(e) {
-			e.preventDefault()
-			if (
-				this.curso === '' ||
-				this.disciplina === '' ||
-				this.ano === '' ||
-				this.questao === '' ||
-				this.alternativaA === '' ||
-				this.alternativaB === '' ||
-				this.alternativaC === '' ||
-				this.alternativaD === '' ||
-				this.alternativaE === '' ||
-				this.alternativaCorreta === '' ||
-				this.dificuldade === '' ||
-				this.palavraChave1 === '' ||
-				this.palavraChave2 === '' ||
-				this.palavraChave3 === ''
-			) {
-				alert('Preencha todos os campos')
-			} else {
-				const { data } = await axios.post('http://localhost:3000/provas', {
-					curso: this.curso,
-					disciplina: this.disciplina,
-					ano: this.ano,
-					questao: this.questao,
-					alternativaA: this.alternativaA,
-					alternativaB: this.alternativaB,
-					alternativaC: this.alternativaC,
-					alternativaD: this.alternativaD,
-					alternativaE: this.alternativaE,
-					alternativaCorreta: this.alternativaCorreta,
-					dificuldade: this.dificuldade,
-					palavraChave1: this.palavraChave1,
-					palavraChave2: this.palavraChave2,
-					palavraChave3: this.palavraChave3,
-				})
-			}
-			// this.carregarAlunos()
-			this.curso = ''
-			this.disciplina = ''
-			this.ano = ''
-			this.questao = ''
-			this.alternativaA = ''
-			this.alternativaB = ''
-			this.alternativaC = ''
-			this.alternativaD = ''
-			this.alternativaE = ''
-			this.alternativaCorreta = ''
-			this.dificuldade = ''
-			this.palavraChave1 = ''
-			this.palavraChave2 = ''
-			this.palavraChave3 = ''
-		},
+		// 	logout() {
+		// 		this.$router.push({ name: 'Login' })
+		// 	},
+		// 	async cadastrarProva(e) {
+		// 		e.preventDefault()
+		// 		if (
+		// 			this.curso === '' ||
+		// 			this.disciplina === '' ||
+		// 			this.ano === '' ||
+		// 			this.questao === '' ||
+		// 			this.alternativaA === '' ||
+		// 			this.alternativaB === '' ||
+		// 			this.alternativaC === '' ||
+		// 			this.alternativaD === '' ||
+		// 			this.alternativaE === '' ||
+		// 			this.alternativaCorreta === '' ||
+		// 			this.dificuldade === '' ||
+		// 			this.palavraChave1 === '' ||
+		// 			this.palavraChave2 === '' ||
+		// 			this.palavraChave3 === ''
+		// 		) {
+		// 			alert('Preencha todos os campos')
+		// 		} else {
+		// 			const { data } = await axios.post('http://localhost:3000/provas', {
+		// 				curso: this.curso,
+		// 				disciplina: this.disciplina,
+		// 				ano: this.ano,
+		// 				questao: this.questao,
+		// 				alternativaA: this.alternativaA,
+		// 				alternativaB: this.alternativaB,
+		// 				alternativaC: this.alternativaC,
+		// 				alternativaD: this.alternativaD,
+		// 				alternativaE: this.alternativaE,
+		// 				alternativaCorreta: this.alternativaCorreta,
+		// 				dificuldade: this.dificuldade,
+		// 				palavraChave1: this.palavraChave1,
+		// 				palavraChave2: this.palavraChave2,
+		// 				palavraChave3: this.palavraChave3,
+		// 			})
+		// 		}
+		// 		// this.carregarAlunos()
+		// 		this.curso = ''
+		// 		this.disciplina = ''
+		// 		this.ano = ''
+		// 		this.questao = ''
+		// 		this.alternativaA = ''
+		// 		this.alternativaB = ''
+		// 		this.alternativaC = ''
+		// 		this.alternativaD = ''
+		// 		this.alternativaE = ''
+		// 		this.alternativaCorreta = ''
+		// 		this.dificuldade = ''
+		// 		this.palavraChave1 = ''
+		// 		this.palavraChave2 = ''
+		// 		this.palavraChave3 = ''
+		// 	},
 		// async carregarAlunos() {
 		// 	const { data } = await axios.get('http://localhost:3000/Provas')
 		// 	this.alunos = data
 		// },
 		// async deletarAluno(e, id) {
 		// 	e.preventDefault()
-
 		// 	const { data } = await axios.delete(`http://localhost:3000/alunos/${id}`)
-
 		// 	this.carregarAlunos()
 		// },
-
 		// carregarInfo(e, aluno) {
 		// 	e.preventDefault()
 		// 	this.editar.id = aluno.id
@@ -189,13 +307,24 @@ export default {
 	background-image: url('../assets/Degradeok.jpg');
 	height: 100%;
 	width: 100%;
+	&__form {
+		width: 45%;
+		margin-bottom: 20px;
+		strong {
+			color: #1481ff;
+		}
+		&__input {
+			background: #fff !important;
+		}
+	}
 	&__title {
 		color: #fff;
 		margin: 10px auto 40px;
 	}
 	&__list {
-		width: 50%;
+		width: 70%;
 		height: auto;
+		max-width: 950px;
 	}
 	// &__table {
 	// 	background: #303030;
