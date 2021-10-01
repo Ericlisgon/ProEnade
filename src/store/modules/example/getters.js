@@ -1,3 +1,6 @@
 import { get } from '@/utils/vuex'
 
-export default {}
+export default {
+	filter: get('filter'),
+  // listCategories: get('listCategories'),
+}

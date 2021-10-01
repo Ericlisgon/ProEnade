@@ -1,5 +1,5 @@
 export const DEFAULT_API_URLS = {
-	LOCAL: '',
+	LOCAL: 'http://localhost:3000/',
 	PRODUCTION: '',
-	DEVELOPMENT: '',
+	DEVELOPMENT: 'http://localhost:3000/',
 }
