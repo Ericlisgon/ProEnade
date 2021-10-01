@@ -44,7 +44,7 @@ export default {
 	height: 60px;
 	border-bottom: 1px solid #0082ff !important;
 	border-radius: 0 !important;
-	position: fixed;
+	// position: fixed;
 	&__container {
 		display: flex;
 		justify-content: space-between;

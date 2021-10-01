@@ -1,7 +1,10 @@
 <template>
-	<v-card height="100%">
+	<v-card flat>
 		<Header />
+		<!-- <div class="header"> -->
+		<!-- </div> -->
 		<div class="home content">
+			<span>Preencha os filtros para pesquisa</span>
 			<div class="home__form">
 				<v-card class="mb-5 pl-5" height="60">
 					<v-row>
@@ -13,7 +16,7 @@
 									:key="index"
 									:label="radio.label"
 									:value="radio.value"
-									color="#1481FF"
+									color="#757575"
 								/>
 							</v-radio-group>
 						</div>
@@ -25,7 +28,7 @@
 									:key="index"
 									:label="radio.label"
 									:value="radio.value"
-									color="#1481FF"
+									color="#757575"
 								/>
 							</v-radio-group>
 						</div>
@@ -111,23 +114,196 @@
 					</v-col>
 				</v-row>
 			</div>
+			<span>Lista de questões</span>
 			<v-card class="mx-auto home__list">
-				<v-card-text>
-					<div>Word of the Day</div>
-					<p class="text-h4 text--primary">
-						el·ee·mos·y·nar·y
-					</p>
-					<p>adjective</p>
-					<div class="text--primary">
-						relating to or dependen on charity; charitable.<br />
-						"an eleemosynary educational institution."
+				<v-card-text class="home__list__text">
+					<div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Curso:</strong
+							>
+							<span class="home__list__text__description__subtitle">ADS</span>
+						</div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Disciplina:</strong
+							>
+							<span class="home__list__text__description__subtitle"
+								>Engenharia de software</span
+							>
+						</div>
+
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title">Ano:</strong>
+							<span class="home__list__text__description__subtitle">2008</span>
+						</div>
+					</div>
+					<div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Tipo:</strong
+							>
+							<span class="home__list__text__description__subtitle"
+								>Múltipla escolha</span
+							>
+						</div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Dificuldade:</strong
+							>
+							<span class="home__list__text__description__subtitle">Médio</span>
+						</div>
 					</div>
 				</v-card-text>
-				<v-card-actions>
-					<v-btn text color="teal accent-4" @click="reveal = true">
-						Learn More
-					</v-btn>
-				</v-card-actions>
+				<v-card-text class="home__list__text2">
+					<strong class="home__list__text2__question">Questão:</strong>
+					<p class="home__list__text2__paragrafo">
+						Em uma pesquisa de satisfação com notas de 0 a 10, sendo 0 muito
+						insatisfeito e 10 muito satisfeito, uma empresa construiu uma
+						tabela, mostrada a seguir, com o resumo das notas atribuídas pelos
+						seus clientes aos serviços recebidos. Considerando essa situação e
+						as informações apresentadas, avalie as afirmações a seguir. I. A
+						média das notas dos clientes é igual a 6,0. II. A mediana das notas
+						dos clientes é igual a 6,0. III. O desvio padrão populacional é
+						menor do que 3,0. IV. O conjunto de dados é amodal. V. Um cliente
+						que atribuiu nota 3,0 encontra-se no 1º quartil. É correto apenas o
+						que se afirma em",
+					</p>
+
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">A)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable content of a page when looking at its layout. The point
+						of using Lorem Ipsum is that it has a more-or-less normal
+						distribution of letters, as opposed to using 'Content here, content
+						here', making it look like readable English.
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">B)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable content of a page when looking at its layout. The point
+						of using Lorem Ipsum is that it has a more-or-less normal
+						distribution of letters, as opposed to using 'Content here, content
+						here', making it look like readable English.
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">C)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable content of a page when looking at its layout. The point
+						of using Lorem Ipsum is that it has a more-or-less normal
+						distribution of letters, as opposed to using 'Content here, content
+						here', making it look like readable English.
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">D)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable content of a page when looking at its layout. The point
+						of using Lorem Ipsum is that it has a more-or-less normal
+						distribution of letters, as opposed to using 'Content here, content
+						here', making it look like readable English.
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">E)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable content of a page when looking at its layout. The point
+						of using Lorem Ipsum is that it has a more-or-less normal
+						distribution of letters, as opposed to using 'Content here, content
+						here', making it look like readable English.
+					</p>
+
+					<p class="home__list__text2__correta">
+						<strong class="home__list__text2__alternativa mb-3"
+							>Alternativa correta:</strong
+						>
+						E
+					</p>
+				</v-card-text>
+			</v-card>
+			<v-card class="mx-auto home__list">
+				<v-card-text class="home__list__text">
+					<div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Curso:</strong
+							>
+							<span class="home__list__text__description__subtitle">ADS</span>
+						</div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Disciplina:</strong
+							>
+							<span class="home__list__text__description__subtitle"
+								>Engenharia de software</span
+							>
+						</div>
+
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title">Ano:</strong>
+							<span class="home__list__text__description__subtitle">2008</span>
+						</div>
+					</div>
+					<div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Tipo:</strong
+							>
+							<span class="home__list__text__description__subtitle"
+								>Múltipla escolha</span
+							>
+						</div>
+						<div class="home__list__text__description">
+							<strong class="home__list__text__description__title"
+								>Dificuldade:</strong
+							>
+							<span class="home__list__text__description__subtitle">Médio</span>
+						</div>
+					</div>
+				</v-card-text>
+				<v-card-text class="home__list__text2">
+					<strong class="home__list__text2__question">Questão:</strong>
+					<p class="home__list__text2__paragrafo">
+						Em uma pesquisa de satisfação com notas de 0 a 10, sendo 0 muito
+						insatisfeito e 10 muito satisfeito, uma empresa construiu uma
+						tabela, mostrada a seguir, com o resumo das notas atribuídas pelos
+						seus clientes aos serviços recebidos. Considerando essa situação e
+						as informações apresentadas, avalie as afirmações a seguir. I. A
+						média das notas dos clientes é igual a 6,0. II. A mediana das notas
+						dos clientes é igual a 6,0. III. O desvio padrão populacional é
+						menor do que 3,0. IV. O conjunto de dados é amodal. V. Um cliente
+						que atribuiu nota 3,0 encontra-se no 1º quartil. É correto apenas o
+						que se afirma em",
+					</p>
+
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">A)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">B)</strong>
+						It is a long established fact that a reader will be distracted by
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">C)</strong>
+						It is a long established fact that
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">D)</strong>
+						It is a long established fact that a reader will be distracted by
+						the readable
+					</p>
+					<p class="home__list__text2__paragrafo">
+						<strong class="home__list__text2__alternativa mb-3">E)</strong>
+						It is a long established fact that a reader will
+					</p>
+
+					<p class="home__list__text2__correta">
+						<strong class="home__list__text2__alternativa mb-3"
+							>Alternativa correta:</strong
+						>
+						D
+					</p>
+				</v-card-text>
 			</v-card>
 		</div>
 	</v-card>
@@ -298,20 +474,28 @@ export default {
 	margin: 0 auto;
 	width: 70%;
 }
-
+span {
+	margin: 40px 0;
+	font-size: 30px;
+	font-weight: 600;
+	color: #fff;
+}
 .home {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-image: url('../assets/Degradeok.jpg');
-	height: 100%;
+	background-repeat: repeat-y;
+	height: auto;
 	width: 100%;
+	overflow-y: auto;
 	&__form {
-		width: 45%;
+		width: 70%;
+		max-width: 950px;
 		margin-bottom: 20px;
 		strong {
-			color: #1481ff;
+			color: #757575;
 		}
 		&__input {
 			background: #fff !important;
@@ -325,6 +509,48 @@ export default {
 		width: 70%;
 		height: auto;
 		max-width: 950px;
+		margin-bottom: 50px;
+		padding: 10px;
+		&__text {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&__description {
+				margin-bottom: 10px;
+				&__title {
+					font-size: 16px;
+					color: black;
+					margin-right: 10px;
+				}
+				&__subtitle {
+					font-size: 16px;
+
+					color: #757575;
+				}
+			}
+		}
+		&__text2 {
+			display: flex;
+			flex-direction: column;
+			&__question {
+				font-size: 16px;
+				color: black;
+			}
+			&__paragrafo {
+				font-size: 15px;
+				margin-top: 10px;
+				color: #757575;
+			}
+			&__alternativa {
+				font-size: 14px;
+				color: black;
+			}
+			&__correta {
+				color: red;
+				font-size: 15px;
+				font-weight: 600;
+			}
+		}
 	}
 	// &__table {
 	// 	background: #303030;
