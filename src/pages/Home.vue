@@ -93,8 +93,16 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-autocomplete
+								<!-- <v-autocomplete
 									:items="itemsCurso"
+									label="Cursos"
+									class="modal__form__input"
+									v-model="curso"
+									outlined
+									hide-details
+								/> -->
+								<v-text-field
+									type="text"
 									label="Cursos"
 									class="modal__form__input"
 									v-model="curso"
@@ -116,8 +124,16 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-autocomplete
+								<!-- <v-autocomplete
 									:items="itemsDisciplina"
+									label="Disciplina 1"
+									class="modal__form__input"
+									v-model="disciplina1"
+									outlined
+									hide-details
+								/> -->
+								<v-text-field
+									type="text"
 									label="Disciplina 1"
 									class="modal__form__input"
 									v-model="disciplina1"
@@ -126,8 +142,16 @@
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<v-autocomplete
+								<!-- <v-autocomplete
 									:items="itemsDisciplina"
+									label="Disciplinas 2"
+									class="modal__form__input"
+									v-model="disciplina2"
+									outlined
+									hide-details
+								/> -->
+								<v-text-field
+									type="text"
 									label="Disciplinas 2"
 									class="modal__form__input"
 									v-model="disciplina2"
@@ -138,8 +162,15 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-autocomplete
+								<!-- <v-autocomplete
 									:items="itemsDisciplina"
+									label="Disciplina 3"
+									class="modal__form__input"
+									v-model="disciplina3"
+									outlined
+								/> -->
+								<v-text-field
+									type="text"
 									label="Disciplina 3"
 									class="modal__form__input"
 									v-model="disciplina3"
@@ -147,8 +178,15 @@
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<v-autocomplete
+								<!-- <v-autocomplete
 									:items="itemsDisciplina"
+									label="Disciplina 4"
+									class="modal__form__input"
+									v-model="disciplina4"
+									outlined
+								/> -->
+								<v-text-field
+									type="text"
 									label="Disciplina 4"
 									class="modal__form__input"
 									v-model="disciplina4"
@@ -169,7 +207,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row v-if="tipoQuestao === 'M'">
+							<v-row v-if="tipoQuestao === 'MultiplaEscolha'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -181,7 +219,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row v-if="tipoQuestao === 'M'">
+							<v-row v-if="tipoQuestao === 'MultiplaEscolha'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -193,7 +231,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row v-if="tipoQuestao === 'M'">
+							<v-row v-if="tipoQuestao === 'MultiplaEscolha'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -205,7 +243,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row v-if="tipoQuestao === 'M'">
+							<v-row v-if="tipoQuestao === 'MultiplaEscolha'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -217,7 +255,7 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row v-if="tipoQuestao === 'M'">
+							<v-row v-if="tipoQuestao === 'MultiplaEscolha'">
 								<v-col md="12" lg="12">
 									<v-textarea
 										type="text"
@@ -230,7 +268,7 @@
 								</v-col>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="4" v-if="tipoQuestao === 'M'">
+								<v-col md="12" lg="4" v-if="tipoQuestao === 'MultiplaEscolha'">
 									<v-text-field
 										type="text"
 										label="Alternativa Correta"
@@ -297,8 +335,8 @@
 				</v-card>
 			</Modal>
 
-			<Modal v-if="modalEditar">
-				<!-- <div class="modal">
+			<!-- <Modal v-if="modalEditar">
+				 <div class="modal">
 					<div class="modal__header">
 						<h3 class="modal__header__title">Consultar Provas</h3>
 						<a href="#" @click="modalEditar = false">
@@ -339,8 +377,8 @@
 						</button>
 						<button class="modal__form__btn">Editar</button>
 					</form>
-				</div> -->
-			</Modal>
+				</div> 
+			</Modal> -->
 		</div>
 		<!-- <Footer /> -->
 	</v-card>
@@ -351,10 +389,12 @@ import axios from 'axios'
 import Modal from '@/components/Modal'
 import Header from '@/components/Header'
 // import Footer from '@/components/Footer'
+import { mapGetters } from 'vuex'
+
 export default {
 	data() {
 		return {
-			tipoQuestao: 'M',
+			tipoQuestao: 'MultiplaEscolha',
 			curso: '',
 			disciplina1: '',
 			disciplina2: '',
@@ -368,30 +408,36 @@ export default {
 			alternativaD: '',
 			alternativaE: '',
 			alternativaCorreta: '',
-			dificuldade: 'F',
+			dificuldade: '',
 			palavraChave: '',
 			// palavraChave2: '',
 			// palavraChave3: '',
 			modal: false,
 			modalEditar: false,
 			radios: [
-				{ label: 'Fácil', value: 'F' },
-				{ label: 'Médio', value: 'M' },
-				{ label: 'Difícil', value: 'D' },
+				{ label: 'Facil', value: 'Facil' },
+				{ label: 'Medio', value: 'Medio' },
+				{ label: 'Dificil', value: 'Dificil' },
 			],
 			radiosQuestoes: [
-				{ label: 'Múltipla escolha', value: 'M' },
-				{ label: 'Discursiva', value: 'D' },
+				{ label: 'MultiplaEscolha', value: 'MultiplaEscolha' },
+				{ label: 'Discursiva', value: 'Discursiva' },
 			],
 			provas: [],
-			itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
-			itemsDisciplina: ['Engenharia de software'],
 		}
 	},
 	components: {
 		Modal,
 		Header,
 		// Footer,
+	},
+	computed: {
+		...mapGetters({
+			getFilter: 'example/filter',
+			loading: 'loading',
+			getSnackbar: 'snackbar',
+			snackbarMessage: 'snackbarMessage',
+		}),
 	},
 	mounted() {
 		// this.carregarAlunos()
@@ -402,21 +448,31 @@ export default {
 		},
 		async cadastrarProva(e) {
 			e.preventDefault()
-			if (
-				this.curso === '' ||
-				this.disciplina === '' ||
-				this.ano === '' ||
-				this.questao === '' ||
-				// this.alternativaA === '' ||
-				// this.alternativaB === '' ||
-				// this.alternativaC === '' ||
-				// this.alternativaD === '' ||
-				// this.alternativaE === '' ||
-				// this.alternativaCorreta === '' ||
-				this.dificuldade === '' ||
-				this.palavraChave === ''
-			) {
-				alert('Preencha todos os campos')
+			if (this.curso === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua um curso',
+				})
+			} else if (this.disciplina === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua uma disciplina',
+				})
+			} else if (this.ano === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua o ano',
+				})
+			} else if (this.questao === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua uma questão',
+				})
+			} else if (this.dificuldade === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Selecione a dificuldade',
+				})
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {
 					tipoQuestao: this.tipoQuestao,
