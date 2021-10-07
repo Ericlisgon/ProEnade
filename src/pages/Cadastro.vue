@@ -33,6 +33,7 @@
 
 <script>
 import axios from 'axios'
+import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
@@ -43,19 +44,41 @@ export default {
 			confirmarSenha: '',
 		}
 	},
+	computed: {
+		...mapGetters({
+			getSnackbar: 'snackbar',
+			snackbarMessage: 'snackbarMessage',
+		}),
+	},
 	methods: {
 		async save() {
-			if (this.senha === this.confirmarSenha) {
+			if (
+				this.nome === '' ||
+				this.sobrenome === '' ||
+				this.email === '' ||
+				this.senha === ''
+			) {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Preencha todos os campos',
+				})
+			} else if (this.senha !== this.confirmarSenha) {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Senha e Confirme a senha devem ser iguais',
+				})
+			} else {
 				const data = await axios.post('http://localhost:3000/usuarios', {
 					nome: this.nome,
 					sobrenome: this.sobrenome,
 					email: this.email,
 					senha: this.senha,
 				})
-				alert('usuario cadastrado')
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Usuário cadastrado com sucesso!',
+				})
 				this.$router.push('/')
-			} else {
-				alert('Senhas não são iguais')
 			}
 		},
 	},

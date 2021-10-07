@@ -15,7 +15,11 @@
 					class="container__login__form__input"
 					v-model="senha"
 				/>
-				<button type="submit" class="container__login__form__button">
+				<button
+					:loading="loading"
+					type="submit"
+					class="container__login__form__button"
+				>
 					Entrar
 				</button>
 			</form>
@@ -31,6 +35,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import axios from 'axios'
 export default {
 	data() {
@@ -39,8 +44,17 @@ export default {
 			senha: '',
 		}
 	},
+	computed: {
+		...mapGetters({
+			loading: 'loading',
+			getSnackbar: 'snackbar',
+			snackbarMessage: 'snackbarMessage',
+		}),
+	},
 	methods: {
 		async submit() {
+			this.$store.dispatch('setLoading', true)
+
 			const { data } = await axios.get('http://localhost:3000/usuarios', {
 				params: {
 					email: this.email,
@@ -51,7 +65,11 @@ export default {
 				// alert("logando..");
 				this.$router.push('/home')
 			} else {
-				alert('Usuário ou senha incorretos')
+				// alert('Usuário ou senha incorretos')
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Usuário ou senha incorretos',
+				})
 			}
 		},
 	},

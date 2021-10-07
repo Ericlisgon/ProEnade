@@ -221,28 +221,46 @@
 						{{ prova.questao }}
 					</p>
 
-					<p class="home__list__text2__paragrafo">
+					<p
+						class="home__list__text2__paragrafo"
+						v-if="prova.tipoQuestao === 'MultiplaEscolha'"
+					>
 						<strong class="home__list__text2__alternativa mb-3">A)</strong>
 						{{ prova.alternativaA }}
 					</p>
-					<p class="home__list__text2__paragrafo">
+					<p
+						class="home__list__text2__paragrafo"
+						v-if="prova.tipoQuestao === 'MultiplaEscolha'"
+					>
 						<strong class="home__list__text2__alternativa mb-3">B)</strong>
 						{{ prova.alternativaB }}
 					</p>
-					<p class="home__list__text2__paragrafo">
+					<p
+						class="home__list__text2__paragrafo"
+						v-if="prova.tipoQuestao === 'MultiplaEscolha'"
+					>
 						<strong class="home__list__text2__alternativa mb-3">C)</strong>
 						{{ prova.alternativaC }}
 					</p>
-					<p class="home__list__text2__paragrafo">
+					<p
+						class="home__list__text2__paragrafo"
+						v-if="prova.tipoQuestao === 'MultiplaEscolha'"
+					>
 						<strong class="home__list__text2__alternativa mb-3">D)</strong>
 						{{ prova.alternativaD }}
 					</p>
-					<p class="home__list__text2__paragrafo">
+					<p
+						class="home__list__text2__paragrafo"
+						v-if="prova.tipoQuestao === 'MultiplaEscolha'"
+					>
 						<strong class="home__list__text2__alternativa mb-3">E)</strong>
 						{{ prova.alternativaE }}
 					</p>
 
-					<p class="home__list__text2__correta">
+					<p
+						class="home__list__text2__correta"
+						v-if="prova.tipoQuestao === 'MultiplaEscolha'"
+					>
 						<strong class="home__list__text2__alternativa mb-3"
 							>Alternativa correta:</strong
 						>
@@ -735,15 +753,15 @@ export default {
 			this.$store.dispatch('setLoading', true)
 			try {
 				if (
-					this.tipoQuestao === ''
-					// this.curso === '' ||
-					// this.ano === '' ||
-					// this.disciplina1 === '' ||
-					// this.disciplina2 === '' ||
-					// this.disciplina3 === '' ||
-					// this.disciplina4 === '' ||
-					// this.dificuldade === '' ||
-					// this.palavraChave === ''
+					this.tipoQuestao === '' &&
+					this.curso === '' &&
+					this.ano === '' &&
+					this.disciplina1 === '' &&
+					this.disciplina2 === '' &&
+					this.disciplina3 === '' &&
+					this.disciplina4 === '' &&
+					this.dificuldade === '' &&
+					this.palavraChave === ''
 				) {
 					this.$store.dispatch('setSnackbar', {
 						status: true,
