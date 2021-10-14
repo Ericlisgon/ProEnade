@@ -8,7 +8,7 @@
 			<span>Preencha os filtros para pesquisa</span>
 
 			<div class="home__form">
-				<v-card class="mb-5 pl-5" height="60">
+				<v-card color="#BDBDBD" class="mb-5 pl-5" height="60">
 					<v-row>
 						<div class="d-flex align-center mr-5">
 							<strong class="mx-4">Tipo de questão:</strong>
@@ -771,13 +771,13 @@ export default {
 					const data = await this.$store.dispatch('example/getFilter', {
 						tipoQuestao: this.tipoQuestao || null,
 						dificuldade: this.dificuldade || null,
-						curso: this.curso || null,
+						curso: this.curso.toUpperCase() || null,
 						ano: this.ano || null,
-						disciplina1: this.disciplina1 || null,
-						disciplina2: this.disciplina2 || null,
-						disciplina3: this.disciplina3 || null,
-						disciplina4: this.disciplina4 || null,
-						palavraChave: this.palavraChave || null,
+						disciplina1: this.disciplina1.toUpperCase() || null,
+						disciplina2: this.disciplina2.toUpperCase() || null,
+						disciplina3: this.disciplina3.toUpperCase() || null,
+						disciplina4: this.disciplina4.toUpperCase() || null,
+						palavraChave: this.palavraChave.toLowerCase() || null,
 					})
 					this.provas = data
 					console.log('PROVAS', this.provas)
