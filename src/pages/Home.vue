@@ -7,15 +7,21 @@
 					<v-icon color="#fff" size="50">
 						description
 					</v-icon>
-					<h1>Cadastrar Questões</h1>
-					<p>Click para acessar a área de cadastro de questões</p>
+					<h1>Cadastrar</h1>
+					<p>
+						Click para acessar a área de cadastro de curso, disciplina ou
+						questões
+					</p>
 				</v-card>
 				<v-card class="home__cards__card" outlined @click="pageConsultar">
 					<v-icon color="#fff" size="50">
 						plagiarism
 					</v-icon>
-					<h1>Consultar Questões</h1>
-					<p>Click para consultar, editar ou excluir questões</p>
+					<h1>Consultar</h1>
+					<p>
+						Click para consultar, editar ou excluir cursos, disciplinas ou
+						questões
+					</p>
 				</v-card>
 			</div>
 			<!-- <table class="home__table content ">
@@ -415,12 +421,12 @@ export default {
 			modal: false,
 			modalEditar: false,
 			radios: [
-				{ label: 'Facil', value: 'Facil' },
-				{ label: 'Medio', value: 'Medio' },
-				{ label: 'Dificil', value: 'Dificil' },
+				{ label: 'Fácil', value: 'Facil' },
+				{ label: 'Médio', value: 'Medio' },
+				{ label: 'Difícil', value: 'Dificil' },
 			],
 			radiosQuestoes: [
-				{ label: 'MultiplaEscolha', value: 'MultiplaEscolha' },
+				{ label: 'Múltipla Escolha', value: 'MultiplaEscolha' },
 				{ label: 'Discursiva', value: 'Discursiva' },
 			],
 			provas: [],
@@ -476,11 +482,11 @@ export default {
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {
 					tipoQuestao: this.tipoQuestao,
-					curso: this.curso,
-					disciplina1: this.disciplina1,
-					disciplina2: this.disciplina2,
-					disciplina3: this.disciplina3,
-					disciplina4: this.disciplina4,
+					curso: this.curso.toUpperCase(),
+					disciplina1: this.disciplina1.toUpperCase(),
+					disciplina2: this.disciplina2.toUpperCase(),
+					disciplina3: this.disciplina3.toUpperCase(),
+					disciplina4: this.disciplina4.toUpperCase(),
 					ano: this.ano,
 					questao: this.questao,
 					alternativaA: this.alternativaA,
@@ -490,9 +496,13 @@ export default {
 					alternativaE: this.alternativaE,
 					alternativaCorreta: this.alternativaCorreta,
 					dificuldade: this.dificuldade,
-					palavraChave: this.palavraChave,
+					palavraChave: this.palavraChave.toLowerCase(),
 					// palavraChave2: this.palavraChave2,
 					// palavraChave3: this.palavraChave3,
+				})
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Questão cadastrada com sucesso!',
 				})
 			}
 			// this.carregarAlunos()
@@ -575,7 +585,7 @@ export default {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			padding: 20px;
+			padding: 27px;
 			background: #003fff !important;
 			border-radius: 10px !important;
 			margin-top: 10%;
