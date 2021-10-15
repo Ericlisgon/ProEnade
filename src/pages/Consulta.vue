@@ -5,40 +5,47 @@
 		<!-- </div> -->
 
 		<div class="home content">
-			<span>Preencha os filtros para pesquisa</span>
+			<!-- <span>Preencha os filtros para pesquisa</span> -->
 
 			<div class="home__form">
-				<v-card color="#BDBDBD" class="mb-5 pl-5" height="60">
-					<v-row>
-						<div class="d-flex align-center mr-5">
-							<strong class="mx-4">Tipo de questão:</strong>
-							<v-radio-group row v-model="tipoQuestao">
-								<v-radio
-									v-for="(radio, index) in radiosQuestoes"
-									:key="index"
-									:label="radio.label"
-									:value="radio.value"
-									color="#757575"
-								/>
-							</v-radio-group>
-						</div>
-						<div class="d-flex align-center">
-							<strong class="mx-4">Dificuldade:</strong>
-							<v-radio-group row v-model="dificuldade">
-								<v-radio
-									v-for="(radio, index) in radios"
-									:key="index"
-									:label="radio.label"
-									:value="radio.value"
-									color="#757575"
-								/>
-							</v-radio-group>
-						</div>
-					</v-row>
-				</v-card>
-				<v-row>
-					<v-col md="12" lg="6">
-						<!-- <v-autocomplete
+				<v-expansion-panels multiple v-model="panel">
+					<v-expansion-panel v-model="hasItems">
+						<v-expansion-panel-header>
+							<h3>Preencha os filtros para pesquisa</h3>
+						</v-expansion-panel-header>
+
+						<v-expansion-panel-content>
+							<v-card color="#E0E0E0" class="mb-5 pl-5" height="60" flat>
+								<v-row>
+									<div class="d-flex align-center mr-5">
+										<strong class="mx-4">Tipo de questão:</strong>
+										<v-radio-group row v-model="tipoQuestao">
+											<v-radio
+												v-for="(radio, index) in radiosQuestoes"
+												:key="index"
+												:label="radio.label"
+												:value="radio.value"
+												color="#0072FF"
+											/>
+										</v-radio-group>
+									</div>
+									<div class="d-flex align-center">
+										<strong class="mx-4">Dificuldade:</strong>
+										<v-radio-group row v-model="dificuldade">
+											<v-radio
+												v-for="(radio, index) in radios"
+												:key="index"
+												:label="radio.label"
+												:value="radio.value"
+												color="#0072FF"
+											/>
+										</v-radio-group>
+									</div>
+								</v-row>
+							</v-card>
+							<v-row>
+								<v-col md="12" lg="6">
+									<!-- <v-autocomplete
 							:items="itemsCurso"
 							label="Cursos"
 							class="home__form__input"
@@ -46,30 +53,30 @@
 							solo
 							hide-details
 						/> -->
-						<v-text-field
-							type="text"
-							label="Cursos"
-							class="home__form__input"
-							v-model="curso"
-							solo
-							hide-details
-						/>
-					</v-col>
-					<v-col md="12" lg="6">
-						<v-text-field
-							type="text"
-							label="Ano"
-							class="home__form__input"
-							v-model="ano"
-							solo
-							maxLength="4"
-							hide-details
-						/>
-					</v-col>
-				</v-row>
-				<v-row>
-					<v-col md="12" lg="6">
-						<!-- <v-autocomplete
+									<v-text-field
+										type="text"
+										label="Cursos - Ex: ADS, ciencias da computacao..."
+										class="home__form__input"
+										v-model="curso"
+										outlined
+										hide-details
+									/>
+								</v-col>
+								<v-col md="12" lg="6">
+									<v-text-field
+										type="text"
+										label="Ano - Ex: 2008"
+										class="home__form__input"
+										v-model="ano"
+										outlined
+										maxLength="4"
+										hide-details
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="6">
+									<!-- <v-autocomplete
 							:items="itemsDisciplina"
 							label="Disciplina 1"
 							class="home__form__input"
@@ -77,91 +84,111 @@
 							solo
 							hide-details
 						/> -->
-						<v-text-field
-							type="text"
-							label="Disciplina 1"
-							class="home__form__input"
-							v-model="disciplina1"
-							solo
-							hide-details
-						/>
-					</v-col>
-					<v-col md="12" lg="6">
-						<!-- <v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplina 1 - Ex: engenharia de software"
+										class="home__form__input"
+										v-model="disciplina1"
+										outlined
+										hide-details
+									/>
+								</v-col>
+								<v-col md="12" lg="6">
+									<!-- <v-autocomplete
 							:items="itemsDisciplina"
 							label="Disciplinas 2"
 							class="home__form__input"
 							v-model="disciplina2"
-							solo
+							outlined
 							hide-details
 						/> -->
-						<v-text-field
-							type="text"
-							label="Disciplinas 2"
-							class="home__form__input"
-							v-model="disciplina2"
-							solo
-							hide-details
-						/>
-					</v-col>
-				</v-row>
-				<v-row>
-					<v-col md="12" lg="6">
-						<!-- <v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplinas 2 - Ex: analise e projeto de sistemas"
+										class="home__form__input"
+										v-model="disciplina2"
+										outlined
+										hide-details
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="6">
+									<!-- <v-autocomplete
 							:items="itemsDisciplina"
 							label="Disciplina 3"
 							class="home__form__input"
 							v-model="disciplina3"
-							solo
+							outlined
 							hide-details
 						/> -->
-						<v-text-field
-							type="text"
-							label="Disciplina 3"
-							class="home__form__input"
-							v-model="disciplina3"
-							solo
-							hide-details
-						/>
-					</v-col>
-					<v-col md="12" lg="6">
-						<!-- <v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplina 3 - Ex: aplicacoes para internet"
+										class="home__form__input"
+										v-model="disciplina3"
+										outlined
+										hide-details
+									/>
+								</v-col>
+								<v-col md="12" lg="6">
+									<!-- <v-autocomplete
 							:items="itemsDisciplina"
 							label="Disciplina 4"
 							class="home__form__input"
 							v-model="disciplina4"
-							solo
+							outlined
 							hide-details
 						/> -->
-						<v-text-field
-							type="text"
-							label="Disciplina 4"
-							class="home__form__input"
-							v-model="disciplina4"
-							solo
-							hide-details
-						/>
-					</v-col>
-				</v-row>
-				<v-row>
-					<v-col md="12" lg="12">
-						<v-text-field
-							type="text"
-							label="Digite frase ou palavra-chave"
-							class="home__form__input"
-							v-model="palavraChave"
-							solo
-							hide-details
-						/>
-					</v-col>
-				</v-row>
-				<button
-					:loading="loading"
-					@click="consultarProva"
-					class="home__form__btn"
-				>
-					Consultar
-				</button>
+									<v-text-field
+										type="text"
+										label="Disciplina 4 - Ex: gestao de TI "
+										class="home__form__input"
+										v-model="disciplina4"
+										outlined
+										hide-details
+									/>
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="12">
+									<v-text-field
+										type="text"
+										label="Digite frase ou palavra-chave"
+										class="home__form__input"
+										v-model="palavraChave"
+										outlined
+										hide-details
+									/>
+								</v-col>
+							</v-row>
+							<div class="d-flex">
+								<button
+									:loading="loading"
+									@click="consultarProva"
+									class="home__form__btn"
+								>
+									Consultar
+								</button>
+								<button
+									:loading="loading"
+									@click="reset"
+									class="home__form__limpar"
+								>
+									Limpar
+								</button>
+								<v-spacer></v-spacer>
+								<button
+									:loading="loading"
+									@click="back"
+									class="home__form__back"
+								>
+									Voltar
+								</button>
+							</div>
+						</v-expansion-panel-content>
+					</v-expansion-panel>
+				</v-expansion-panels>
 			</div>
 			<span v-if="this.provas.length > 0">Lista de questões</span>
 			<v-card
@@ -184,8 +211,25 @@
 								>Disciplina:</strong
 							>
 							<span class="home__list__text__description__subtitle"
-								>{{ prova.disciplina1 }}, {{ prova.disciplina2 }},
-								{{ prova.disciplina3 }}, {{ prova.disciplina4 }}</span
+								>{{ prova.disciplina1 }}
+								<span
+									v-if="prova.disciplina2 !== ''"
+									class="home__list__text__description__subtitle"
+									>,</span
+								>
+								{{ prova.disciplina2
+								}}<span
+									v-if="prova.disciplina3"
+									class="home__list__text__description__subtitle"
+									>,</span
+								>
+								{{ prova.disciplina3 }}
+								<span
+									v-if="prova.disciplina4"
+									class="home__list__text__description__subtitle"
+									>,</span
+								>
+								{{ prova.disciplina4 }}</span
 							>
 						</div>
 
@@ -300,103 +344,6 @@
 					</v-tooltip>
 				</v-card-actions>
 			</v-card>
-			<!-- <v-card class="mx-auto home__list">
-				<v-card-text class="home__list__text">
-					<div>
-						<div class="home__list__text__description">
-							<strong class="home__list__text__description__title"
-								>Curso:</strong
-							>
-							<span class="home__list__text__description__subtitle">ADS</span>
-						</div>
-						<div class="home__list__text__description">
-							<strong class="home__list__text__description__title"
-								>Disciplina:</strong
-							>
-							<span class="home__list__text__description__subtitle"
-								>Engenharia de software</span
-							>
-						</div>
-
-						<div class="home__list__text__description">
-							<strong class="home__list__text__description__title">Ano:</strong>
-							<span class="home__list__text__description__subtitle">2008</span>
-						</div>
-					</div>
-					<div>
-						<div class="home__list__text__description">
-							<strong class="home__list__text__description__title"
-								>Tipo:</strong
-							>
-							<span class="home__list__text__description__subtitle"
-								>Múltipla escolha</span
-							>
-						</div>
-						<div class="home__list__text__description">
-							<strong class="home__list__text__description__title"
-								>Dificuldade:</strong
-							>
-							<span class="home__list__text__description__subtitle">Médio</span>
-						</div>
-					</div>
-				</v-card-text>
-				<v-card-text class="home__list__text2">
-					<strong class="home__list__text2__question">Questão:</strong>
-					<p class="home__list__text2__paragrafo">
-						Em uma pesquisa de satisfação com notas de 0 a 10, sendo 0 muito
-						insatisfeito e 10 muito satisfeito, uma empresa construiu uma
-						tabela, mostrada a seguir, com o resumo das notas atribuídas pelos
-						seus clientes aos serviços recebidos. Considerando essa situação e
-						as informações apresentadas, avalie as afirmações a seguir. I. A
-						média das notas dos clientes é igual a 6,0. II. A mediana das notas
-						dos clientes é igual a 6,0. III. O desvio padrão populacional é
-						menor do que 3,0. IV. O conjunto de dados é amodal. V. Um cliente
-						que atribuiu nota 3,0 encontra-se no 1º quartil. É correto apenas o
-						que se afirma em",
-					</p>
-
-					<p class="home__list__text2__paragrafo">
-						<strong class="home__list__text2__alternativa mb-3">A)</strong>
-						It is a long established fact that a reader will be distracted by
-						the readable
-					</p>
-					<p class="home__list__text2__paragrafo">
-						<strong class="home__list__text2__alternativa mb-3">B)</strong>
-						It is a long established fact that a reader will be distracted by
-					</p>
-					<p class="home__list__text2__paragrafo">
-						<strong class="home__list__text2__alternativa mb-3">C)</strong>
-						It is a long established fact that
-					</p>
-					<p class="home__list__text2__paragrafo">
-						<strong class="home__list__text2__alternativa mb-3">D)</strong>
-						It is a long established fact that a reader will be distracted by
-						the readable
-					</p>
-					<p class="home__list__text2__paragrafo">
-						<strong class="home__list__text2__alternativa mb-3">E)</strong>
-						It is a long established fact that a reader will
-					</p>
-
-					<p class="home__list__text2__correta">
-						<strong class="home__list__text2__alternativa mb-3"
-							>Alternativa correta:</strong
-						>
-						D
-					</p>
-					<v-card-actions class="d-flex justify-end">
-						<a
-							@click=";(modalEditar = true), carregarInfo($event, prova)"
-							href="#"
-						>
-							<img src="@/assets/edit.svg" />
-						</a>
-						<a @click="deletarAluno($event, aluno.id)" href="#">
-							<img src="@/assets/delete.svg" />
-						</a>
-					</v-card-actions>
-				</v-card-text>
-			</v-card> -->
 			<Modal v-if="modalEditar">
 				<v-card class="modal">
 					<div class="modal__header">
@@ -675,6 +622,7 @@ import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
+			panel: [0, 1],
 			tipoQuestao: '',
 			curso: '',
 			disciplina1: '',
@@ -743,6 +691,10 @@ export default {
 			getSnackbar: 'snackbar',
 			snackbarMessage: 'snackbarMessage',
 		}),
+		hasItems() {
+			if (this.provas && this.provas.length > 0) return (this.panel = [])
+			else return (this.panel = [0, 1])
+		},
 	},
 	methods: {
 		// 	logout() {
@@ -871,6 +823,21 @@ export default {
 			})
 			this.modalEditar = false
 		},
+		reset() {
+			this.tipoQuestao = ''
+			this.curso = ''
+			this.ano = ''
+			this.disciplina1 = ''
+			this.disciplina2 = ''
+			this.disciplina3 = ''
+			this.disciplina4 = ''
+			this.dificuldade = ''
+			this.palavraChave = ''
+			// this.$store.dispatch('example/emptyList')
+		},
+		back() {
+			this.$router.push('/home')
+		},
 	},
 }
 </script>
@@ -896,23 +863,25 @@ span {
 	width: 100%;
 	overflow-y: auto;
 	&__form {
+		margin-top: 30px;
 		width: 70%;
 		max-width: 950px;
 		margin-bottom: 20px;
 		strong {
-			color: #757575;
+			color: #0072ff;
 		}
 		&__input {
 			background: #fff !important;
 		}
 		&__btn {
 			margin-top: 20px;
-			width: 150px;
-			height: 50px;
-			padding: 10px;
+			margin-right: 10px;
+			width: 130px;
+			height: 40px;
+			// padding: 10px;
 			// margin-left: 10px;
 			border: 0;
-			border-radius: 5px;
+			border-radius: 10px;
 			background: #003fff;
 			font-weight: 500;
 			color: #fff;
@@ -922,6 +891,48 @@ span {
 			&:hover {
 				background: #0082ff;
 				color: #fff;
+			}
+		}
+		&__limpar {
+			margin-top: 20px;
+			margin-right: 10px;
+			width: 90px;
+			height: 40px;
+			// padding: 10px;
+			// margin-left: 10px;
+			border: 1px solid #003fff;
+			border-radius: 10px;
+			background: #fff;
+			font-weight: 500;
+			color: #003fff;
+			cursor: pointer;
+			outline: 0;
+			transition: 800ms;
+			&:hover {
+				background: #0082ff;
+				color: #fff;
+				border: 1px solid #0082ff;
+			}
+		}
+		&__back {
+			margin-top: 20px;
+			// margin-right: 10px;
+			width: 90px;
+			height: 40px;
+			// padding: 10px;
+			// margin-left: 10px;
+			border: 0;
+			border-radius: 10px;
+			background: #ff5a00;
+			font-weight: 500;
+			color: #fff;
+			cursor: pointer;
+			outline: 0;
+			transition: 800ms;
+			&:hover {
+				background: #fff;
+				color: #ff5a00;
+				border: 1px solid #ff5a00;
 			}
 		}
 	}

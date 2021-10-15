@@ -1,7 +1,9 @@
 <template>
 	<v-card class="header" flat>
 		<div class="header__container content">
-			<img src="@/assets/proenade.svg" class="header__container__img" />
+			<router-link to="/home">
+				<img src="@/assets/proenade.svg" class="header__container__img" />
+			</router-link>
 			<v-tooltip color="#FF5A00" right>
 				<template v-slot:activator="{ on, attrs }">
 					<v-btn

@@ -22,15 +22,7 @@ export default {
 			throw e
 		}
 	},
-  // async getListCategories({ commit }) {
-	// 	try {
-	// 		const { data } = await loadFields.getListCategories()
-	// 		commit('setListCategories', data)
-	// 	} catch (e) {
-	// 		throw e
-	// 	}
-	// },
-	// emptyList({ commit }) {
-	// 	commit('emptyList')
-	// },
+	emptyList({ commit }) {
+		commit('emptyList')
+	},
 }
