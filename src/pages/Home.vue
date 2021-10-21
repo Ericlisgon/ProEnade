@@ -79,7 +79,7 @@
 				<v-card class="modal">
 					<div class="modal__header">
 						<h3 class="modal__header__title">Cadastrar nova questão</h3>
-						<a @click="modal = false" href="#">
+						<a @click="modal = false" name="section1" href="#">
 							<img src="@/assets/Vector.svg" alt="" />
 						</a>
 					</div>
@@ -327,64 +327,24 @@
 								</v-col> -->
 							</v-row>
 						</div>
-						<!-- <v-text-area
-							type="text"
-							label="Insira sua prova"
-							class="modal__form__text"
-							v-model="questao"
-							outlined
-						/> -->
+						<v-row class="d-flex justify-space-between mb-6">
+							<v-btn @click="cadastrarProva" class="modal__form__btn">
+								Enviar
+							</v-btn>
+							<a class="modal__form__link mr-4" href="#section1">
+								<v-tooltip color="#FF5A00" top>
+									<template v-slot:activator="{ on, attrs }">
+										<v-btn icon color="primary" dark v-bind="attrs" v-on="on">
+											<v-icon color="#FF5A00">arrow_upward</v-icon>
+										</v-btn>
+									</template>
+									<span>Voltar ao topo</span>
+								</v-tooltip>
+							</a>
+						</v-row>
 					</v-form>
-					<v-btn @click="cadastrarProva" class="modal__form__btn">
-						Enviar
-					</v-btn>
 				</v-card>
 			</Modal>
-
-			<!-- <Modal v-if="modalEditar">
-				 <div class="modal">
-					<div class="modal__header">
-						<h3 class="modal__header__title">Consultar Provas</h3>
-						<a href="#" @click="modalEditar = false">
-							<img src="@/assets/Vector.svg" />
-						</a>
-					</div>
-					<form @submit="editarAluno" class="modal__form">
-						<input
-							type="text"
-							placeholder="Nome do aluno"
-							v-model="editar.nome"
-							class="modal__form__input"
-						/>
-						<input
-							type="email"
-							placeholder="E-mail do aluno"
-							v-model="editar.email"
-							class="modal__form__input"
-						/>
-						<input
-							type="text"
-							placeholder="RA do aluno"
-							v-model="editar.ra"
-							class="modal__form__input"
-						/>
-						<input
-							type="text"
-							placeholder="Turma do aluno"
-							v-model="editar.turma"
-							class="modal__form__input"
-						/>
-
-						<button
-							class="modal__form__btn-voltar"
-							@click="modalEditar = false"
-						>
-							Voltar
-						</button>
-						<button class="modal__form__btn">Editar</button>
-					</form>
-				</div> 
-			</Modal> -->
 		</div>
 		<!-- <Footer /> -->
 	</v-card>
@@ -643,7 +603,7 @@ export default {
 	.modal {
 		display: flex;
 		flex-direction: column;
-		padding: 15px;
+		padding: 10px;
 		width: 100%;
 		height: auto;
 		// background: black;
@@ -688,6 +648,9 @@ export default {
 				&:hover {
 					background: #0082ff;
 				}
+			}
+			&__link {
+				text-decoration: none;
 			}
 		}
 	}

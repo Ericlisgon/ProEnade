@@ -1,11 +1,15 @@
 <template>
 	<v-card flat>
-		<Header />
+		<a name="section1">
+			<Header />
+		</a>
 		<!-- <div class="header"> -->
 		<!-- </div> -->
 
 		<div class="home content">
-			<!-- <span>Preencha os filtros para pesquisa</span> -->
+			<!-- <a name="section1">
+				<span></span>
+			</a> -->
 
 			<div class="home__form">
 				<v-expansion-panels multiple v-model="panel">
@@ -315,44 +319,58 @@
 						>
 						{{ prova.alternativaCorreta }}
 					</p>
-					<p class="home__list__text2__correta">
+					<p class="home__list__text2__data">
 						<strong class="home__list__text2__alternativa mb-3"
-							>Data de cadastro da Questão:</strong
+							>Data de cadastro da questão:</strong
 						>
 						{{ prova.dataAtual }}
 					</p>
 				</v-card-text>
-				<v-card-actions class="d-flex justify-end">
-					<v-tooltip color="#0082ff" top>
-						<template v-slot:activator="{ on, attrs }">
-							<v-btn
-								@click=";(modalEditar = true), carregarInfo($event, prova)"
-								icon
-								color="primary"
-								dark
-								v-bind="attrs"
-								v-on="on"
-							>
-								<v-icon color="#0082ff">mode_edit_outline</v-icon>
-							</v-btn>
-						</template>
-						<h4>EDITAR</h4>
-					</v-tooltip>
-					<v-tooltip color="red" top>
-						<template v-slot:activator="{ on, attrs }">
-							<v-btn
-								@click="deletarProva($event, prova.id)"
-								icon
-								color="primary"
-								dark
-								v-bind="attrs"
-								v-on="on"
-							>
-								<v-icon color="red">delete</v-icon>
-							</v-btn>
-						</template>
-						<h4>EXCLUIR</h4>
-					</v-tooltip>
+				<v-card-actions class="d-flex justify-space-between">
+					<div>
+						<v-tooltip color="#0082ff" top>
+							<template v-slot:activator="{ on, attrs }">
+								<v-btn
+									@click=";(modalEditar = true), carregarInfo($event, prova)"
+									icon
+									color="primary"
+									dark
+									v-bind="attrs"
+									v-on="on"
+								>
+									<v-icon color="#0082ff">mode_edit_outline</v-icon>
+								</v-btn>
+							</template>
+							<h4>EDITAR</h4>
+						</v-tooltip>
+						<v-tooltip color="red" top>
+							<template v-slot:activator="{ on, attrs }">
+								<v-btn
+									@click="deletarProva($event, prova.id)"
+									icon
+									color="primary"
+									dark
+									v-bind="attrs"
+									v-on="on"
+								>
+									<v-icon color="red">delete</v-icon>
+								</v-btn>
+							</template>
+							<h4>EXCLUIR</h4>
+						</v-tooltip>
+					</div>
+					<div>
+						<a class="link mr-4" href="#section1">
+							<v-tooltip color="#FF5A00" top>
+								<template v-slot:activator="{ on, attrs }">
+									<v-btn icon color="primary" dark v-bind="attrs" v-on="on">
+										<v-icon color="#FF5A00">arrow_upward</v-icon>
+									</v-btn>
+								</template>
+								<h4>Voltar ao topo</h4>
+							</v-tooltip>
+						</a>
+					</div>
 				</v-card-actions>
 			</v-card>
 			<Modal v-if="modalEditar">
@@ -654,17 +672,14 @@ export default {
 			// palavraChave3: '',
 			modalEditar: false,
 			radios: [
-				{ label: 'Facil', value: 'Facil' },
-				{ label: 'Medio', value: 'Medio' },
-				{ label: 'Dificil', value: 'Dificil' },
+				{ label: 'Fácil', value: 'Facil' },
+				{ label: 'Médio', value: 'Medio' },
+				{ label: 'Difícil', value: 'Dificil' },
 			],
 			radiosQuestoes: [
-				{ label: 'MultiplaEscolha', value: 'MultiplaEscolha' },
+				{ label: 'Múltipla Escolha', value: 'MultiplaEscolha' },
 				{ label: 'Discursiva', value: 'Discursiva' },
 			],
-			// itemsCurso: ['ADS', 'Ciências da Computação', 'Engenharia da computação'],
-			// itemsDisciplina: ['Engenharia de software'],
-
 			provas: {},
 			editar: {
 				id: '',
@@ -996,6 +1011,11 @@ span {
 				font-size: 15px;
 				font-weight: 600;
 			}
+			&__data {
+				color: #0072ff;
+				font-size: 15px;
+				font-weight: 600;
+			}
 		}
 	}
 	.modal {
@@ -1064,5 +1084,8 @@ span {
 }
 strong {
 	color: #003fff;
+}
+.link {
+	text-decoration: none;
 }
 </style>
