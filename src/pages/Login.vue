@@ -122,6 +122,7 @@ export default {
 			}
 			&__button {
 				margin-top: 10px;
+				margin-bottom: 10px;
 				border: 0;
 				padding: 15px;
 				border-radius: 5px;

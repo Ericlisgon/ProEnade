@@ -416,6 +416,7 @@ export default {
 			alternativaCorreta: '',
 			dificuldade: '',
 			palavraChave: '',
+			dataAtual: '',
 			// palavraChave2: '',
 			// palavraChave3: '',
 			modal: false,
@@ -446,6 +447,12 @@ export default {
 		}),
 	},
 	mounted() {
+		var data = new Date()
+		var dia = String(data.getDate()).padStart(2, '0')
+		var mes = String(data.getMonth() + 1).padStart(2, '0')
+		var ano = data.getFullYear()
+		this.dataAtual = dia + '/' + mes + '/' + ano
+		console.log(this.dataAtual)
 		// this.carregarAlunos()
 	},
 	methods: {
@@ -494,9 +501,10 @@ export default {
 					alternativaC: this.alternativaC,
 					alternativaD: this.alternativaD,
 					alternativaE: this.alternativaE,
-					alternativaCorreta: this.alternativaCorreta,
+					alternativaCorreta: this.alternativaCorreta.toUpperCase(),
 					dificuldade: this.dificuldade,
-					palavraChave: this.palavraChave.toLowerCase(),
+					palavraChave: this.palavraChave.toUpperCase(),
+					dataAtual: this.dataAtual,
 					// palavraChave2: this.palavraChave2,
 					// palavraChave3: this.palavraChave3,
 				})
@@ -521,8 +529,6 @@ export default {
 			this.alternativaCorreta = ''
 			this.dificuldade = ''
 			this.palavraChave = ''
-			// this.palavraChave2 = ''
-			// this.palavraChave3 = ''
 		},
 		// async carregarAlunos() {
 		// 	const { data } = await axios.get('http://localhost:3000/Provas')

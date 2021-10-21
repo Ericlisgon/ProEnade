@@ -15,7 +15,12 @@
 						</v-expansion-panel-header>
 
 						<v-expansion-panel-content>
-							<v-card color="#E0E0E0" class="mb-5 pl-5" height="60" flat>
+							<v-card
+								color="#E0E0E0"
+								class="d-flex justify-center mb-5 pl-5"
+								height="60"
+								flat
+							>
 								<v-row>
 									<div class="d-flex align-center mr-5">
 										<strong class="mx-4">Tipo de questão:</strong>
@@ -309,6 +314,12 @@
 							>Alternativa correta:</strong
 						>
 						{{ prova.alternativaCorreta }}
+					</p>
+					<p class="home__list__text2__correta">
+						<strong class="home__list__text2__alternativa mb-3"
+							>Data de cadastro da Questão:</strong
+						>
+						{{ prova.dataAtual }}
 					</p>
 				</v-card-text>
 				<v-card-actions class="d-flex justify-end">
