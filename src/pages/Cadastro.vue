@@ -142,7 +142,7 @@ export default {
 		&__voltar {
 			border: 1px solid #003fff;
 			text-decoration: none;
-			padding: 18px;
+			padding: 12px;
 			border-radius: 5px;
 			margin-top: 10px;
 			text-align: center;
