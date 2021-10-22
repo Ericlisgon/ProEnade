@@ -19,40 +19,33 @@
 						</v-expansion-panel-header>
 
 						<v-expansion-panel-content>
-							<v-card
-								color="#E0E0E0"
-								class="d-flex justify-center mb-5 pl-5"
-								height="60"
-								flat
-							>
-								<v-row>
-									<div class="d-flex align-center mr-5">
-										<strong class="mx-4">Tipo de questão:</strong>
-										<v-radio-group row v-model="tipoQuestao">
-											<v-radio
-												v-for="(radio, index) in radiosQuestoes"
-												:key="index"
-												:label="radio.label"
-												:value="radio.value"
-												color="#0072FF"
-											/>
-										</v-radio-group>
-									</div>
-									<div class="d-flex align-center">
-										<strong class="mx-4">Dificuldade:</strong>
-										<v-radio-group row v-model="dificuldade">
-											<v-radio
-												v-for="(radio, index) in radios"
-												:key="index"
-												:label="radio.label"
-												:value="radio.value"
-												color="#0072FF"
-											/>
-										</v-radio-group>
-									</div>
-								</v-row>
+							<v-card color="#E0E0E0" class="radios" height="60" flat>
+								<div class="d-flex align-center mr-5">
+									<strong class="mr-4">Tipo de questão:</strong>
+									<v-radio-group row v-model="tipoQuestao">
+										<v-radio
+											v-for="(radio, index) in radiosQuestoes"
+											:key="index"
+											:label="radio.label"
+											:value="radio.value"
+											color="#0072FF"
+										/>
+									</v-radio-group>
+								</div>
+								<div class="d-flex align-center">
+									<strong class="mx-4">Dificuldade:</strong>
+									<v-radio-group row v-model="dificuldade">
+										<v-radio
+											v-for="(radio, index) in radios"
+											:key="index"
+											:label="radio.label"
+											:value="radio.value"
+											color="#0072FF"
+										/>
+									</v-radio-group>
+								</div>
 							</v-card>
-							<v-row>
+							<v-row class="mt-2">
 								<v-col md="12" lg="6">
 									<!-- <v-autocomplete
 							:items="itemsCurso"
@@ -702,6 +695,20 @@ export default {
 			},
 		}
 	},
+	watch: {
+		async modalEditar() {
+			if (this.modalEditar === false) {
+				this.consultarProva()
+			} else {
+				false
+			}
+		},
+		// id() {
+		// 	if (this.id > 0) {
+		// 		this.tab = 1
+		// 	}
+		// },
+	},
 	components: {
 		Modal,
 		Header,
@@ -836,17 +843,17 @@ export default {
 					palavraChave: this.editar.palavraChave,
 				}
 			)
-			await this.$store.dispatch('example/getFilter', {
-				tipoQuestao: this.tipoQuestao || null,
-				dificuldade: this.dificuldade || null,
-				curso: this.curso || null,
-				ano: this.ano || null,
-				disciplina1: this.disciplina1 || null,
-				disciplina2: this.disciplina2 || null,
-				disciplina3: this.disciplina3 || null,
-				disciplina4: this.disciplina4 || null,
-				palavraChave: this.palavraChave || null,
-			})
+			// await this.$store.dispatch('example/getFilter', {
+			// 	tipoQuestao: data.tipoQuestao || null,
+			// 	dificuldade: data.dificuldade || null,
+			// 	curso: data.curso || null,
+			// 	ano: data.ano || null,
+			// 	disciplina1: data.disciplina1 || null,
+			// 	disciplina2: data.disciplina2 || null,
+			// 	disciplina3: data.disciplina3 || null,
+			// 	disciplina4: data.disciplina4 || null,
+			// 	palavraChave: data.palavraChave || null,
+			// })
 			this.modalEditar = false
 		},
 		reset() {
@@ -877,6 +884,11 @@ span {
 	font-size: 30px;
 	font-weight: 600;
 	color: #fff;
+}
+.radios {
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
 }
 .home {
 	display: flex;
