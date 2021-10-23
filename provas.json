@@ -116,6 +116,26 @@
       "alternativaCorreta": "E",
       "palavraChave": "teste 21",
       "id": 6
+    },
+    {
+      "tipoQuestao": "MultiplaEscolha",
+      "curso": "ADS",
+      "disciplina1": "ENGENHARIA DE SOFTWARE",
+      "disciplina2": "",
+      "disciplina3": "",
+      "disciplina4": "",
+      "ano": "2008",
+      "questao": "Um analista foi contratado para desenvolver um\n\tsistema de pesquisa de DVDs em lojas virtuais. O sistema\n\tdeverá solicitar ao usuário um título de DVD, que será\n\tusado para realizar a pesquisa nas bases de dados das\n\tlojas conveniadas. Ao detectar a disponibilidade do DVD\n\tsolicitado, o sistema armazenará temporariamente os\n\tdados das lojas (nome, preço, data prevista para entrega\n\tdo produto) e exibirá as informações ordenadas por preço.\n\tApós analisar as informações, o cliente poderá efetuar a\n\tcompra. O contratante deverá testar algumas operações do\n\tsistema antes de ele ser finalizado. Há tempo suficiente\n\tpara que o analista atenda a essa solicitação e efetue\n\teventuais modificações exigidas pelo contratante.\n\n\tCom relação a essa situação, julgue os itens a seguir\n\tquanto ao modelo de ciclo de vida.\n\n\tI - O entendimento do sistema como um todo e a execução\n\tsequencial das fases sem retorno produzem um sistema\n\tque pode ser validado pelo contratante.\n\n\tII - A elaboração do protótipo pode ser utilizada para\n\tresolver dúvidas de comunicação, o que aumenta os\n\triscos de inclusão de novas funcionalidades não prioritárias.\n\n\tIII - A definição das restrições deve ser a segunda fase a\n\tser realizada no desenvolvimento do projeto,\n\tcorrespondendo à etapa de engenharia.\n\n\tIV - Um processo iterativo permite que versões progressivas\n\tmais completas do sistema sejam construídas e\n\tavaliadas.\n\n\tEstão certos apenas os itens",
+      "alternativaA": "I e II.",
+      "alternativaB": "I e III.",
+      "alternativaC": "II e III.",
+      "alternativaD": "II e IV.",
+      "alternativaE": "III e IV",
+      "alternativaCorreta": "D",
+      "dificuldade": "Facil",
+      "palavraChave": "DVDS",
+      "dataAtual": "23/10/2021",
+      "id": 7
     }
   ],
   "usuarios": [
@@ -175,6 +195,5 @@
       "senha": "123",
       "id": 10
     }
- 
   ]
 }
