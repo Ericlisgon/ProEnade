@@ -465,15 +465,12 @@ export default {
 					dificuldade: this.dificuldade,
 					palavraChave: this.palavraChave.toUpperCase(),
 					dataAtual: this.dataAtual,
-					// palavraChave2: this.palavraChave2,
-					// palavraChave3: this.palavraChave3,
 				})
 				this.$store.dispatch('setSnackbar', {
 					status: true,
 					message: 'Questão cadastrada com sucesso!',
 				})
 			}
-			// this.carregarAlunos()
 			this.curso = ''
 			this.disciplina1 = ''
 			this.disciplina2 = ''
@@ -490,40 +487,6 @@ export default {
 			this.dificuldade = ''
 			this.palavraChave = ''
 		},
-		// async carregarAlunos() {
-		// 	const { data } = await axios.get('http://localhost:3000/Provas')
-		// 	this.alunos = data
-		// },
-		// async deletarAluno(e, id) {
-		// 	e.preventDefault()
-
-		// 	const { data } = await axios.delete(`http://localhost:3000/alunos/${id}`)
-
-		// 	this.carregarAlunos()
-		// },
-
-		// carregarInfo(e, aluno) {
-		// 	e.preventDefault()
-		// 	this.editar.id = aluno.id
-		// 	this.editar.nome = aluno.nome
-		// 	this.editar.email = aluno.email
-		// 	this.editar.ra = aluno.ra
-		// 	this.editar.turma = aluno.turma
-		// },
-		// async editarAluno(e) {
-		// 	e.preventDefault()
-		// 	const { data } = await axios.put(
-		// 		`http://localhost:3000/alunos/${this.editar.id}`,
-		// 		{
-		// 			nome: this.editar.nome,
-		// 			email: this.editar.email,
-		// 			ra: this.editar.ra,
-		// 			turma: this.editar.turma,
-		// 		}
-		// 	)
-		// 	this.modalEditar = false
-		// 	this.carregarAlunos()
-		// },
 	},
 }
 </script>
