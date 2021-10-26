@@ -703,19 +703,11 @@ export default {
 				false
 			}
 		},
-		// id() {
-		// 	if (this.id > 0) {
-		// 		this.tab = 1
-		// 	}
-		// },
 	},
 	components: {
 		Modal,
 		Header,
 		// Footer,
-	},
-	mounted() {
-		// this.radios.label = 'red'
 	},
 	computed: {
 		...mapGetters({
@@ -730,9 +722,6 @@ export default {
 		},
 	},
 	methods: {
-		// 	logout() {
-		// 		this.$router.push({ name: 'Login' })
-		// 	},
 		async consultarProva(e) {
 			e.preventDefault()
 			this.$store.dispatch('setLoading', true)
