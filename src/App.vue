@@ -3,6 +3,7 @@
 		<v-main class="app">
 			<router-view />
 		</v-main>
+
 		<v-snackbar color="#FF5A00" v-model="snackbar" @input="change">
 			{{ snackbarMessage }}
 		</v-snackbar>
