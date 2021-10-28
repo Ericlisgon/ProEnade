@@ -3,6 +3,7 @@
 		<a name="section1">
 			<Header />
 		</a>
+		<!-- {{ getImage() }} -->
 		<!-- <div class="header"> -->
 		<!-- </div> -->
 
@@ -263,9 +264,14 @@
 				</v-card-text>
 				<v-card-text class="home__list__text2">
 					<strong class="home__list__text2__question">Questão:</strong>
-					<p class="home__list__text2__paragrafo">
-						{{ prova.questao }}
-					</p>
+					<div class="d-flex justify-center flex-column">
+						<p class="home__list__text2__paragrafo">
+							{{ prova.questao }}
+						</p>
+						<div class="content-img">
+							<img v-if="prova.img" :src="getImage(prova.img)" class="img" />
+						</div>
+					</div>
 
 					<p
 						class="home__list__text2__paragrafo"
@@ -722,6 +728,11 @@ export default {
 		},
 	},
 	methods: {
+		getImage(fileName) {
+			if (!fileName) return
+			const [name, type] = fileName.split('.')
+			return require(`@/assets/${name}.${type}`)
+		},
 		async consultarProva(e) {
 			e.preventDefault()
 			this.$store.dispatch('setLoading', true)
@@ -1088,5 +1099,13 @@ strong {
 }
 .link {
 	text-decoration: none;
+}
+.content-img {
+	width: 100%;
+}
+.img {
+	margin-inline: 25%;
+	width: 500px;
+	height: 300px;
 }
 </style>
