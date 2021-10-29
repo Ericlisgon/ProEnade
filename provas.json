@@ -1,4 +1,4 @@
- "provas": [
+ {"provas": [
     {
       "tipoQuestao": "MultiplaEscolha",
       "dificuldade": "Medio",
@@ -1202,4 +1202,4 @@
       "id": 7
     }
   ]
-
+ }
