@@ -84,7 +84,7 @@
 						</a>
 					</div>
 					<v-form class="modal__form">
-						<v-row>
+						<v-row class="d-flex justify-space-between align-center">
 							<div class="d-flex align-center">
 								<strong class="mx-4">Tipo de questão:</strong>
 								<v-radio-group row v-model="tipoQuestao">
@@ -95,6 +95,18 @@
 										:value="radio.value"
 									/>
 								</v-radio-group>
+							</div>
+							<div class="d-flex align-center justify-end ">
+								<strong>N° Questão</strong>
+								<v-col md="12" lg="4">
+									<v-text-field
+										type="number"
+										class="modal__form__input"
+										v-model="codeQuestion"
+										outlined
+										hide-details
+									/>
+								</v-col>
 							</div>
 						</v-row>
 						<v-row>
@@ -168,13 +180,6 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplina 3"
-									class="modal__form__input"
-									v-model="disciplina3"
-									outlined
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplina 3"
@@ -184,13 +189,6 @@
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplina 4"
-									class="modal__form__input"
-									v-model="disciplina4"
-									outlined
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplina 4"
@@ -361,6 +359,7 @@ export default {
 	data() {
 		return {
 			tipoQuestao: 'MultiplaEscolha',
+			codeQuestion: '',
 			curso: '',
 			disciplina1: '',
 			disciplina2: '',
@@ -431,6 +430,11 @@ export default {
 					status: true,
 					message: 'Inclua uma disciplina',
 				})
+			} else if (this.codeQuestion === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua o número da questão',
+				})
 			} else if (this.ano === '') {
 				this.$store.dispatch('setSnackbar', {
 					status: true,
@@ -449,6 +453,7 @@ export default {
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {
 					tipoQuestao: this.tipoQuestao,
+					codeQuestion: this.codeQuestion,
 					curso: this.curso.toUpperCase(),
 					disciplina1: this.disciplina1.toUpperCase(),
 					disciplina2: this.disciplina2.toUpperCase(),
@@ -472,6 +477,7 @@ export default {
 				})
 			}
 			this.curso = ''
+			this.codeQuestion = ''
 			this.disciplina1 = ''
 			this.disciplina2 = ''
 			this.disciplina3 = ''

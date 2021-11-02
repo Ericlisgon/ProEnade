@@ -154,7 +154,7 @@
 								</v-col>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="12">
+								<v-col md="12" lg="10">
 									<v-text-field
 										type="text"
 										label="Digite frase ou palavra-chave"
@@ -164,7 +164,18 @@
 										hide-details
 									/>
 								</v-col>
+								<v-col md="12" lg="2">
+									<v-text-field
+										type="text"
+										label="N° Questão"
+										class="home__form__input"
+										v-model="codeQuestion"
+										outlined
+										hide-details
+									/>
+								</v-col>
 							</v-row>
+							<!-- {{ provas }} -->
 							<div class="d-flex">
 								<button
 									:loading="loading"
@@ -375,13 +386,14 @@
 			<Modal v-if="modalEditar">
 				<v-card class="modal">
 					<div class="modal__header">
-						<h3 class="modal__header__title">Cadastrar nova questão</h3>
-						<a @click="modalEditar = false" href="#">
+						<h3 class="modal__header__title">Editar questão</h3>
+
+						<a @click="modalEditar = false" name="section2" href="#">
 							<img src="@/assets/Vector.svg" alt="" />
 						</a>
 					</div>
 					<v-form class="modal__form">
-						<v-row>
+						<v-row class="d-flex justify-space-between align-center">
 							<div class="d-flex align-center">
 								<strong class="mx-4">Tipo de questão:</strong>
 								<v-radio-group row v-model="editar.tipoQuestao">
@@ -392,6 +404,18 @@
 										:value="radio.value"
 									/>
 								</v-radio-group>
+							</div>
+							<div class="d-flex align-center justify-end ">
+								<strong>N° Questão</strong>
+								<v-col md="12" lg="4">
+									<v-text-field
+										type="number"
+										class="modal__form__input"
+										v-model="editar.codeQuestion"
+										outlined
+										hide-details
+									/>
+								</v-col>
 							</div>
 						</v-row>
 						<v-row>
@@ -603,25 +627,6 @@
 										outlined
 									/>
 								</v-col>
-								<!-- <v-col md="12" lg="4">
-									<v-text-field
-										type="text"
-										label="Palavra chave 2"
-										class="modal__form__input"
-										v-model="palavraChave2"
-										outlined
-									/>
-								</v-col>
-
-								<v-col md="12" lg="4">
-									<v-text-field
-										type="text"
-										label="Palavra chave 3"
-										class="modal__form__input"
-										v-model="palavraChave3"
-										outlined
-									/>
-								</v-col> -->
 							</v-row>
 						</div>
 						<!-- <v-text-area
@@ -632,9 +637,22 @@
 							outlined
 						/> -->
 					</v-form>
-					<v-btn @click="editarQuestao" class="modal__form__btn">
-						Editar
-					</v-btn>
+
+					<v-row class="d-flex justify-space-between mb-6">
+						<v-btn @click="editarQuestao" class="modal__form__btn">
+							Editar
+						</v-btn>
+						<a class="modal__form__link mr-4" href="#section2">
+							<v-tooltip color="#FF5A00" top>
+								<template v-slot:activator="{ on, attrs }">
+									<v-btn icon color="primary" dark v-bind="attrs" v-on="on">
+										<v-icon color="#FF5A00">arrow_upward</v-icon>
+									</v-btn>
+								</template>
+								<h4>Voltar ao topo</h4>
+							</v-tooltip>
+						</a>
+					</v-row>
 				</v-card>
 			</Modal>
 		</div>
@@ -667,8 +685,7 @@ export default {
 			alternativaCorreta: '',
 			dificuldade: '',
 			palavraChave: '',
-			// palavraChave2: '',
-			// palavraChave3: '',
+			codeQuestion: '',
 			modalEditar: false,
 			radios: [
 				{ label: 'Fácil', value: 'Facil' },
@@ -698,6 +715,7 @@ export default {
 				alternativaCorreta: '',
 				dificuldade: '',
 				palavraChave: '',
+				codeQuestion: '',
 			},
 		}
 	},
@@ -746,7 +764,8 @@ export default {
 					this.disciplina3 === '' &&
 					this.disciplina4 === '' &&
 					this.dificuldade === '' &&
-					this.palavraChave === ''
+					this.palavraChave === '' &&
+					this.codeQuestion === ''
 				) {
 					this.$store.dispatch('setSnackbar', {
 						status: true,
@@ -763,6 +782,7 @@ export default {
 						disciplina3: this.disciplina3.toUpperCase() || null,
 						disciplina4: this.disciplina4.toUpperCase() || null,
 						palavraChave: this.palavraChave.toLowerCase() || null,
+						codeQuestion: this.codeQuestion || null,
 					})
 					this.provas = data
 					console.log('PROVAS', this.provas)
@@ -778,21 +798,6 @@ export default {
 
 				throw e
 			}
-			// 		// this.carregarAlunos()
-			// 		this.curso = ''
-			// 		this.disciplina = ''
-			// 		this.ano = ''
-			// 		this.questao = ''
-			// 		this.alternativaA = ''
-			// 		this.alternativaB = ''
-			// 		this.alternativaC = ''
-			// 		this.alternativaD = ''
-			// 		this.alternativaE = ''
-			// 		this.alternativaCorreta = ''
-			// 		this.dificuldade = ''
-			// 		this.palavraChave1 = ''
-			// 		this.palavraChave2 = ''
-			// 		this.palavraChave3 = ''
 		},
 
 		async deletarProva(e, id) {
@@ -819,6 +824,7 @@ export default {
 			this.editar.alternativaE = prova.alternativaE
 			this.editar.alternativaCorreta = prova.alternativaCorreta
 			this.editar.palavraChave = prova.palavraChave
+			this.editar.codeQuestion = prova.codeQuestion
 		},
 		async editarQuestao(e) {
 			e.preventDefault()
@@ -841,6 +847,7 @@ export default {
 					alternativaE: this.editar.alternativaE,
 					alternativaCorreta: this.editar.alternativaCorreta,
 					palavraChave: this.editar.palavraChave,
+					codeQuestion: this.editar.codeQuestion,
 				}
 			)
 			// await this.$store.dispatch('example/getFilter', {
@@ -866,6 +873,7 @@ export default {
 			this.disciplina4 = ''
 			this.dificuldade = ''
 			this.palavraChave = ''
+			this.codeQuestion = ''
 			// this.$store.dispatch('example/emptyList')
 		},
 		back() {
@@ -1090,6 +1098,9 @@ span {
 					background: #30438f;
 					color: #fff;
 				}
+			}
+			&__link {
+				text-decoration: none;
 			}
 		}
 	}
