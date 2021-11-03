@@ -2,11 +2,11 @@ import loadFields from '@/services/loadFields'
 export default {
 	async getFilter(
 		{ commit, dispatch },
-		{tipoQuestao, dificuldade, curso, ano, disciplina1, disciplina2, disciplina3, disciplina4, palavraChave}
+		{tipoQuestao, dificuldade, curso, ano, disciplina1, disciplina2, disciplina3, disciplina4, palavraChave, codeQuestion}
 	) {
     try {
       const { data } = await loadFields.getFilter(
-        tipoQuestao, dificuldade, curso, ano, disciplina1, disciplina2, disciplina3, disciplina4, palavraChave
+        tipoQuestao, dificuldade, curso, ano, disciplina1, disciplina2, disciplina3, disciplina4, palavraChave, codeQuestion
         )
         commit('setFilter', data)
         return data
