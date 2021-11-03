@@ -3,7 +3,7 @@ import axios from 'axios'
 import { getStorage } from '../utils/storage'
 
 export default {
-	getFilter: (tipoQuestao, dificuldade, curso, ano, disciplina1, disciplina2, disciplina3, disciplina4, palavraChave) =>
+	getFilter: (tipoQuestao, dificuldade, curso, ano, disciplina1, disciplina2, disciplina3, disciplina4, palavraChave, codeQuestion) =>
 		Http.get('provas', {
 			params: {
 				tipoQuestao,
@@ -14,7 +14,8 @@ export default {
         disciplina2,
         disciplina3,
         disciplina4,
-        palavraChave
+        palavraChave,
+        codeQuestion
 			},
 		}),
     // getListCategories: () => Http.get('TemplateDinamico/ListarCategorias'),
