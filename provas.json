@@ -438,6 +438,7 @@
     {
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "26",
 			"disciplina1": "COMPUTABILIDADES E COMPLEXIDADE DE ALGORITIMOS",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -459,6 +460,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "27",
 			"disciplina1": "FUNDAMENTOS DE ESTRUTURA DE DADOS",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -479,6 +481,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "28",
 			"disciplina1": "MATEMÁTICA APLICADA",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -499,6 +502,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "29",
 			"disciplina1": "LÓGICA COMPUTACIONAL",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -519,6 +523,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "30",
 			"disciplina1": "BANCO DE DADOS",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -539,6 +544,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "31",
 			"disciplina1": "GESTÃO DE TECNOLOGIA DE INFORMAÇÃO",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -559,6 +565,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "32",
 			"disciplina1": "PROGRAMAÇÃO ORIENTADA A OBJETOS",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -579,6 +586,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "33",
 			"disciplina1": "ANÁLISE DE PROJETOS 1",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -599,6 +607,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "34",
 			"disciplina1": "MODELAGEM DE DADOS",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -619,6 +628,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "35",
 			"disciplina1": "MODELAGEM DE DADOS E BANCO DE DADOS",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -639,12 +649,13 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "36",
 			"disciplina1": "ENGENHARIA DE SOFTWARE",
 			"disciplina2": "",
 			"disciplina3": "",
 			"disciplina4": "",
 			"ano": "2008",
-			"questao": "sistema de ERP (enterprise resource planning) contendo um conjunto de módulos que integra todos os departamentos existentes. Após um ano de utilização, houve uma mudança na legislação e, para atender as novas exigências, foi necessária uma manutenção no sistema ERP. Considerando essa situação hipotética, é correto afirmar que a empresa irá realizar uma manutenção",
+			"questao": " Após realizar uma análise de mercado em busca de soluções para aprimorar o seu negócio, uma empresa adquiriu um sistema de ERP (enterprise resource planning) contendo um conjunto de módulos que integra todos os departamentos existentes. Após um ano de utilização, houve uma mudança na legislação e, para atender as novas exigências, foi necessária uma manutenção no sistema ERP. Considerando essa situação hipotética, é correto afirmar que a empresa irá realizar uma manutenção",
 			"alternativaA": "corretiva.",
 			"alternativaB": "adaptativa.",
 			"alternativaC": "aperfeiçoadora.",
@@ -659,6 +670,7 @@
 		{
 			"tipoQuestao": "MultiplaEscolha",
 			"curso": "ADS",
+			"codeQuestion": "37",
 			"disciplina1": "REDES DE COMPUTADORES",
 			"disciplina2": "",
 			"disciplina3": "",
@@ -678,6 +690,7 @@
 		},
 		{
 			"tipoQuestao": "DISCURSIVA",
+			"codeQuestion": "38",
 			"curso": "ADS",
 			"disciplina1": "ENGENHARIA DE SOFTWARE ",
 			"disciplina2": "ANÁLISE E PROJETOS DE SISTEMAS 2",
@@ -694,6 +707,7 @@
 		{
 			"tipoQuestao": "DISCURSIVA",
 			"curso": "ADS",
+			"codeQuestion": "39",
 			"disciplina1": "ENGENHARIA DE SOFTWARE",
 			"disciplina2": "ANÁLISE E PROJETOS DE SISTEMAS 2",
 			"disciplina3": "",
@@ -709,6 +723,7 @@
 		{
 			"tipoQuestao": "DISCURSIVA",
 			"curso": "ADS",
+			"codeQuestion": "40",
 			"disciplina1": " TÉCNICAS DE DESENVOLVIMENTO DE ALGORITIMOS ",
 			"disciplina2": " PROGRAMAÇÃO DE COMPUTADORES",
 			"disciplina3": "",
