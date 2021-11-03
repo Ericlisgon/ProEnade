@@ -122,6 +122,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "11",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
@@ -142,6 +143,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "12",
       "curso": "ADS",
       "disciplina1": "PROGRAMAÇÃO ORIENTADA A OBJETOS",
       "disciplina2": "",
@@ -162,6 +164,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "13",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
@@ -182,6 +185,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "14",
       "curso": "ADS",
       "disciplina1": "QUALIDADE DE SOFTWARE",
       "disciplina2": "",
@@ -202,6 +206,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "15",
       "curso": "ADS",
       "disciplina1": "SISTEMAS OPERACIONAIS",
       "disciplina2": "",
@@ -222,6 +227,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "16",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
@@ -242,13 +248,14 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "17",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE REQUISITOS",
       "disciplina2": "",
       "disciplina3": "",
       "disciplina4": "",
       "ano": "2008",
-      "questao": "Os alunos de uma disciplina deveriamescolher um sistema de média complexidade,contendo no mínimo 100 funcionalidades, paraser modelado em UML e codificado em umalinguagem orientada a objetos. Um dos gruposde alunos estabeleceu a seguinte estratégia paraidentificação e seleção do sistema.I Cada integrante do grupo deveria criar umnickname (apelido) em um software de chat.II O grupo deveria se reunir em um horáriopredeterminado.III Durante o chat, os seguintes procedimentosdeveriam ser realizados:• cada integrante deveria sugerir um oumais sistemas e justificar sua escolha, enão poderia criticar as idéias dos outros;• à medida que as idéias fossem digitadas,o líder deveria copiá-las para um editor detexto e controlar o tempo de sugestão;• quando o limite de tempo fosse atingido,o líder disponibilizaria todas as sugestõespara serem analisadas pelo grupo;• as 5 melhores idéias seriam selecionadase colocadas em votação para a escolhada melhor idéia, segundo critériospredefinidos.Nessa situação, a estratégia utilizada pelo grupode alunos é uma adaptação da técnica delevantamento e elicitação de requisitosdenominada",
+      "questao": "Os alunos de uma disciplina deveriam escolher um sistema de média complexidade,contendo no mínimo 100 funcionalidades, paraser modelado em UML e codificado em umalinguagem orientada a objetos. Um dos gruposde alunos estabeleceu a seguinte estratégia paraidentificação e seleção do sistema.I Cada integrante do grupo deveria criar umnickname (apelido) em um software de chat.II O grupo deveria se reunir em um horáriopredeterminado.III Durante o chat, os seguintes procedimentosdeveriam ser realizados:• cada integrante deveria sugerir um oumais sistemas e justificar sua escolha, enão poderia criticar as idéias dos outros;• à medida que as idéias fossem digitadas,o líder deveria copiá-las para um editor detexto e controlar o tempo de sugestão;• quando o limite de tempo fosse atingido,o líder disponibilizaria todas as sugestõespara serem analisadas pelo grupo;• as 5 melhores idéias seriam selecionadase colocadas em votação para a escolhada melhor idéia, segundo critériospredefinidos.Nessa situação, a estratégia utilizada pelo grupode alunos é uma adaptação da técnica delevantamento e elicitação de requisitosdenominada",
       "alternativaA": "joint application design.",
       "alternativaB": "PIECES (perfomance informação/dadoseconomia controle eficiência e serviços).",
       "alternativaC": "facilitaded application specificationtechniques.",
@@ -262,6 +269,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "18",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE REQUISITOS",
       "disciplina2": "QUALIDADE DE SOFTWARE",
@@ -282,6 +290,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "19",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "PROGRAMAÇÃO ORIENTADA A OBJETOS",
@@ -302,6 +311,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "20",
       "curso": "ADS",
       "disciplina1": "TÉCNICAS DESENVOLVIMENTO DE ALGORITMOS",
       "disciplina2": "PROGRAMAÇÃO DE COMPUTADORES",
@@ -322,6 +332,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "21",
       "curso": "ADS",
       "disciplina1": "PROGRAMAÇÃO DE COMPUTADORES",
       "disciplina2": "TÉCNICAS DE DESENVOLVIMENTO DE ALGORITMOS",
@@ -342,6 +353,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "22",
       "curso": "ADS",
       "disciplina1": "PROGRAMAÇÂO DE COMPUTADORES",
       "disciplina2": "TÉCNICAS DE DESENVOLVIMENTO DE ALGORITMOS",
@@ -362,6 +374,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "23",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "ENGENHARIA DE REQUISITOS",
@@ -382,6 +395,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "24",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
@@ -403,6 +417,7 @@
     },
     {
       "tipoQuestao": "MultiplaEscolha",
+      "codeQuestion": "25",
       "curso": "ADS",
       "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
