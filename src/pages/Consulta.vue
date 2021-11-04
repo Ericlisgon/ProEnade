@@ -825,6 +825,7 @@ export default {
 			this.editar.alternativaCorreta = prova.alternativaCorreta
 			this.editar.palavraChave = prova.palavraChave
 			this.editar.codeQuestion = prova.codeQuestion
+			this.editar.dataAtual = prova.dataAtual
 		},
 		async editarQuestao(e) {
 			e.preventDefault()
@@ -848,6 +849,7 @@ export default {
 					alternativaCorreta: this.editar.alternativaCorreta,
 					palavraChave: this.editar.palavraChave,
 					codeQuestion: this.editar.codeQuestion,
+					dataAtual: this.editar.dataAtual,
 				}
 			)
 			// await this.$store.dispatch('example/getFilter', {
