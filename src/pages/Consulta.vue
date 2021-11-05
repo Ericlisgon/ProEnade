@@ -715,6 +715,7 @@ export default {
 				alternativaCorreta: '',
 				dificuldade: '',
 				palavraChave: '',
+				dataAtual: '',
 				codeQuestion: '',
 			},
 		}
@@ -727,6 +728,15 @@ export default {
 				false
 			}
 		},
+	},
+	mounted() {
+		var data = new Date()
+		var dia = String(data.getDate()).padStart(2, '0')
+		var mes = String(data.getMonth() + 1).padStart(2, '0')
+		var ano = data.getFullYear()
+		this.dataAtual = dia + '/' + mes + '/' + ano
+		console.log(this.dataAtual, 'EDITAR')
+		// this.carregarAlunos()
 	},
 	components: {
 		Modal,
