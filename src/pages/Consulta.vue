@@ -3,15 +3,7 @@
 		<a name="section1">
 			<Header />
 		</a>
-		<!-- {{ getImage() }} -->
-		<!-- <div class="header"> -->
-		<!-- </div> -->
-
 		<div class="home content">
-			<!-- <a name="section1">
-				<span></span>
-			</a> -->
-
 			<div class="home__form">
 				<v-expansion-panels multiple v-model="panel">
 					<v-expansion-panel v-model="hasItems">
@@ -48,14 +40,6 @@
 							</v-card>
 							<v-row class="mt-2">
 								<v-col md="12" lg="6">
-									<!-- <v-autocomplete
-							:items="itemsCurso"
-							label="Cursos"
-							class="home__form__input"
-							v-model="curso"
-							solo
-							hide-details
-						/> -->
 									<v-text-field
 										type="text"
 										label="Cursos - Ex: ADS, ciencias da computacao..."
@@ -79,14 +63,6 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-autocomplete
-							:items="itemsDisciplina"
-							label="Disciplina 1"
-							class="home__form__input"
-							v-model="disciplina1"
-							solo
-							hide-details
-						/> -->
 									<v-text-field
 										type="text"
 										label="Disciplina 1 - Ex: engenharia de software"
@@ -97,14 +73,6 @@
 									/>
 								</v-col>
 								<v-col md="12" lg="6">
-									<!-- <v-autocomplete
-							:items="itemsDisciplina"
-							label="Disciplinas 2"
-							class="home__form__input"
-							v-model="disciplina2"
-							outlined
-							hide-details
-						/> -->
 									<v-text-field
 										type="text"
 										label="Disciplinas 2 - Ex: analise e projeto de sistemas"
@@ -117,14 +85,6 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-autocomplete
-							:items="itemsDisciplina"
-							label="Disciplina 3"
-							class="home__form__input"
-							v-model="disciplina3"
-							outlined
-							hide-details
-						/> -->
 									<v-text-field
 										type="text"
 										label="Disciplina 3 - Ex: aplicacoes para internet"
@@ -135,14 +95,6 @@
 									/>
 								</v-col>
 								<v-col md="12" lg="6">
-									<!-- <v-autocomplete
-							:items="itemsDisciplina"
-							label="Disciplina 4"
-							class="home__form__input"
-							v-model="disciplina4"
-							outlined
-							hide-details
-						/> -->
 									<v-text-field
 										type="text"
 										label="Disciplina 4 - Ex: gestao de TI "
@@ -274,13 +226,27 @@
 					</div>
 				</v-card-text>
 				<v-card-text class="home__list__text2">
-					<strong class="home__list__text2__question">Questão:</strong>
+					<strong class="home__list__text2__question"
+						>Questão {{ prova.codeQuestion }}:</strong
+					>
 					<div class="d-flex justify-center flex-column">
+						<div class="content-img">
+							<img v-if="prova.img2" :src="getImage(prova.img2)" class="img" />
+						</div>
 						<p class="home__list__text2__paragrafo">
 							{{ prova.questao }}
 						</p>
-						<div class="content-img">
-							<img v-if="prova.img" :src="getImage(prova.img)" class="img" />
+						<div class="container-imgs">
+							<div class="content-img">
+								<img v-if="prova.img" :src="getImage(prova.img)" class="img" />
+							</div>
+							<div class="content-img">
+								<img
+									v-if="prova.img3"
+									:src="getImage(prova.img3)"
+									class="img"
+								/>
+							</div>
 						</div>
 					</div>
 
@@ -1123,12 +1089,18 @@ strong {
 .link {
 	text-decoration: none;
 }
-.content-img {
+.container-imgs {
 	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.content-img {
+	width: 50%;
+	display: flex;
+	justify-content: center;
 }
 .img {
-	margin-inline: 25%;
-	width: 500px;
-	height: 300px;
+	width: 400px;
+	height: 200px;
 }
 </style>
