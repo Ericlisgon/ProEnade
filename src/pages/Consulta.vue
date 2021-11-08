@@ -770,8 +770,7 @@ export default {
 			const [name, type] = fileName.split('.')
 			return require(`@/assets/${name}.${type}`)
 		},
-		async consultarProva(e) {
-			e.preventDefault()
+		async consultarProva() {
 			this.$store.dispatch('setLoading', true)
 			try {
 				if (
@@ -849,8 +848,7 @@ export default {
 			this.editar.img2 = prova.img2
 			this.editar.img3 = prova.img3
 		},
-		async editarQuestao(e) {
-			e.preventDefault()
+		async editarQuestao() {
 			const { data } = await axios.put(
 				`http://localhost:3000/provas/${this.editar.id}`,
 				{
@@ -877,6 +875,7 @@ export default {
 					img3: this.editar.img3,
 				}
 			)
+			// this.consultarProva()
 			// await this.$store.dispatch('example/getFilter', {
 			// 	tipoQuestao: data.tipoQuestao || null,
 			// 	dificuldade: data.dificuldade || null,
