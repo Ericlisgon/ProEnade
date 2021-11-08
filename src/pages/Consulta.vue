@@ -127,7 +127,6 @@
 									/>
 								</v-col>
 							</v-row>
-							<!-- {{ provas }} -->
 							<div class="d-flex">
 								<button
 									:loading="loading"
@@ -358,6 +357,47 @@
 							<img src="@/assets/Vector.svg" alt="" />
 						</a>
 					</div>
+					<v-col md="12" lg="4">
+						<v-text-field
+							type="text"
+							label="Data de cadastro"
+							class="modal__form__input"
+							v-model="editar.dataAtual"
+							outlined
+							hide-details
+						/>
+					</v-col>
+
+					<v-row class="modal__form__invisible">
+						<v-col md="12" lg="4">
+							<v-text-field
+								type="text"
+								class="modal__form__input"
+								v-model="editar.img"
+								outlined
+								hide-details
+							/>
+						</v-col>
+						<v-col md="12" lg="4">
+							<v-text-field
+								type="text"
+								class="modal__form__input"
+								v-model="editar.img2"
+								outlined
+								hide-details
+							/>
+						</v-col>
+						<v-col md="12" lg="4">
+							<v-text-field
+								type="text"
+								class="modal__form__input"
+								v-model="editar.img3"
+								outlined
+								hide-details
+							/>
+						</v-col>
+					</v-row>
+
 					<v-form class="modal__form">
 						<v-row class="d-flex justify-space-between align-center">
 							<div class="d-flex align-center">
@@ -605,7 +645,7 @@
 					</v-form>
 
 					<v-row class="d-flex justify-space-between mb-6">
-						<v-btn @click="editarQuestao" class="modal__form__btn">
+						<v-btn @click="editarQuestao" class="modal__form__btn ml-6">
 							Editar
 						</v-btn>
 						<a class="modal__form__link mr-4" href="#section2">
@@ -683,6 +723,9 @@ export default {
 				palavraChave: '',
 				dataAtual: '',
 				codeQuestion: '',
+				img: '',
+				img2: '',
+				img3: '',
 			},
 		}
 	},
@@ -702,7 +745,7 @@ export default {
 		var ano = data.getFullYear()
 		this.dataAtual = dia + '/' + mes + '/' + ano
 		console.log(this.dataAtual, 'EDITAR')
-		// this.carregarAlunos()
+		this.consultarProva()
 	},
 	components: {
 		Modal,
@@ -802,6 +845,9 @@ export default {
 			this.editar.palavraChave = prova.palavraChave
 			this.editar.codeQuestion = prova.codeQuestion
 			this.editar.dataAtual = prova.dataAtual
+			this.editar.img = prova.img
+			this.editar.img2 = prova.img2
+			this.editar.img3 = prova.img3
 		},
 		async editarQuestao(e) {
 			e.preventDefault()
@@ -826,6 +872,9 @@ export default {
 					palavraChave: this.editar.palavraChave,
 					codeQuestion: this.editar.codeQuestion,
 					dataAtual: this.editar.dataAtual,
+					img: this.editar.img,
+					img2: this.editar.img2,
+					img3: this.editar.img3,
 				}
 			)
 			// await this.$store.dispatch('example/getFilter', {
@@ -1045,6 +1094,9 @@ span {
 				width: 100%;
 				display: flex;
 				flex-direction: column;
+			}
+			&__invisible {
+				display: none;
 			}
 			&__btn {
 				width: 116px;
