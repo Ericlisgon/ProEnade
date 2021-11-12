@@ -62,10 +62,8 @@ export default {
 				},
 			})
 			if (data.length > 0) {
-				// alert("logando..");
 				this.$router.push('/home')
 			} else {
-				// alert('Usuário ou senha incorretos')
 				this.$store.dispatch('setSnackbar', {
 					status: true,
 					message: 'Usuário ou senha incorretos',

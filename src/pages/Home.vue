@@ -24,57 +24,6 @@
 					</p>
 				</v-card>
 			</div>
-			<!-- <table class="home__table content ">
-				
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Email</th>
-					<th>RA</th>
-					<th>Turma</th>
-					<th>Ações</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<tr v-for="aluno in alunos" :key="aluno.id">
-					<td>{{ aluno.nome }}</td>
-					<td>
-						{{ aluno.email }}
-					</td>
-					<td>
-						{{ aluno.ra }}
-					</td>
-					<td>
-						{{ aluno.turma }}
-					</td>
-					<td>
-						<a
-							@click=";(modalEditar = true), carregarInfo($event, aluno)"
-							href="#"
-						>
-							<img src="@/assets/editar-imagem.svg" />
-						</a>
-						<a @click="deletarAluno($event, aluno.id)" href="#">
-							<img src="@/assets/lixeira.svg" />
-						</a>
-					</td>
-				</tr>
-			</tbody>
-		</table> -->
-			<!-- <a @click=";(modalEditar = true), carregarInfo($event, aluno)" href="#">
-				<img src="@/assets/editar-imagem.svg" />
-			</a>
-			<a @click="deletarAluno($event, aluno.id)" href="#">
-				<img src="@/assets/lixeira.svg" />
-			</a> -->
-
-			<div class="home__buttons content">
-				<!-- <button @click="logout" class="home__buttons__voltar">Voltar</button> -->
-				<!-- <button @click="modal = true" class="home__buttons__adicionar">
-					Novo aluno
-				</button> -->
-			</div>
 			<Modal v-if="modal">
 				<v-card class="modal">
 					<div class="modal__header">
@@ -111,14 +60,6 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsCurso"
-									label="Cursos"
-									class="modal__form__input"
-									v-model="curso"
-									outlined
-									hide-details
-								/> -->
 								<v-text-field
 									type="text"
 									label="Cursos"
@@ -142,14 +83,6 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplina 1"
-									class="modal__form__input"
-									v-model="disciplina1"
-									outlined
-									hide-details
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplina 1"
@@ -160,14 +93,6 @@
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplinas 2"
-									class="modal__form__input"
-									v-model="disciplina2"
-									outlined
-									hide-details
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplinas 2"
@@ -304,25 +229,6 @@
 										outlined
 									/>
 								</v-col>
-								<!-- <v-col md="12" lg="4">
-									<v-text-field
-										type="text"
-										label="Palavra chave 2"
-										class="modal__form__input"
-										v-model="palavraChave2"
-										outlined
-									/>
-								</v-col>
-
-								<v-col md="12" lg="4">
-									<v-text-field
-										type="text"
-										label="Palavra chave 3"
-										class="modal__form__input"
-										v-model="palavraChave3"
-										outlined
-									/>
-								</v-col> -->
 							</v-row>
 						</div>
 						<v-row class="d-flex justify-space-between mb-6">
@@ -344,7 +250,6 @@
 				</v-card>
 			</Modal>
 		</div>
-		<!-- <Footer /> -->
 	</v-card>
 </template>
 
@@ -352,7 +257,6 @@
 import axios from 'axios'
 import Modal from '@/components/Modal'
 import Header from '@/components/Header'
-// import Footer from '@/components/Footer'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -376,8 +280,6 @@ export default {
 			dificuldade: '',
 			palavraChave: '',
 			dataAtual: '',
-			// palavraChave2: '',
-			// palavraChave3: '',
 			modal: false,
 			modalEditar: false,
 			radios: [
@@ -395,7 +297,6 @@ export default {
 	components: {
 		Modal,
 		Header,
-		// Footer,
 	},
 	computed: {
 		...mapGetters({
@@ -412,7 +313,6 @@ export default {
 		var ano = data.getFullYear()
 		this.dataAtual = dia + '/' + mes + '/' + ano
 		console.log(this.dataAtual)
-		// this.carregarAlunos()
 	},
 	methods: {
 		pageConsultar() {

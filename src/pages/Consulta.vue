@@ -426,14 +426,6 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsCurso"
-									label="Cursos"
-									class="modal__form__input"
-									v-model="curso"
-									outlined
-									hide-details
-								/> -->
 								<v-text-field
 									type="text"
 									label="Cursos"
@@ -457,14 +449,6 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplina 1"
-									class="modal__form__input"
-									v-model="disciplina1"
-									outlined
-									hide-details
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplina 1"
@@ -475,14 +459,6 @@
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplinas 2"
-									class="modal__form__input"
-									v-model="disciplina2"
-									outlined
-									hide-details
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplinas 2"
@@ -495,13 +471,6 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplina 3"
-									class="modal__form__input"
-									v-model="disciplina3"
-									outlined
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplina 3"
@@ -511,13 +480,6 @@
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<!-- <v-autocomplete
-									:items="itemsDisciplina"
-									label="Disciplina 4"
-									class="modal__form__input"
-									v-model="disciplina4"
-									outlined
-								/> -->
 								<v-text-field
 									type="text"
 									label="Disciplina 4"
@@ -635,13 +597,6 @@
 								</v-col>
 							</v-row>
 						</div>
-						<!-- <v-text-area
-							type="text"
-							label="Insira sua prova"
-							class="modal__form__text"
-							v-model="questao"
-							outlined
-						/> -->
 					</v-form>
 
 					<v-row class="d-flex justify-space-between mb-6">
@@ -668,7 +623,6 @@
 import axios from 'axios'
 import Modal from '@/components/Modal'
 import Header from '@/components/Header'
-// import Footer from '@/components/Footer'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -744,13 +698,12 @@ export default {
 		var mes = String(data.getMonth() + 1).padStart(2, '0')
 		var ano = data.getFullYear()
 		this.dataAtual = dia + '/' + mes + '/' + ano
-		console.log(this.dataAtual, 'EDITAR')
-		this.consultarProva()
+		// console.log(this.dataAtual, 'EDITAR')
+		// this.consultarProva()
 	},
 	components: {
 		Modal,
 		Header,
-		// Footer,
 	},
 	computed: {
 		...mapGetters({
@@ -810,6 +763,7 @@ export default {
 							message: 'Nenhum resultado para esses filtros',
 						})
 					}
+					this.filterDisciplina()
 				}
 			} catch (e) {
 				this.$store.dispatch('setLoading', false)
@@ -875,18 +829,8 @@ export default {
 					img3: this.editar.img3,
 				}
 			)
-			// this.consultarProva()
-			// await this.$store.dispatch('example/getFilter', {
-			// 	tipoQuestao: data.tipoQuestao || null,
-			// 	dificuldade: data.dificuldade || null,
-			// 	curso: data.curso || null,
-			// 	ano: data.ano || null,
-			// 	disciplina1: data.disciplina1 || null,
-			// 	disciplina2: data.disciplina2 || null,
-			// 	disciplina3: data.disciplina3 || null,
-			// 	disciplina4: data.disciplina4 || null,
-			// 	palavraChave: data.palavraChave || null,
-			// })
+			this.consultarProva()
+
 			this.modalEditar = false
 		},
 		reset() {
@@ -904,6 +848,16 @@ export default {
 		},
 		back() {
 			this.$router.push('/home')
+		},
+		filterDisciplina() {
+			const engineer = this.provas.filter(
+				eng =>
+					eng.disciplina1 === 'ENGENHARIA DE SOFTWARE' ||
+					eng.disciplina2 === 'ENGENHARIA DE SOFTWARE' ||
+					eng.disciplina3 === 'ENGENHARIA DE SOFTWARE'
+			)
+			this.engineering = engineer
+			console.log(this.engineering.length, 'ENGINEER')
 		},
 	},
 }
