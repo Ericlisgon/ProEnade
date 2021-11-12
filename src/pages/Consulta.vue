@@ -246,6 +246,13 @@
 									class="img"
 								/>
 							</div>
+							<div class="content-img">
+								<img
+									v-if="prova.img4"
+									:src="getImage(prova.img4)"
+									class="img"
+								/>
+							</div>
 						</div>
 					</div>
 
