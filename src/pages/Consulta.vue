@@ -607,9 +607,15 @@
 					</v-form>
 
 					<v-row class="d-flex justify-space-between mb-6">
+						<div>
+
 						<v-btn @click="editarQuestao" class="modal__form__btn ml-6">
 							Editar
 						</v-btn>
+						<v-btn @click="modalEditar = false" class="modal__form__back">
+								Fechar
+							</v-btn>
+						</div>
 						<a class="modal__form__link mr-4" href="#section2">
 							<v-tooltip color="#FF5A00" top>
 								<template v-slot:activator="{ on, attrs }">
@@ -1060,7 +1066,7 @@ span {
 			}
 			&__btn {
 				width: 116px;
-				padding: 10px;
+				padding: 10px;margin-right: 10px;
 				border: 0;
 				border-radius: 5px;
 				background: #003fff;
@@ -1071,6 +1077,23 @@ span {
 				transition: 800ms;
 				&:hover {
 					background: #0082ff;
+				}
+			}
+			&__back {
+				width: 90px;
+				padding: 10px;
+				border: 0;
+				border-radius: 5px;
+				background: #ff5a00;
+				font-weight: 500;
+				color: #fff;
+				cursor: pointer;
+				outline: 0;
+				transition: 800ms;
+				&:hover {
+					background: #fff;
+					color: #ff5a00;
+					border: 1px solid #ff5a00;
 				}
 			}
 			&__btn-voltar {
