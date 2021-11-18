@@ -12,7 +12,7 @@
 						<v-icon color="#fff" size="40">
 							description
 						</v-icon>
-						<h1>Cadastrar</h1>
+						<h1>Cadastrar Questões</h1>
 						<p>
 							Clique para cadastro de questões.
 						</p>
@@ -34,7 +34,7 @@
 						</v-icon>
 						<h1>Consultar</h1>
 						<p>
-							Clique para consultar, editar ou excluir questões.
+							Clique para consultar, editar ou excluir.
 						</p>
 					</v-card>
 
@@ -85,6 +85,9 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
+								<router-link class="link" to="/cadastro-cursos"
+									>Não encontrou seu curso? Clique aqui
+								</router-link>
 								<v-autocomplete
 									:items="getCursos"
 									item-text="description"
@@ -96,16 +99,10 @@
 									clearable
 									hide-details
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Cursos"
-									class="modal__form__input"
-									v-model="curso"
-									outlined
-									hide-details
-								/> -->
 							</v-col>
 							<v-col md="12" lg="6">
+								<p class="link-avulso">.</p>
+
 								<v-text-field
 									type="text"
 									label="Ano"
@@ -119,6 +116,9 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
+								<router-link class="link" to="/cadastro-disciplinas"
+									>Não encontrou sua disciplina? Clique aqui</router-link
+								>
 								<v-autocomplete
 									:items="getDisciplinas"
 									item-text="description"
@@ -130,16 +130,12 @@
 									clearable
 									hide-details
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina 1"
-									class="modal__form__input"
-									v-model="disciplina1"
-									outlined
-									hide-details
-								/> -->
 							</v-col>
 							<v-col md="12" lg="6">
+								<router-link class="link" to="/cadastro-disciplinas"
+									>Não encontrou sua disciplina? Clique aqui</router-link
+								>
+
 								<v-autocomplete
 									:items="getDisciplinas"
 									item-text="description"
@@ -151,18 +147,14 @@
 									clearable
 									hide-details
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Disciplinas 2"
-									class="modal__form__input"
-									v-model="disciplina2"
-									outlined
-									hide-details
-								/> -->
 							</v-col>
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
+								<router-link class="link" to="/cadastro-disciplinas"
+									>Não encontrou sua disciplina? Clique aqui</router-link
+								>
+
 								<v-autocomplete
 									:items="getDisciplinas"
 									item-text="description"
@@ -173,15 +165,12 @@
 									label="Disciplina 3"
 									clearable
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina 3"
-									class="modal__form__input"
-									v-model="disciplina3"
-									outlined
-								/> -->
 							</v-col>
 							<v-col md="12" lg="6">
+								<router-link class="link" to="/cadastro-disciplinas"
+									>Não encontrou sua disciplina? Clique aqui</router-link
+								>
+
 								<v-autocomplete
 									:items="getDisciplinas"
 									item-text="description"
@@ -192,13 +181,6 @@
 									label="Disciplina 4"
 									clearable
 								/>
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina 4"
-									class="modal__form__input"
-									v-model="disciplina4"
-									outlined
-								/> -->
 							</v-col>
 						</v-row>
 						<div class="modal__form__coluna">
@@ -514,6 +496,7 @@ export default {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			transition: transform 0.8s; /* Animation */
 			padding: 27px;
 			background: #003fff !important;
 			border-radius: 10px !important;
@@ -529,6 +512,14 @@ export default {
 				margin-top: 10px;
 				color: #fff;
 				font-weight: 400;
+			}
+			&:hover {
+				transform: scale(
+					1.1
+				); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+				// z-index: 1;
+				// box-shadow: rgba(247, 246, 250, 0.15) 0px 48px 100px 0px;
+				background: #ff5a00 !important;
 			}
 		}
 	}
@@ -570,6 +561,7 @@ export default {
 		width: 100%;
 		height: auto;
 		// background: black;
+		// z-index: 7;
 		&__header {
 			display: flex;
 			justify-content: space-between;
@@ -638,5 +630,22 @@ export default {
 }
 strong {
 	color: #0082ff;
+}
+.link {
+	font-size: 14px;
+	font-weight: 500;
+	color: #bdbdbd;
+	margin-bottom: 0;
+	text-decoration: none;
+	&:hover {
+		color: #ff5a00;
+	}
+}
+.link-avulso {
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+	margin-bottom: 0;
+	text-decoration: none;
 }
 </style>

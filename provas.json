@@ -2064,10 +2064,6 @@
     {
       "id": 2,
       "description": "CIÊNCIAS DA COMPUTAÇÃO"
-    },
-    {
-      "description": "AVANGERS",
-      "id": 3
     }
   ],
   "disciplinas": [
@@ -2134,10 +2130,6 @@
     {
       "id": 16,
       "description": "JAVA"
-    },
-    {
-      "description": "HOMEM DE FERRO",
-      "id": 17
     }
   ]
 }
