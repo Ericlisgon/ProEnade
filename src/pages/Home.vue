@@ -1,28 +1,58 @@
 <template>
-	<v-card height="100%">
+	<v-card height="90%">
 		<Header />
 		<div class="home">
 			<div class="home__cards">
-				<v-card class="home__cards__card mr-15" outlined @click="modal = true">
-					<v-icon color="#fff" size="50">
-						description
-					</v-icon>
-					<h1>Cadastrar</h1>
-					<p>
-						Click para acessar a área de cadastro de curso, disciplina ou
-						questões
-					</p>
-				</v-card>
-				<v-card class="home__cards__card" outlined @click="pageConsultar">
-					<v-icon color="#fff" size="50">
-						plagiarism
-					</v-icon>
-					<h1>Consultar</h1>
-					<p>
-						Click para consultar, editar ou excluir cursos, disciplinas ou
-						questões
-					</p>
-				</v-card>
+				<div>
+					<v-card
+						class="home__cards__card mr-10"
+						outlined
+						@click="modal = true"
+					>
+						<v-icon color="#fff" size="40">
+							description
+						</v-icon>
+						<h1>Cadastrar</h1>
+						<p>
+							Clique para  cadastro de questões.
+						</p>
+					</v-card>
+					<v-card
+						class="home__cards__card mr-10"
+						outlined
+						@click="pageCursos"
+					>
+						<v-icon color="#fff" size="40">
+							description
+						</v-icon>
+						<h1>Cadastrar Curso</h1>
+						<p>
+							Clique para cadastro de cursos.
+						</p>
+					</v-card>
+				</div>
+				<div>
+					<v-card class="home__cards__card" outlined @click="pageConsultar">
+						<v-icon color="#fff" size="40">
+							plagiarism
+						</v-icon>
+						<h1>Consultar</h1>
+						<p>
+							Clique para consultar, editar ou excluir
+							questões.
+						</p>
+					</v-card>
+					
+					<v-card class="home__cards__card" outlined @click="pageDisciplinas">
+						<v-icon color="#fff" size="40">
+							plagiarism
+						</v-icon>
+						<h1>Cadstrar Disciplina</h1>
+						<p>
+							Clique para cadastro de disciplinas.
+						</p>
+					</v-card>
+				</div>
 			</div>
 			<Modal v-if="modal">
 				<v-card class="modal">
@@ -32,7 +62,6 @@
 							<img src="@/assets/Vector.svg" alt="" />
 						</a>
 					</div>
-					<!-- {{ getDisciplinas }} -->
 					<v-form class="modal__form">
 						<v-row class="d-flex justify-space-between align-center">
 							<div class="d-flex align-center">
@@ -55,7 +84,6 @@
 										outlined
 										hide-details
 										maxLength="2"
-										
 									/>
 								</v-col>
 							</div>
@@ -374,9 +402,7 @@ export default {
 		console.log(this.dataAtual)
 	},
 	methods: {
-		pageConsultar() {
-			this.$router.push({ name: 'Consulta' })
-		},
+		
 		async cadastrarProva(e) {
 			e.preventDefault()
 			if (this.curso === '') {
@@ -452,6 +478,15 @@ export default {
 			this.dificuldade = ''
 			this.palavraChave = ''
 		},
+		pageConsultar() {
+			this.$router.push({ name: 'Consulta' })
+		},
+		pageCursos() {
+			this.$router.push({ name: 'Cursos' })
+		},
+		pageDisciplinas() {
+			this.$router.push({ name: 'Disciplinas' })
+		},
 	},
 }
 </script>
@@ -475,23 +510,24 @@ export default {
 		justify-content: center;
 		// max-width: 1500px;
 		&__card {
-			width: 450px !important;
+			width: 400px !important;
+			height: 200px !important;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			padding: 27px;
 			background: #003fff !important;
 			border-radius: 10px !important;
-			margin-top: 10%;
+			margin-top: 8%;
 			h1 {
 				text-align: center;
-				margin-top: 20px;
+				margin-top: 10px;
 				color: #fff;
 				font-weight: 500;
 			}
 			p {
 				text-align: center;
-				margin-top: 20px;
+				margin-top: 10px;
 				color: #fff;
 				font-weight: 400;
 			}

@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '@/pages/Home'
 import Cadastro from '@/pages/Cadastro'
 import Consulta from '@/pages/Consulta'
+import CadastroCurso from '@/pages/CadastroCurso'
+import CadastroDisciplina from '@/pages/CadastroDisciplina'
 import Login from '@/pages/Login'
 
 Vue.use(VueRouter)
@@ -27,6 +29,16 @@ const routes = [
     path: '/consulta',
     name: 'Consulta',
     component: Consulta
+  },
+  {
+    path: '/cadastro-cursos',
+    name: 'Cursos',
+    component: CadastroCurso
+  },
+  {
+    path: '/cadastro-disciplinas',
+    name: 'Disciplinas',
+    component: CadastroDisciplina
   },
 ]
 
