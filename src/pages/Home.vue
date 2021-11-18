@@ -14,16 +14,12 @@
 						</v-icon>
 						<h1>Cadastrar</h1>
 						<p>
-							Clique para  cadastro de questões.
+							Clique para cadastro de questões.
 						</p>
 					</v-card>
-					<v-card
-						class="home__cards__card mr-10"
-						outlined
-						@click="pageCursos"
-					>
+					<v-card class="home__cards__card mr-10" outlined @click="pageCursos">
 						<v-icon color="#fff" size="40">
-							description
+							history_edu
 						</v-icon>
 						<h1>Cadastrar Curso</h1>
 						<p>
@@ -38,14 +34,13 @@
 						</v-icon>
 						<h1>Consultar</h1>
 						<p>
-							Clique para consultar, editar ou excluir
-							questões.
+							Clique para consultar, editar ou excluir questões.
 						</p>
 					</v-card>
-					
+
 					<v-card class="home__cards__card" outlined @click="pageDisciplinas">
 						<v-icon color="#fff" size="40">
-							plagiarism
+							collections_bookmark
 						</v-icon>
 						<h1>Cadstrar Disciplina</h1>
 						<p>
@@ -315,9 +310,14 @@
 							</v-row>
 						</div>
 						<v-row class="d-flex justify-space-between mb-6">
-							<v-btn @click="cadastrarProva" class="modal__form__btn">
-								Enviar
-							</v-btn>
+							<div>
+								<v-btn @click="cadastrarProva" class="modal__form__btn">
+									Enviar
+								</v-btn>
+								<v-btn @click="modal = false" class="modal__form__back">
+									Fechar
+								</v-btn>
+							</div>
 							<a class="modal__form__link mr-4" href="#section1">
 								<v-tooltip color="#FF5A00" top>
 									<template v-slot:activator="{ on, attrs }">
@@ -402,7 +402,6 @@ export default {
 		console.log(this.dataAtual)
 	},
 	methods: {
-		
 		async cadastrarProva(e) {
 			e.preventDefault()
 			if (this.curso === '') {
@@ -601,6 +600,7 @@ export default {
 				width: 116px;
 				padding: 10px;
 				margin-left: 10px;
+				margin-right: 10px;
 				border: 0;
 				border-radius: 5px;
 				background: #003fff;
@@ -611,6 +611,23 @@ export default {
 				transition: 800ms;
 				&:hover {
 					background: #0082ff;
+				}
+			}
+			&__back {
+				width: 90px;
+				padding: 10px;
+				border: 0;
+				border-radius: 5px;
+				background: #ff5a00;
+				font-weight: 500;
+				color: #fff;
+				cursor: pointer;
+				outline: 0;
+				transition: 800ms;
+				&:hover {
+					background: #fff;
+					color: #ff5a00;
+					border: 1px solid #ff5a00;
 				}
 			}
 			&__link {

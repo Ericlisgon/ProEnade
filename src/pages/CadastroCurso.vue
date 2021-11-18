@@ -5,11 +5,12 @@
 			<h2>
 				Preencha o campo abaixo e clique em cadastrar para incluir um novo curso.
 			</h2>
-			<v-col cols="7">
+			
+			<v-col cols="7" >
 				<v-text-field
 					type="text"
 					label="Inclua o nome do curso"
-					class="home__form__input"
+					class="home__input"
 					v-model="description"
 					solo
 					hide-details
@@ -98,6 +99,10 @@ export default {
 	h2 {
 		color: #fff;
 		margin: 10px auto 60px;
+	}
+	&__input{
+		max-width: 800px;
+		margin: 0 auto;
 	}
 	&__btn {
 		margin-right: 10px;

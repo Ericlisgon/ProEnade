@@ -3,13 +3,14 @@
 		<Header />
 		<div class="home">
 			<h2>
-				Preencha o campo abaixo e clique em cadastrar para incluir uma nova disciplina.
+				Preencha o campo abaixo e clique em cadastrar para incluir uma nova
+				disciplina.
 			</h2>
 			<v-col cols="7">
 				<v-text-field
 					type="text"
 					label="Inclua o nome da disciplina"
-					class="home__form__input"
+					class="home__input"
 					v-model="description"
 					solo
 					hide-details
@@ -17,7 +18,11 @@
 				/>
 			</v-col>
 			<div class="d-flex">
-				<button :loading="loading" @click="cadastrarDisciplina" class="home__btn">
+				<button
+					:loading="loading"
+					@click="cadastrarDisciplina"
+					class="home__btn"
+				>
 					Cadastrar
 				</button>
 
@@ -73,7 +78,7 @@ export default {
 		pageHome() {
 			this.$router.push({ name: 'Home' })
 		},
-        back() {
+		back() {
 			this.$router.push('/home')
 		},
 	},
@@ -94,10 +99,14 @@ export default {
 	background-image: url('../assets/Degradeok.jpg');
 	height: 100%;
 	width: 100%;
-    padding-top: 100px;
+	padding-top: 100px;
 	h2 {
 		color: #fff;
 		margin: 10px auto 60px;
+	}
+	&__input{
+		max-width: 800px;
+		margin: 0 auto;
 	}
 	&__btn {
 		margin-right: 10px;
