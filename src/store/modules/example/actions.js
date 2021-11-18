@@ -22,6 +22,22 @@ export default {
 			throw e
 		}
 	},
+	async getCursos({ commit }, query) {
+		try {
+			const { data } = await loadFields.getCursos(query)
+			commit('setCursos', data)
+		} catch (e) {
+			throw e
+		}
+	},
+	async getDisciplinas({ commit }, query) {
+		try {
+			const { data } = await loadFields.getDisciplinas(query)
+			commit('setDisciplinas', data)
+		} catch (e) {
+			throw e
+		}
+	},
 	emptyList({ commit }) {
 		commit('emptyList')
 	},

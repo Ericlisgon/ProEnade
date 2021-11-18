@@ -1684,7 +1684,7 @@
       "disciplina3": "",
       "disciplina4": "",
       "ano": "2017",
-      "questao": "  {{IMAGEM}},No desenvolvimento de um sistema de automação para um clube recreativo, serão implementados módulos para o departamento administrativo, tais como os módulos de cadastro de associados e de gestão de mensalidades. Na construção desses módulos, algumas regras de negócio serão aplicadas conforme o diagrama abaixo.  Com base nesse diagrama, avalie as afirmações a seguir. I. Haverá somente 12 mensalidades para cada associado, ou seja, as mensalidades do associado não poderão ultrapassar os 12 meses do ano. II. Não existem associados sem mensalidades, nem mensalidades sem associado a elas relacionado. III. Alterando-se o valor da mensalidade definido para cada tipo de associado cadastrado, o sistema automaticamente altera os valores das mensalidades geradas anteriormente. IV. Poderão existir tipos de associados que não terão nenhum associado relacionado a eles.  É correto apenas o que se afirma em.",
+      "questao": "No desenvolvimento de um sistema de automação para um clube recreativo, serão implementados módulos para o departamento administrativo, tais como os módulos de cadastro de associados e de gestão de mensalidades. Na construção desses módulos, algumas regras de negócio serão aplicadas conforme o diagrama abaixo.  Com base nesse diagrama, avalie as afirmações a seguir. I. Haverá somente 12 mensalidades para cada associado, ou seja, as mensalidades do associado não poderão ultrapassar os 12 meses do ano. II. Não existem associados sem mensalidades, nem mensalidades sem associado a elas relacionado. III. Alterando-se o valor da mensalidade definido para cada tipo de associado cadastrado, o sistema automaticamente altera os valores das mensalidades geradas anteriormente. IV. Poderão existir tipos de associados que não terão nenhum associado relacionado a eles.  É correto apenas o que se afirma em.",
       "alternativaA": "I e II",
       "alternativaB": "I e III.",
       "alternativaC": "II e IV.",
@@ -1853,8 +1853,8 @@
       "tipoQuestao": "MultiplaEscolha",
       "codeQuestion": "11",
       "img": "Questao11-2011.jpeg",
-      "curso": "ANALISE DE PROJETOS ",
-      "disciplina1": "",
+      "curso": "ADS",
+      "disciplina1": "ANÁLISE E PROJETO DE SISTEMAS I ",
       "disciplina2": "",
       "disciplina3": "",
       "disciplina4": "",
@@ -1875,9 +1875,9 @@
       "tipoQuestao": "MultiplaEscolha",
       "codeQuestion": "14",
       "img": "Questao14-2011.jpeg",
-      "curso": "ENGENHARIA DE SOFTWARE",
-      "disciplina1": "ANALISE DE PROJETROS",
-      "disciplina2": "",
+      "curso": "ADS",
+      "disciplina1": "ENGENHARIA DE SOFTWARE",
+      "disciplina2": "ANÁLISE E PROJETO DE SISTEMAS I",
       "disciplina3": "",
       "disciplina4": "",
       "ano": "2011",
@@ -1897,8 +1897,8 @@
       "tipoQuestao": "MultiplaEscolha",
       "codeQuestion": "23",
       "img": "Questao23-2011.jpeg",
-      "curso": "MODELAGEM DE DADOS",
-      "disciplina1": "",
+      "curso": "ADS",
+      "disciplina1": "MODELAGEM DE DADOS",
       "disciplina2": "",
       "disciplina3": "",
       "disciplina4": "",
@@ -1919,8 +1919,8 @@
       "tipoQuestao": "MultiplaEscolha",
       "codeQuestion": "26",
       "img": "Questao26-2011.jpeg",
-      "curso": "ENGENHARIA DE SOFTWARE",
-      "disciplina1": "",
+      "curso": "ADS",
+      "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
       "disciplina3": "",
       "disciplina4": "",
@@ -1943,8 +1943,8 @@
       "img3": "Questao33B-2011.jpeg",
       "img4": "Questao33C-2011.jpeg",
       "codeQuestion": "33",
-      "curso": "ENGENHARIA DE SOFTWARE",
-      "disciplina1": "",
+      "curso": "ADS",
+      "disciplina1": "ENGENHARIA DE SOFTWARE",
       "disciplina2": "",
       "disciplina3": "",
       "disciplina4": "",
@@ -1965,13 +1965,13 @@
       "tipoQuestao": "Discursiva",
       "img": "Discursiva5-2011.png",
       "codeQuestion": "05",
-      "curso": "JAVA",
-      "disciplina1": "",
+      "curso": "ADS",
+      "disciplina1": "JAVA",
       "disciplina2": "",
       "disciplina3": "",
       "disciplina4": "",
       "ano": "2011",
-      "questao": "(IMAGEM) Jogos de tabuleiro são atividades comuns de entretenimento na vida cotidiana das  pessoas. Uma de suas características é a necessidade do uso de um tabuleiro  com localizações bem definidas para o posicionamento de peças, podendo indicar  também as fases do jogo. No livro O Homem que Calculava, de Malba Tahan  (São Paulo: Record, 2002, p. 120), há uma história na qual um rei deveria efetuar  o pagamento pelos serviços de um de seus conselheiros, dando-lhe uma certa  quantidade de grãos de trigo a ser calculada da seguinte forma: coloca-se 1 grão  de trigo na primeira casa do tabuleiro, 2 na segunda casa, 4 na terceira casa, 8 na  quarta casa e assim dobrando-se sucessivamente até a última casa. Considerando o tabuleiro 4 x 4 ilustrado acima, contendo a indicação da ordem das casas, construa um único algoritmo que: a) calcule, armazene em uma estrutura e escreva em ordem a quantidade de grãos de trigo em cada casa do tabuleiro;  (valor: 8,0 pontos) b) calcule, armazene em uma variável e escreva a quantidade total de grãos de trigo presentes no tabuleiro.  (valor: 2,0 pontos)",
+      "questao": "Jogos de tabuleiro são atividades comuns de entretenimento na vida cotidiana das  pessoas. Uma de suas características é a necessidade do uso de um tabuleiro  com localizações bem definidas para o posicionamento de peças, podendo indicar  também as fases do jogo. No livro O Homem que Calculava, de Malba Tahan  (São Paulo: Record, 2002, p. 120), há uma história na qual um rei deveria efetuar  o pagamento pelos serviços de um de seus conselheiros, dando-lhe uma certa  quantidade de grãos de trigo a ser calculada da seguinte forma: coloca-se 1 grão  de trigo na primeira casa do tabuleiro, 2 na segunda casa, 4 na terceira casa, 8 na  quarta casa e assim dobrando-se sucessivamente até a última casa. Considerando o tabuleiro 4 x 4 ilustrado acima, contendo a indicação da ordem das casas, construa um único algoritmo que: a) calcule, armazene em uma estrutura e escreva em ordem a quantidade de grãos de trigo em cada casa do tabuleiro;  (valor: 8,0 pontos) b) calcule, armazene em uma variável e escreva a quantidade total de grãos de trigo presentes no tabuleiro.  (valor: 2,0 pontos)",
       "alternativaA": "",
       "alternativaB": "",
       "alternativaC": "",
@@ -1982,6 +1982,27 @@
       "palavraChave": "ALGORITMO",
       "dataAtual": "10/11/2021",
       "id": 96
+    },
+    {
+      "tipoQuestao": "Discursiva",
+      "codeQuestion": "11",
+      "curso": "CIÊNCIAS DA COMPUTAÇÃO",
+      "disciplina1": "MODELAGEM DE DADOS",
+      "disciplina2": "ANÁLISE E PROJETO DE SISTEMAS I",
+      "disciplina3": "APLICAÇÃO WEB",
+      "disciplina4": "PROGRAMAÇÃO WEB",
+      "ano": "2008",
+      "questao": "kkkkkkkkkkkkkkkkkkkkkk",
+      "alternativaA": "",
+      "alternativaB": "",
+      "alternativaC": "",
+      "alternativaD": "",
+      "alternativaE": "",
+      "alternativaCorreta": "",
+      "dificuldade": "Facil",
+      "palavraChave": "KKKKKKKKKKKKKKKKKK",
+      "dataAtual": "18/11/2021",
+      "id": 97
     }
   ],
   "usuarios": [
@@ -2033,6 +2054,82 @@
       "email": "william@gmail.com",
       "senha": "123",
       "id": 9
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "description": "ANÁLISE E DESENVOLVIMENTO DE SISTEMAS"
+    },
+    {
+      "id": 2,
+      "description": "CIÊNCIAS DA COMPUTAÇÃO"
+    }
+  ],
+  "disciplinas": [
+    {
+      "id": 1,
+      "description": "ENGENHARIA DE SOFTWARE"
+    },
+    {
+      "id": 2,
+      "description": "MODELAGEM DE DADOS"
+    },
+    {
+      "id": 3,
+      "description": "ANÁLISE E PROJETO DE SISTEMAS I"
+    },
+    {
+      "id": 4,
+      "description": "PROGRAMAÇÃO WEB"
+    },
+    {
+      "id": 5,
+      "description": "APLICAÇÃO WEB"
+    },
+    {
+      "id": 6,
+      "description": "PROGRAMAÇÃO ORIENTADA A OBJETOS"
+    },
+    {
+      "id": 7,
+      "description": "INTERFACE HUMANO COMPUTADOR"
+    },
+    {
+      "id": 8,
+      "description": "ENGENHARIA DE REQUISITOS"
+    },
+    {
+      "id": 9,
+      "description": "CONHECIMENTOS GERAIS"
+    },
+    {
+      "id": 10,
+      "description": "TÉCNICAS DE PROGRAMAÇÃO"
+    },
+    {
+      "id": 11,
+      "description": "BANCO DE DADOS"
+    },
+    {
+      "id": 12,
+      "description": "LÓGICA COMPUTACIONAL"
+    },
+    {
+      "id": 13,
+      "description": "ESTATÍSTICA"
+    },
+    {
+      "id": 14,
+      "description": "TÉCNICAS DE DESENVOLVIMENTO DE ALGORITMOS"
+    },
+    {
+      "id": 15,
+      "description": "PROGRAMAÇÃO DE COMPUTADORES"
+    },
+    {
+      "id": 16,
+      "description": "JAVA"
     }
   ]
 }

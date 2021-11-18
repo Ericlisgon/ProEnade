@@ -32,6 +32,7 @@
 							<img src="@/assets/Vector.svg" alt="" />
 						</a>
 					</div>
+					<!-- {{ getDisciplinas }} -->
 					<v-form class="modal__form">
 						<v-row class="d-flex justify-space-between align-center">
 							<div class="d-flex align-center">
@@ -49,25 +50,37 @@
 								<strong>N° Questão</strong>
 								<v-col md="12" lg="4">
 									<v-text-field
-										type="number"
 										class="modal__form__input"
 										v-model="codeQuestion"
 										outlined
 										hide-details
+										maxLength="2"
+										
 									/>
 								</v-col>
 							</div>
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<v-autocomplete
+									:items="getCursos"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="curso"
+									outlined
+									label="Curso"
+									clearable
+									hide-details
+								/>
+								<!-- <v-text-field
 									type="text"
 									label="Cursos"
 									class="modal__form__input"
 									v-model="curso"
 									outlined
 									hide-details
-								/>
+								/> -->
 							</v-col>
 							<v-col md="12" lg="6">
 								<v-text-field
@@ -83,44 +96,86 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina1"
+									outlined
+									label="Disciplina 1"
+									clearable
+									hide-details
+								/>
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina 1"
 									class="modal__form__input"
 									v-model="disciplina1"
 									outlined
 									hide-details
-								/>
+								/> -->
 							</v-col>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina2"
+									outlined
+									label="Disciplina 2"
+									clearable
+									hide-details
+								/>
+								<!-- <v-text-field
 									type="text"
 									label="Disciplinas 2"
 									class="modal__form__input"
 									v-model="disciplina2"
 									outlined
 									hide-details
-								/>
+								/> -->
 							</v-col>
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina3"
+									outlined
+									label="Disciplina 3"
+									clearable
+								/>
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina 3"
 									class="modal__form__input"
 									v-model="disciplina3"
 									outlined
-								/>
+								/> -->
 							</v-col>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina4"
+									outlined
+									label="Disciplina 4"
+									clearable
+								/>
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina 4"
 									class="modal__form__input"
 									v-model="disciplina4"
 									outlined
-								/>
+								/> -->
 							</v-col>
 						</v-row>
 						<div class="modal__form__coluna">
@@ -301,12 +356,16 @@ export default {
 	computed: {
 		...mapGetters({
 			getFilter: 'example/filter',
+			getCursos: 'example/cursos',
+			getDisciplinas: 'example/disciplinas',
 			loading: 'loading',
 			getSnackbar: 'snackbar',
 			snackbarMessage: 'snackbarMessage',
 		}),
 	},
 	mounted() {
+		this.$store.dispatch('example/getCursos')
+		this.$store.dispatch('example/getDisciplinas')
 		var data = new Date()
 		var dia = String(data.getDate()).padStart(2, '0')
 		var mes = String(data.getMonth() + 1).padStart(2, '0')
@@ -354,11 +413,11 @@ export default {
 				const { data } = await axios.post('http://localhost:3000/provas', {
 					tipoQuestao: this.tipoQuestao,
 					codeQuestion: this.codeQuestion,
-					curso: this.curso.toUpperCase(),
-					disciplina1: this.disciplina1.toUpperCase(),
-					disciplina2: this.disciplina2.toUpperCase(),
-					disciplina3: this.disciplina3.toUpperCase(),
-					disciplina4: this.disciplina4.toUpperCase(),
+					curso: this.curso.description,
+					disciplina1: this.disciplina1.description,
+					disciplina2: this.disciplina2.description,
+					disciplina3: this.disciplina3.description,
+					disciplina4: this.disciplina4.description,
 					ano: this.ano,
 					questao: this.questao,
 					alternativaA: this.alternativaA,

@@ -18,5 +18,9 @@ export default {
         codeQuestion
 			},
 		}),
-    // getListCategories: () => Http.get('TemplateDinamico/ListarCategorias'),
+    getCursos: query =>
+		Http.get('cursos', { params: { description: query } }),
+    getDisciplinas: query =>
+		Http.get('disciplinas', { params: { description: query } }),
+
 }
