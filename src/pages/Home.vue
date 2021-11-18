@@ -42,7 +42,7 @@
 						<v-icon color="#fff" size="40">
 							collections_bookmark
 						</v-icon>
-						<h1>Cadstrar Disciplina</h1>
+						<h1>Cadastrar Disciplina</h1>
 						<p>
 							Clique para cadastro de disciplinas.
 						</p>
