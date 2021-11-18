@@ -1,31 +1,33 @@
 <template>
-	<v-card height="60%">
+	<v-card height="80%">
 		<Header />
 		<div class="home">
-			<h2>
-				Preencha o campo abaixo e clique em cadastrar para incluir um novo curso.
-			</h2>
-			
-			<v-col cols="7" >
-				<v-text-field
-					type="text"
-					label="Inclua o nome do curso"
-					class="home__input"
-					v-model="description"
-					solo
-					hide-details
-					background-color="#fff"
-				/>
-			</v-col>
-			<div class="d-flex">
-				<button :loading="loading" @click="cadastrarCurso" class="home__btn">
-					Cadastrar
-				</button>
+			<v-card height="500px" width="51%" flat class="home__card">
+				<h2>
+					Preencha o campo abaixo e clique em cadastrar para incluir um novo
+					curso.
+				</h2>
 
-				<button :loading="loading" @click="back" class="home__back">
-					Voltar
-				</button>
-			</div>
+				<v-col cols="12" sm="10">
+					<v-text-field
+						type="text"
+						label="Inclua o nome do curso"
+						class="home__input"
+						v-model="description"
+						outlined
+						hide-details
+					/>
+				</v-col>
+				<div class="d-flex button">
+					<button :loading="loading" @click="cadastrarCurso" class="home__btn">
+						Cadastrar
+					</button>
+
+					<button :loading="loading" @click="back" class="home__back">
+						Voltar
+					</button>
+				</div>
+			</v-card>
 		</div>
 	</v-card>
 </template>
@@ -74,7 +76,7 @@ export default {
 		pageHome() {
 			this.$router.push({ name: 'Home' })
 		},
-        back() {
+		back() {
 			this.$router.push('/home')
 		},
 	},
@@ -95,12 +97,18 @@ export default {
 	background-image: url('../assets/Degradeok.jpg');
 	height: 100%;
 	width: 100%;
-    padding-top: 100px;
+	padding-top: 100px;
+	&__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 50px;
+	}
 	h2 {
-		color: #fff;
+		color: #0082ff;
 		margin: 10px auto 60px;
 	}
-	&__input{
+	&__input {
 		max-width: 800px;
 		margin: 0 auto;
 	}
@@ -145,5 +153,8 @@ export default {
 
 strong {
 	color: #0082ff;
+}
+.button{
+	margin-top: -200px;
 }
 </style>
