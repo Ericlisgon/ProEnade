@@ -4,7 +4,7 @@
 			<Header />
 		</a>
 		<div class="home content">
-			<div class="home__form">
+			<div v-if="modalEditar === false" class="home__form">
 				<v-expansion-panels multiple v-model="panel">
 					<v-expansion-panel v-model="hasItems">
 						<v-expansion-panel-header>
@@ -355,6 +355,8 @@
 					</div>
 				</v-card-actions>
 			</v-card>
+			<v-card>
+
 			<Modal v-if="modalEditar">
 				<v-card class="modal">
 					<div class="modal__header">
@@ -629,6 +631,8 @@
 					</v-row>
 				</v-card>
 			</Modal>
+			</v-card>
+
 		</div>
 	</v-card>
 </template>
@@ -906,6 +910,7 @@ span {
 		width: 70%;
 		max-width: 950px;
 		margin-bottom: 20px;
+		z-index: 1;
 		strong {
 			color: #0072ff;
 		}
@@ -1037,6 +1042,8 @@ span {
 		padding: 15px;
 		width: 100%;
 		height: auto;
+		z-index: 7;
+		
 		// background: black;
 		&__header {
 			display: flex;

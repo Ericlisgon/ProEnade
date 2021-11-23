@@ -1,5 +1,5 @@
 <template>
-	<v-card height="60%">
+	<v-card height="80%">
 		<Header />
 		<div class="home">
 			<v-card height="500px" width="51%" flat class="home__card">
@@ -102,6 +102,7 @@ export default {
 	width: 100%;
 	padding-top: 100px;
 	&__card {
+		width: 950px !important;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

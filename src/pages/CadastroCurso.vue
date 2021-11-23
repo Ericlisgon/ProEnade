@@ -102,6 +102,7 @@ export default {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		width: 950px !important;
 		padding-top: 50px;
 	}
 	h2 {
