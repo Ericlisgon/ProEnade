@@ -40,14 +40,25 @@
 							</v-card>
 							<v-row class="mt-2">
 								<v-col md="12" lg="6">
-									<v-text-field
+									<!-- <v-text-field
 										type="text"
 										label="Cursos - Ex: ADS, ciencias da computacao..."
 										class="home__form__input"
 										v-model="curso"
 										outlined
 										hide-details
-									/>
+									/> -->
+									<v-autocomplete
+									:items="getCursos"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="curso"
+									outlined
+									label="Curso"
+									clearable
+									hide-details
+								/>
 								</v-col>
 								<v-col md="12" lg="6">
 									<v-text-field
@@ -63,46 +74,90 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<v-text-field
+									<!-- <v-text-field
 										type="text"
 										label="Disciplina 1 - Ex: engenharia de software"
 										class="home__form__input"
 										v-model="disciplina1"
 										outlined
 										hide-details
-									/>
+									/> -->
+									<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina1"
+									outlined
+									label="Disciplina 1"
+									clearable
+									hide-details
+								/>
 								</v-col>
 								<v-col md="12" lg="6">
-									<v-text-field
+									<!-- <v-text-field
 										type="text"
 										label="Disciplinas 2 - Ex: analise e projeto de sistemas"
 										class="home__form__input"
 										v-model="disciplina2"
 										outlined
 										hide-details
-									/>
+									/> -->
+									<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina2"
+									outlined
+									label="Disciplina 2"
+									clearable
+									hide-details
+								/>
 								</v-col>
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<v-text-field
+									<!-- <v-text-field
 										type="text"
 										label="Disciplina 3 - Ex: aplicacoes para internet"
 										class="home__form__input"
 										v-model="disciplina3"
 										outlined
 										hide-details
-									/>
+									/> -->
+										<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina3"
+									outlined
+									label="Disciplina 3"
+									clearable
+									hide-details
+								/>
 								</v-col>
 								<v-col md="12" lg="6">
-									<v-text-field
+									<!-- <v-text-field
 										type="text"
 										label="Disciplina 4 - Ex: gestao de TI "
 										class="home__form__input"
 										v-model="disciplina4"
 										outlined
 										hide-details
-									/>
+									/> -->
+										<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="disciplina4"
+									outlined
+									label="Disciplina 4"
+									clearable
+									hide-details
+								/>
 								</v-col>
 							</v-row>
 							<v-row>
@@ -435,12 +490,23 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<!-- <v-text-field
 									type="text"
 									label="Cursos"
 									class="modal__form__input"
 									v-model="editar.curso"
 									outlined
+									hide-details
+								/> -->
+									<v-autocomplete
+									:items="getCursos"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="editar.curso"
+									outlined
+									label="Curso"
+									clearable
 									hide-details
 								/>
 							</v-col>
@@ -458,43 +524,85 @@
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina 1"
 									class="modal__form__input"
 									v-model="editar.disciplina1"
 									outlined
 									hide-details
+								/> -->
+									<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="editar.disciplina1"
+									outlined
+									label="Disciplina 1"
+									clearable
+									hide-details
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<!-- <v-text-field
 									type="text"
 									label="Disciplinas 2"
 									class="modal__form__input"
 									v-model="editar.disciplina2"
 									outlined
 									hide-details
+								/> -->
+									<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="editar.disciplina2"
+									outlined
+									label="Disciplina 2"
+									clearable
+									hide-details
 								/>
 							</v-col>
 						</v-row>
 						<v-row>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina 3"
 									class="modal__form__input"
 									v-model="editar.disciplina3"
 									outlined
+								/> -->
+									<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="editar.disciplina3"
+									outlined
+									label="Disciplina 3"
+									clearable
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
-								<v-text-field
+								<!-- <v-text-field
 									type="text"
 									label="Disciplina 4"
 									class="modal__form__input"
 									v-model="editar.disciplina4"
 									outlined
+								/> -->
+									<v-autocomplete
+									:items="getDisciplinas"
+									item-text="description"
+									item-value="id"
+									return-object
+									v-model="editardisciplina4"
+									outlined
+									label="Disciplina 4"
+									clearable
 								/>
 							</v-col>
 						</v-row>
@@ -710,13 +818,13 @@ export default {
 		},
 	},
 	mounted() {
+		this.$store.dispatch('example/getCursos')
+		this.$store.dispatch('example/getDisciplinas')
 		var data = new Date()
 		var dia = String(data.getDate()).padStart(2, '0')
 		var mes = String(data.getMonth() + 1).padStart(2, '0')
 		var ano = data.getFullYear()
 		this.dataAtual = dia + '/' + mes + '/' + ano
-		// console.log(this.dataAtual, 'EDITAR')
-		// this.consultarProva()
 	},
 	components: {
 		Modal,
@@ -724,6 +832,8 @@ export default {
 	},
 	computed: {
 		...mapGetters({
+			getCursos: 'example/cursos',
+			getDisciplinas: 'example/disciplinas',
 			getFilter: 'example/filter',
 			loading: 'loading',
 			getSnackbar: 'snackbar',
@@ -763,12 +873,12 @@ export default {
 					const data = await this.$store.dispatch('example/getFilter', {
 						tipoQuestao: this.tipoQuestao || null,
 						dificuldade: this.dificuldade || null,
-						curso: this.curso.toUpperCase() || null,
+						curso: this.curso.id || null,
 						ano: this.ano || null,
-						disciplina1: this.disciplina1.toUpperCase() || null,
-						disciplina2: this.disciplina2.toUpperCase() || null,
-						disciplina3: this.disciplina3.toUpperCase() || null,
-						disciplina4: this.disciplina4.toUpperCase() || null,
+						disciplina1: this.disciplina1 || null,
+						disciplina2: this.disciplina2 || null,
+						disciplina3: this.disciplina3 || null,
+						disciplina4: this.disciplina4 || null,
 						palavraChave: this.palavraChave.toLowerCase() || null,
 						codeQuestion: this.codeQuestion || null,
 					})
@@ -818,6 +928,7 @@ export default {
 			this.editar.img = prova.img
 			this.editar.img2 = prova.img2
 			this.editar.img3 = prova.img3
+			console.log('Editar', this.editar)
 		},
 		async editarQuestao() {
 			const { data } = await axios.put(
