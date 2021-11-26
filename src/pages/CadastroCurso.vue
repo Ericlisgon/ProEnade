@@ -4,7 +4,7 @@
 		<div class="home">
 			<div v-if="modalEditar === false" class="home__card">
 				<v-expansion-panels multiple v-model="panel">
-					<v-expansion-panel v-model="hasItems">
+					<v-expansion-panel>
 						<v-expansion-panel-header class="pt-4">
 							<h3>
 								Inserir um novo curso
@@ -42,59 +42,56 @@
 				</v-expansion-panels>
 			</div>
 			<v-card class="overflow">
+				<table class="home__table content ">
+					<thead>
+						<tr>
+							<th>Cursos Cadastrados</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
 
-
-
-			<table class="home__table content ">
-				<thead>
-					<tr>
-						<th>Cursos Cadastrados</th>
-						<th>Ações</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<tr v-for="curso in cursos" :key="curso.id">
-						<td>{{ curso.description }}</td>
-						<td>
-							<div>
-								<v-tooltip color="#0082ff" top>
-									<template v-slot:activator="{ on, attrs }">
-										<v-btn
-											@click="
-												;(modalEditar = true), carregarInfo($event, curso)
-											"
-											icon
-											color="primary"
-											dark
-											v-bind="attrs"
-											v-on="on"
-										>
-											<v-icon color="#0082ff">mode_edit_outline</v-icon>
-										</v-btn>
-									</template>
-									<h4>EDITAR</h4>
-								</v-tooltip>
-								<v-tooltip color="red" top>
-									<template v-slot:activator="{ on, attrs }">
-										<v-btn
-											@click="deletarCurso($event, curso.id)"
-											icon
-											color="primary"
-											dark
-											v-bind="attrs"
-											v-on="on"
-										>
-											<v-icon color="red">delete</v-icon>
-										</v-btn>
-									</template>
-									<h4>EXCLUIR</h4>
-								</v-tooltip>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+					<tbody>
+						<tr v-for="curso in cursos" :key="curso.id">
+							<td>{{ curso.description }}</td>
+							<td>
+								<div>
+									<v-tooltip color="#0082ff" top>
+										<template v-slot:activator="{ on, attrs }">
+											<v-btn
+												@click="
+													;(modalEditar = true), carregarInfo($event, curso)
+												"
+												icon
+												color="primary"
+												dark
+												v-bind="attrs"
+												v-on="on"
+											>
+												<v-icon color="#0082ff">mode_edit_outline</v-icon>
+											</v-btn>
+										</template>
+										<h4>EDITAR</h4>
+									</v-tooltip>
+									<v-tooltip color="red" top>
+										<template v-slot:activator="{ on, attrs }">
+											<v-btn
+												@click="deletarCurso($event, curso.id)"
+												icon
+												color="primary"
+												dark
+												v-bind="attrs"
+												v-on="on"
+											>
+												<v-icon color="red">delete</v-icon>
+											</v-btn>
+										</template>
+										<h4>EXCLUIR</h4>
+									</v-tooltip>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</v-card>
 			<ModalEditar v-if="modalEditar">
 				<v-card class="modal">
@@ -116,15 +113,15 @@
 							/>
 						</v-col>
 						<div class="actions">
-							<button
-								:loading="loading"
-								@click="editarCurso"
-								class="home__btn"
-							>
+							<button :loading="loading" @click="editarCurso" class="home__btn">
 								Editar
 							</button>
 
-							<button :loading="loading" @click="modalEditar = false" class="home__back">
+							<button
+								:loading="loading"
+								@click="modalEditar = false"
+								class="home__back"
+							>
 								Cancelar
 							</button>
 						</div>
@@ -168,7 +165,6 @@ export default {
 			getSnackbar: 'snackbar',
 			snackbarMessage: 'snackbarMessage',
 		}),
-	
 	},
 	methods: {
 		async cadastrarCurso(e) {
@@ -203,9 +199,9 @@ export default {
 			e.preventDefault()
 			const { data } = await axios.delete(`http://localhost:3000/cursos/${id}`)
 			this.$store.dispatch('setSnackbar', {
-					status: true,
-					message: 'Curso excluído com sucesso !',
-				})
+				status: true,
+				message: 'Curso excluído com sucesso !',
+			})
 			this.carregarCursos()
 		},
 		carregarInfo(e, cursos) {
