@@ -489,15 +489,15 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
-									type="text"
-									label="Cursos"
-									class="modal__form__input"
-									v-model="editar.curso"
-									outlined
-									hide-details
-								/> -->
-									<v-autocomplete
+									<v-text-field
+										type="text"
+										label="Cursos"
+										class="modal__form__input"
+										v-model="editar.curso"
+										outlined
+										hide-details
+									/>
+									<!-- <v-autocomplete
 										:items="getCursos"
 										item-text="description"
 										item-value="id"
@@ -507,7 +507,7 @@
 										label="Curso"
 										clearable
 										hide-details
-									/>
+									/> -->
 								</v-col>
 								<v-col md="12" lg="6">
 									<v-text-field
@@ -523,15 +523,15 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
-									type="text"
-									label="Disciplina 1"
-									class="modal__form__input"
-									v-model="editar.disciplina1"
-									outlined
-									hide-details
-								/> -->
-									<v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplina 1"
+										class="modal__form__input"
+										v-model="editar.disciplina1"
+										outlined
+										hide-details
+									/>
+									<!-- <v-autocomplete
 										:items="getDisciplinas"
 										item-text="description"
 										item-value="id"
@@ -541,18 +541,18 @@
 										label="Disciplina 1"
 										clearable
 										hide-details
-									/>
+									/> -->
 								</v-col>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
-									type="text"
-									label="Disciplinas 2"
-									class="modal__form__input"
-									v-model="editar.disciplina2"
-									outlined
-									hide-details
-								/> -->
-									<v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplinas 2"
+										class="modal__form__input"
+										v-model="editar.disciplina2"
+										outlined
+										hide-details
+									/>
+									<!-- <v-autocomplete
 										:items="getDisciplinas"
 										item-text="description"
 										item-value="id"
@@ -562,19 +562,19 @@
 										label="Disciplina 2"
 										clearable
 										hide-details
-									/>
+									/> -->
 								</v-col>
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
-									type="text"
-									label="Disciplina 3"
-									class="modal__form__input"
-									v-model="editar.disciplina3"
-									outlined
-								/> -->
-									<v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplina 3"
+										class="modal__form__input"
+										v-model="editar.disciplina3"
+										outlined
+									/>
+									<!-- <v-autocomplete
 										:items="getDisciplinas"
 										item-text="description"
 										item-value="id"
@@ -583,17 +583,17 @@
 										outlined
 										label="Disciplina 3"
 										clearable
-									/>
+									/> -->
 								</v-col>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
-									type="text"
-									label="Disciplina 4"
-									class="modal__form__input"
-									v-model="editar.disciplina4"
-									outlined
-								/> -->
-									<v-autocomplete
+									<v-text-field
+										type="text"
+										label="Disciplina 4"
+										class="modal__form__input"
+										v-model="editar.disciplina4"
+										outlined
+									/>
+									<!-- <v-autocomplete
 										:items="getDisciplinas"
 										item-text="description"
 										item-value="id"
@@ -602,7 +602,7 @@
 										outlined
 										label="Disciplina 4"
 										clearable
-									/>
+									/> -->
 								</v-col>
 							</v-row>
 							<div class="modal__form__coluna">
@@ -872,13 +872,14 @@ export default {
 						dificuldade: this.dificuldade || null,
 						curso: this.curso.toUpperCase() || null,
 						ano: this.ano || null,
-						disciplina1: this.disciplina1 || null,
-						disciplina2: this.disciplina2 || null,
-						disciplina3: this.disciplina3 || null,
-						disciplina4: this.disciplina4 || null,
+						disciplina1: this.disciplina1.toUpperCase() || null,
+						disciplina2: this.disciplina2.toUpperCase() || null,
+						disciplina3: this.disciplina3.toUpperCase() || null,
+						disciplina4: this.disciplina4.toUpperCase() || null,
 						palavraChave: this.palavraChave.toLowerCase() || null,
 						codeQuestion: this.codeQuestion || null,
 					})
+					console.log('CURSOS', this.curso)
 					this.provas = data
 					console.log('PROVAS', this.provas)
 					if (this.provas.length === 0) {
