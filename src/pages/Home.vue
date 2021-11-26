@@ -420,7 +420,7 @@ export default {
 				const { data } = await axios.post('http://localhost:3000/provas', {
 					tipoQuestao: this.tipoQuestao,
 					codeQuestion: this.codeQuestion,
-					curso: this.curso.description,
+					curso: this.curso,
 					disciplina1: this.disciplina1.description,
 					disciplina2: this.disciplina2.description,
 					disciplina3: this.disciplina3.description,
