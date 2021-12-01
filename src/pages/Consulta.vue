@@ -463,7 +463,7 @@
 
 						<v-form class="modal__form">
 							<v-row class="d-flex justify-space-between align-center">
-								<div class="d-flex align-center">
+								<v-card disabled flat class="d-flex align-center">
 									<strong class="mx-4">Tipo de questão:</strong>
 									<v-radio-group row v-model="editar.tipoQuestao">
 										<v-radio
@@ -473,7 +473,7 @@
 											:value="radio.value"
 										/>
 									</v-radio-group>
-								</div>
+								</v-card>
 								<div class="d-flex align-center justify-end ">
 									<strong>N° Questão</strong>
 									<v-col md="12" lg="4">
@@ -623,7 +623,7 @@
 										/>
 									</v-col>
 								</v-row>
-								<v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
 									<v-col md="12" lg="12">
 										<v-textarea
 											type="text"
@@ -635,7 +635,7 @@
 										/>
 									</v-col>
 								</v-row>
-								<v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
 									<v-col md="12" lg="12">
 										<v-textarea
 											type="text"
@@ -647,7 +647,7 @@
 										/>
 									</v-col>
 								</v-row>
-								<v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
 									<v-col md="12" lg="12">
 										<v-textarea
 											type="text"
@@ -659,7 +659,7 @@
 										/>
 									</v-col>
 								</v-row>
-								<v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
 									<v-col md="12" lg="12">
 										<v-textarea
 											type="text"
@@ -671,7 +671,7 @@
 										/>
 									</v-col>
 								</v-row>
-								<v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
 									<v-col md="12" lg="12">
 										<v-textarea
 											type="text"
@@ -683,7 +683,7 @@
 										/>
 									</v-col>
 								</v-row>
-								<v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
 									<v-col md="12" lg="4">
 										<v-text-field
 											type="text"
