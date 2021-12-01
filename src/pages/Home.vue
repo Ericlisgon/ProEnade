@@ -411,10 +411,40 @@ export default {
 					status: true,
 					message: 'Inclua uma questão',
 				})
+			} else if (this.alternativaA === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa A',
+				})
+			} else if (this.alternativaB === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa B',
+				})
+			} else if (this.alternativaC === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa C',
+				})
+			} else if (this.alternativaD === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa D',
+				})
+			} else if (this.alternativaE === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa E',
+				})
+			} else if (this.alternativaCorreta === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa Correta',
+				})
 			} else if (this.dificuldade === '') {
 				this.$store.dispatch('setSnackbar', {
 					status: true,
-					message: 'Selecione a dificuldade',
+					message: 'Selecione a Dificuldade',
 				})
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {

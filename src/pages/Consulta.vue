@@ -881,7 +881,7 @@ export default {
 						disciplina2: this.disciplina2.toUpperCase() || null,
 						disciplina3: this.disciplina3.toUpperCase() || null,
 						disciplina4: this.disciplina4.toUpperCase() || null,
-						palavraChave: this.palavraChave.toLowerCase() || null,
+						palavraChave: this.palavraChave.toUpperCase() || null,
 						codeQuestion: this.codeQuestion || null,
 					})
 					console.log('CURSOS', this.curso)
@@ -905,6 +905,10 @@ export default {
 		async deletarProva(e, id) {
 			e.preventDefault()
 			const { data } = await axios.delete(`http://localhost:3000/provas/${id}`)
+			this.$store.dispatch('setSnackbar', {
+				status: true,
+				message: 'Questão excluída com sucesso!',
+			})
 			this.consultarProva()
 		},
 		carregarInfo(e, prova) {
@@ -960,6 +964,10 @@ export default {
 					img3: this.editar.img3,
 				}
 			)
+			this.$store.dispatch('setSnackbar', {
+				status: true,
+				message: 'Questão alterada com sucesso!',
+			})
 			this.consultarProva()
 
 			this.modalEditar = false
