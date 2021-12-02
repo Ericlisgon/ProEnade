@@ -496,7 +496,6 @@
 										v-model="editar.curso"
 										outlined
 										hide-details
-										disabled
 									/>
 									<!-- <v-autocomplete
 										:items="getCursos"
@@ -531,7 +530,6 @@
 										v-model="editar.disciplina1"
 										outlined
 										hide-details
-										disabled
 									/>
 									<!-- <v-autocomplete
 										:items="getDisciplinas"
@@ -553,7 +551,6 @@
 										v-model="editar.disciplina2"
 										outlined
 										hide-details
-										disabled
 									/>
 									<!-- <v-autocomplete
 										:items="getDisciplinas"
@@ -576,7 +573,6 @@
 										class="modal__form__input"
 										v-model="editar.disciplina3"
 										outlined
-										disabled
 									/>
 									<!-- <v-autocomplete
 										:items="getDisciplinas"
@@ -596,7 +592,6 @@
 										class="modal__form__input"
 										v-model="editar.disciplina4"
 										outlined
-										disabled
 									/>
 									<!-- <v-autocomplete
 										:items="getDisciplinas"

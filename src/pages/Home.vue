@@ -257,17 +257,25 @@
 								</v-col>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="4" v-if="tipoQuestao === 'MultiplaEscolha'">
-									<v-text-field
+								<v-col md="12" lg="3" v-if="tipoQuestao === 'MultiplaEscolha'">
+									<!-- <v-text-field
 										type="text"
 										label="Alternativa Correta"
 										class="modal__form__input"
 										v-model="alternativaCorreta"
 										outlined
 										hide-details
-									/>
+									/> -->
+									<v-select
+										:items="items"
+										v-model="alternativaCorreta"
+										label="Alternativa Correta"
+										outlined
+										hide-details
+									></v-select>
 								</v-col>
-								<div class="d-flex align-center">
+								<v-spacer></v-spacer>
+								<div class="d-flex mr-4 align-center">
 									<strong class="mx-4">Dificuldade:</strong>
 									<v-radio-group row v-model="dificuldade">
 										<v-radio
@@ -356,6 +364,7 @@ export default {
 				{ label: 'Múltipla Escolha', value: 'MultiplaEscolha' },
 				{ label: 'Discursiva', value: 'Discursiva' },
 			],
+			items: ['A', 'B', 'C', 'D', 'E'],
 			provas: [],
 		}
 	},
