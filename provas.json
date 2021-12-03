@@ -2003,25 +2003,6 @@
       "palavraChave": "KKKKKKKKKKKKKKKKKK",
       "dataAtual": "18/11/2021",
       "id": 97
-    },
-    {
-      "tipoQuestao": "MultiplaEscolha",
-      "codeQuestion": "99",
-      "curso": "CIÊNCIAS DA COMPUTAÇÃO",
-      "disciplina1": "ENGENHARIA DE SOFTWARE",
-      "disciplina2": "PROGRAMAÇÃO WEB",
-      "ano": "2021",
-      "questao": "Testeeeee",
-      "alternativaA": "Testeeeee",
-      "alternativaB": "Testeeeee",
-      "alternativaC": "Testeeeee",
-      "alternativaD": "Testeeeee",
-      "alternativaE": "Testeeeee",
-      "alternativaCorreta": "D",
-      "dificuldade": "Medio",
-      "palavraChave": "TESTEEEEE",
-      "dataAtual": "01/12/2021",
-      "id": 98
     }
   ],
   "usuarios": [
