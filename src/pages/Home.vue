@@ -269,17 +269,25 @@
 								</v-col>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="4" v-if="tipoQuestao === 'MultiplaEscolha'">
-									<v-text-field
+								<v-col md="12" lg="3" v-if="tipoQuestao === 'MultiplaEscolha'">
+									<!-- <v-text-field
 										type="text"
 										label="Alternativa Correta"
 										class="modal__form__input"
 										v-model="alternativaCorreta"
 										outlined
 										hide-details
-									/>
+									/> -->
+									<v-select
+										:items="items"
+										v-model="alternativaCorreta"
+										label="Alternativa Correta"
+										outlined
+										hide-details
+									></v-select>
 								</v-col>
-								<div class="d-flex align-center">
+								<v-spacer></v-spacer>
+								<div class="d-flex mr-4 align-center">
 									<strong class="mx-4">Dificuldade:</strong>
 									<v-radio-group row v-model="dificuldade">
 										<v-radio
@@ -369,6 +377,7 @@ export default {
 				{ label: 'Múltipla Escolha', value: 'MultiplaEscolha' },
 				{ label: 'Discursiva', value: 'Discursiva' },
 			],
+			items: ['A', 'B', 'C', 'D', 'E'],
 			provas: [],
 		}
 	},
@@ -424,10 +433,40 @@ export default {
 					status: true,
 					message: 'Inclua uma questão',
 				})
+			} else if (this.alternativaA === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa A',
+				})
+			} else if (this.alternativaB === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa B',
+				})
+			} else if (this.alternativaC === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa C',
+				})
+			} else if (this.alternativaD === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa D',
+				})
+			} else if (this.alternativaE === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa E',
+				})
+			} else if (this.alternativaCorreta === '') {
+				this.$store.dispatch('setSnackbar', {
+					status: true,
+					message: 'Inclua a Alternativa Correta',
+				})
 			} else if (this.dificuldade === '') {
 				this.$store.dispatch('setSnackbar', {
 					status: true,
-					message: 'Selecione a dificuldade',
+					message: 'Selecione a Dificuldade',
 				})
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {

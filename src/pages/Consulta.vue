@@ -40,25 +40,25 @@
 							</v-card>
 							<v-row class="mt-2">
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
+									<v-text-field
 										type="text"
 										label="Cursos - Ex: ADS, ciencias da computacao..."
 										class="home__form__input"
 										v-model="curso"
 										outlined
 										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getCursos"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="curso"
+										outlined
+										label="Curso"
+										clearable
+										hide-details
 									/> -->
-									<v-autocomplete
-									:items="getCursos"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="curso"
-									outlined
-									label="Curso"
-									clearable
-									hide-details
-								/>
 								</v-col>
 								<v-col md="12" lg="6">
 									<v-text-field
@@ -74,90 +74,90 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
+									<v-text-field
 										type="text"
 										label="Disciplina 1 - Ex: engenharia de software"
 										class="home__form__input"
 										v-model="disciplina1"
 										outlined
 										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="disciplina1"
+										outlined
+										label="Disciplina 1"
+										clearable
+										hide-details
 									/> -->
-									<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="disciplina1"
-									outlined
-									label="Disciplina 1"
-									clearable
-									hide-details
-								/>
 								</v-col>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
+									<v-text-field
 										type="text"
 										label="Disciplinas 2 - Ex: analise e projeto de sistemas"
 										class="home__form__input"
 										v-model="disciplina2"
 										outlined
 										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="disciplina2"
+										outlined
+										label="Disciplina 2"
+										clearable
+										hide-details
 									/> -->
-									<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="disciplina2"
-									outlined
-									label="Disciplina 2"
-									clearable
-									hide-details
-								/>
 								</v-col>
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
+									<v-text-field
 										type="text"
 										label="Disciplina 3 - Ex: aplicacoes para internet"
 										class="home__form__input"
 										v-model="disciplina3"
 										outlined
 										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="disciplina3"
+										outlined
+										label="Disciplina 3"
+										clearable
+										hide-details
 									/> -->
-										<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="disciplina3"
-									outlined
-									label="Disciplina 3"
-									clearable
-									hide-details
-								/>
 								</v-col>
 								<v-col md="12" lg="6">
-									<!-- <v-text-field
+									<v-text-field
 										type="text"
 										label="Disciplina 4 - Ex: gestao de TI "
 										class="home__form__input"
 										v-model="disciplina4"
 										outlined
 										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="disciplina4"
+										outlined
+										label="Disciplina 4"
+										clearable
+										hide-details
 									/> -->
-										<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="disciplina4"
-									outlined
-									label="Disciplina 4"
-									clearable
-									hide-details
-								/>
 								</v-col>
 							</v-row>
 							<v-row>
@@ -425,345 +425,333 @@
 				</v-card-actions>
 			</v-card>
 			<v-card>
+				<Modal v-if="modalEditar">
+					<v-card class="modal">
+						<div class="modal__header">
+							<h3 class="modal__header__title">Editar questão</h3>
 
-			<Modal v-if="modalEditar">
-				<v-card class="modal">
-					<div class="modal__header">
-						<h3 class="modal__header__title">Editar questão</h3>
-
-						<a @click="modalEditar = false" name="section2" href="#">
-							<img src="@/assets/Vector.svg" alt="" />
-						</a>
-					</div>
-					<v-col md="12" lg="4">
-						<v-text-field
-							type="text"
-							label="Data de cadastro"
-							class="modal__form__input"
-							v-model="editar.dataAtual"
-							outlined
-							hide-details
-						/>
-					</v-col>
-
-					<v-row class="modal__form__invisible">
-						<v-col md="14" lg="14">
-							<vue-editor
-								type="text"
-								class="modal__form__input"
-								v-model="editar.teste"
-								outlined
-								hide-details
-							/>
-						</v-col>
+							<a @click="modalEditar = false" name="section2" href="#">
+								<img src="@/assets/Vector.svg" alt="" />
+							</a>
+						</div>
 						<v-col md="12" lg="4">
 							<v-text-field
 								type="text"
+								label="Data de cadastro"
 								class="modal__form__input"
-								v-model="editar.img"
+								v-model="editar.dataAtual"
 								outlined
 								hide-details
 							/>
 						</v-col>
-						<v-col md="12" lg="4">
-							<v-text-field
-								type="text"
-								class="modal__form__input"
-								v-model="editar.img2"
-								outlined
-								hide-details
-							/>
-						</v-col>
-						<v-col md="12" lg="4">
-							<v-text-field
-								type="text"
-								class="modal__form__input"
-								v-model="editar.img3"
-								outlined
-								hide-details
-							/>
-						</v-col>
-					</v-row>
 
-					<v-form class="modal__form">
-						<v-row class="d-flex justify-space-between align-center">
-							<div class="d-flex align-center">
-								<strong class="mx-4">Tipo de questão:</strong>
-								<v-radio-group row v-model="editar.tipoQuestao">
-									<v-radio
-										v-for="(radio, index) in radiosQuestoes"
-										:key="index"
-										:label="radio.label"
-										:value="radio.value"
-									/>
-								</v-radio-group>
-							</div>
-							<div class="d-flex align-center justify-end ">
-								<strong>N° Questão</strong>
-								<v-col md="12" lg="4">
-									<v-text-field
-										type="number"
-										class="modal__form__input"
-										v-model="editar.codeQuestion"
-										outlined
-										hide-details
-									/>
-								</v-col>
-							</div>
-						</v-row>
-						<v-row>
-							<v-col md="12" lg="6">
-								<!-- <v-text-field
-									type="text"
-									label="Cursos"
-									class="modal__form__input"
-									v-model="editar.curso"
-									outlined
-									hide-details
-								/> -->
-									<v-autocomplete
-									:items="getCursos"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="editar.curso"
-									outlined
-									label="Curso"
-									clearable
-									hide-details
-								/>
-							</v-col>
-							<v-col md="12" lg="6">
+						<v-row class="modal__form__invisible">
+							<v-col md="12" lg="4">
 								<v-text-field
 									type="text"
-									label="Ano"
 									class="modal__form__input"
-									v-model="editar.ano"
+									v-model="editar.img"
 									outlined
-									maxLength="4"
+									hide-details
+								/>
+							</v-col>
+							<v-col md="12" lg="4">
+								<v-text-field
+									type="text"
+									class="modal__form__input"
+									v-model="editar.img2"
+									outlined
+									hide-details
+								/>
+							</v-col>
+							<v-col md="12" lg="4">
+								<v-text-field
+									type="text"
+									class="modal__form__input"
+									v-model="editar.img3"
+									outlined
 									hide-details
 								/>
 							</v-col>
 						</v-row>
-						<v-row>
-							<v-col md="12" lg="6">
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina 1"
-									class="modal__form__input"
-									v-model="editar.disciplina1"
-									outlined
-									hide-details
-								/> -->
-									<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="editar.disciplina1"
-									outlined
-									label="Disciplina 1"
-									clearable
-									hide-details
-								/>
-							</v-col>
-							<v-col md="12" lg="6">
-								<!-- <v-text-field
-									type="text"
-									label="Disciplinas 2"
-									class="modal__form__input"
-									v-model="editar.disciplina2"
-									outlined
-									hide-details
-								/> -->
-									<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="editar.disciplina2"
-									outlined
-									label="Disciplina 2"
-									clearable
-									hide-details
-								/>
-							</v-col>
-						</v-row>
-						<v-row>
-							<v-col md="12" lg="6">
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina 3"
-									class="modal__form__input"
-									v-model="editar.disciplina3"
-									outlined
-								/> -->
-									<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="editar.disciplina3"
-									outlined
-									label="Disciplina 3"
-									clearable
-								/>
-							</v-col>
-							<v-col md="12" lg="6">
-								<!-- <v-text-field
-									type="text"
-									label="Disciplina 4"
-									class="modal__form__input"
-									v-model="editar.disciplina4"
-									outlined
-								/> -->
-									<v-autocomplete
-									:items="getDisciplinas"
-									item-text="description"
-									item-value="id"
-									return-object
-									v-model="editardisciplina4"
-									outlined
-									label="Disciplina 4"
-									clearable
-								/>
-							</v-col>
-						</v-row>
-						<div class="modal__form__coluna">
-							<v-row>
-								<v-col md="14" lg="14">
-									<v-textarea
-										type="text"
-										label="Insira questão"
-										class="modal__form__text"
-										v-model="editar.questao"
-										hide-details
-										outlined
-									/>
-								</v-col>
-							</v-row>
-							<v-row>
-								<v-col md="12" lg="12">
-									<v-textarea
-										type="text"
-										label="Alternativa A"
-										class="modal__form__text"
-										v-model="editar.alternativaA"
-										hide-details
-										outlined
-									/>
-								</v-col>
-							</v-row>
-							<v-row>
-								<v-col md="12" lg="12">
-									<v-textarea
-										type="text"
-										label="Alternativa B"
-										class="modal__form__text"
-										v-model="editar.alternativaB"
-										hide-details
-										outlined
-									/>
-								</v-col>
-							</v-row>
-							<v-row>
-								<v-col md="12" lg="12">
-									<v-textarea
-										type="text"
-										label="Alternativa C"
-										class="modal__form__text"
-										v-model="editar.alternativaC"
-										hide-details
-										outlined
-									/>
-								</v-col>
-							</v-row>
-							<v-row>
-								<v-col md="12" lg="12">
-									<v-textarea
-										type="text"
-										label="Alternativa D"
-										class="modal__form__text"
-										v-model="editar.alternativaD"
-										hide-details
-										outlined
-									/>
-								</v-col>
-							</v-row>
-							<v-row>
-								<v-col md="12" lg="12">
-									<v-textarea
-										type="text"
-										label="Alternativa E"
-										class="modal__form__text"
-										v-model="editar.alternativaE"
-										hide-details
-										outlined
-									/>
-								</v-col>
-							</v-row>
-							<v-row>
-								<v-col md="12" lg="4">
-									<v-text-field
-										type="text"
-										label="Alternativa Correta"
-										class="modal__form__input"
-										v-model="editar.alternativaCorreta"
-										outlined
-										hide-details
-									/>
-								</v-col>
-								<div class="d-flex align-center">
-									<strong class="mx-4">Dificuldade:</strong>
-									<v-radio-group row v-model="editar.dificuldade">
+
+						<v-form class="modal__form">
+							<v-row class="d-flex justify-space-between align-center">
+								<v-card disabled flat class="d-flex align-center">
+									<strong class="mx-4">Tipo de questão:</strong>
+									<v-radio-group row v-model="editar.tipoQuestao">
 										<v-radio
-											v-for="(radio, index) in radios"
+											v-for="(radio, index) in radiosQuestoes"
 											:key="index"
 											:label="radio.label"
 											:value="radio.value"
 										/>
 									</v-radio-group>
+								</v-card>
+								<div class="d-flex align-center justify-end ">
+									<strong>N° Questão</strong>
+									<v-col md="12" lg="4">
+										<v-text-field
+											type="number"
+											class="modal__form__input"
+											v-model="editar.codeQuestion"
+											outlined
+											hide-details
+										/>
+									</v-col>
 								</div>
 							</v-row>
 							<v-row>
-								<v-col md="12" lg="12">
+								<v-col md="12" lg="6">
 									<v-text-field
 										type="text"
-										label="Digite frase ou palavra-chave"
+										label="Cursos"
 										class="modal__form__input"
-										v-model="editar.palavraChave"
+										v-model="editar.curso"
 										outlined
+										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getCursos"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="editar.curso"
+										outlined
+										label="Curso"
+										clearable
+										hide-details
+									/> -->
+								</v-col>
+								<v-col md="12" lg="6">
+									<v-text-field
+										type="text"
+										label="Ano"
+										class="modal__form__input"
+										v-model="editar.ano"
+										outlined
+										maxLength="4"
+										hide-details
 									/>
 								</v-col>
 							</v-row>
-						</div>
-					</v-form>
+							<v-row>
+								<v-col md="12" lg="6">
+									<v-text-field
+										type="text"
+										label="Disciplina 1"
+										class="modal__form__input"
+										v-model="editar.disciplina1"
+										outlined
+										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="editar.disciplina1"
+										outlined
+										label="Disciplina 1"
+										clearable
+										hide-details
+									/> -->
+								</v-col>
+								<v-col md="12" lg="6">
+									<v-text-field
+										type="text"
+										label="Disciplinas 2"
+										class="modal__form__input"
+										v-model="editar.disciplina2"
+										outlined
+										hide-details
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="editar.disciplina2"
+										outlined
+										label="Disciplina 2"
+										clearable
+										hide-details
+									/> -->
+								</v-col>
+							</v-row>
+							<v-row>
+								<v-col md="12" lg="6">
+									<v-text-field
+										type="text"
+										label="Disciplina 3"
+										class="modal__form__input"
+										v-model="editar.disciplina3"
+										outlined
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="editar.disciplina3"
+										outlined
+										label="Disciplina 3"
+										clearable
+									/> -->
+								</v-col>
+								<v-col md="12" lg="6">
+									<v-text-field
+										type="text"
+										label="Disciplina 4"
+										class="modal__form__input"
+										v-model="editar.disciplina4"
+										outlined
+									/>
+									<!-- <v-autocomplete
+										:items="getDisciplinas"
+										item-text="description"
+										item-value="id"
+										return-object
+										v-model="editardisciplina4"
+										outlined
+										label="Disciplina 4"
+										clearable
+									/> -->
+								</v-col>
+							</v-row>
+							<div class="modal__form__coluna">
+								<v-row>
+									<v-col md="14" lg="14">
+										<v-textarea
+											type="text"
+											label="Insira questão"
+											class="modal__form__text"
+											v-model="editar.questao"
+											hide-details
+											outlined
+										/>
+									</v-col>
+								</v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
+									<v-col md="12" lg="12">
+										<v-textarea
+											type="text"
+											label="Alternativa A"
+											class="modal__form__text"
+											v-model="editar.alternativaA"
+											hide-details
+											outlined
+										/>
+									</v-col>
+								</v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
+									<v-col md="12" lg="12">
+										<v-textarea
+											type="text"
+											label="Alternativa B"
+											class="modal__form__text"
+											v-model="editar.alternativaB"
+											hide-details
+											outlined
+										/>
+									</v-col>
+								</v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
+									<v-col md="12" lg="12">
+										<v-textarea
+											type="text"
+											label="Alternativa C"
+											class="modal__form__text"
+											v-model="editar.alternativaC"
+											hide-details
+											outlined
+										/>
+									</v-col>
+								</v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
+									<v-col md="12" lg="12">
+										<v-textarea
+											type="text"
+											label="Alternativa D"
+											class="modal__form__text"
+											v-model="editar.alternativaD"
+											hide-details
+											outlined
+										/>
+									</v-col>
+								</v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
+									<v-col md="12" lg="12">
+										<v-textarea
+											type="text"
+											label="Alternativa E"
+											class="modal__form__text"
+											v-model="editar.alternativaE"
+											hide-details
+											outlined
+										/>
+									</v-col>
+								</v-row>
+								<v-row v-if="editar.tipoQuestao === 'MultiplaEscolha'">
+									<v-col md="12" lg="4">
+										<v-text-field
+											type="text"
+											label="Alternativa Correta"
+											class="modal__form__input"
+											v-model="editar.alternativaCorreta"
+											outlined
+											hide-details
+										/>
+									</v-col>
+									<div class="d-flex align-center">
+										<strong class="mx-4">Dificuldade:</strong>
+										<v-radio-group row v-model="editar.dificuldade">
+											<v-radio
+												v-for="(radio, index) in radios"
+												:key="index"
+												:label="radio.label"
+												:value="radio.value"
+											/>
+										</v-radio-group>
+									</div>
+								</v-row>
+								<v-row>
+									<v-col md="12" lg="12">
+										<v-text-field
+											type="text"
+											label="Digite frase ou palavra-chave"
+											class="modal__form__input"
+											v-model="editar.palavraChave"
+											outlined
+										/>
+									</v-col>
+								</v-row>
+							</div>
+						</v-form>
 
-					<v-row class="d-flex justify-space-between mb-6">
-						<div>
-
-						<v-btn @click="editarQuestao" class="modal__form__btn ml-6">
-							Editar
-						</v-btn>
-						<v-btn @click="modalEditar = false" class="modal__form__back">
-								Fechar
-							</v-btn>
-						</div>
-						<a class="modal__form__link mr-4" href="#section2">
-							<v-tooltip color="#FF5A00" top>
-								<template v-slot:activator="{ on, attrs }">
-									<v-btn icon color="primary" dark v-bind="attrs" v-on="on">
-										<v-icon color="#FF5A00">arrow_upward</v-icon>
-									</v-btn>
-								</template>
-								<h4>Voltar ao topo</h4>
-							</v-tooltip>
-						</a>
-					</v-row>
-				</v-card>
-			</Modal>
+						<v-row class="d-flex justify-space-between mb-6">
+							<div>
+								<v-btn @click="editarQuestao" class="modal__form__btn ml-6">
+									Editar
+								</v-btn>
+								<v-btn @click="modalEditar = false" class="modal__form__back">
+									Fechar
+								</v-btn>
+							</div>
+							<a class="modal__form__link mr-4" href="#section2">
+								<v-tooltip color="#FF5A00" top>
+									<template v-slot:activator="{ on, attrs }">
+										<v-btn icon color="primary" dark v-bind="attrs" v-on="on">
+											<v-icon color="#FF5A00">arrow_upward</v-icon>
+										</v-btn>
+									</template>
+									<h4>Voltar ao topo</h4>
+								</v-tooltip>
+							</a>
+						</v-row>
+					</v-card>
+				</Modal>
 			</v-card>
-
 		</div>
 	</v-card>
 </template>
@@ -898,15 +886,16 @@ export default {
 					const data = await this.$store.dispatch('example/getFilter', {
 						tipoQuestao: this.tipoQuestao || null,
 						dificuldade: this.dificuldade || null,
-						curso: this.curso.id || null,
+						curso: this.curso.toUpperCase() || null,
 						ano: this.ano || null,
-						disciplina1: this.disciplina1 || null,
-						disciplina2: this.disciplina2 || null,
-						disciplina3: this.disciplina3 || null,
-						disciplina4: this.disciplina4 || null,
-						palavraChave: this.palavraChave.toLowerCase() || null,
+						disciplina1: this.disciplina1.toUpperCase() || null,
+						disciplina2: this.disciplina2.toUpperCase() || null,
+						disciplina3: this.disciplina3.toUpperCase() || null,
+						disciplina4: this.disciplina4.toUpperCase() || null,
+						palavraChave: this.palavraChave.toUpperCase() || null,
 						codeQuestion: this.codeQuestion || null,
 					})
+					console.log('CURSOS', this.curso)
 					this.provas = data
 					console.log('PROVAS', this.provas)
 					if (this.provas.length === 0) {
@@ -927,6 +916,10 @@ export default {
 		async deletarProva(e, id) {
 			e.preventDefault()
 			const { data } = await axios.delete(`http://localhost:3000/provas/${id}`)
+			this.$store.dispatch('setSnackbar', {
+				status: true,
+				message: 'Questão excluída com sucesso!',
+			})
 			this.consultarProva()
 		},
 		carregarInfo(e, prova) {
@@ -984,6 +977,10 @@ export default {
 					img3: this.editar.img3,
 				}
 			)
+			this.$store.dispatch('setSnackbar', {
+				status: true,
+				message: 'Questão alterada com sucesso!',
+			})
 			this.consultarProva()
 
 			this.modalEditar = false
@@ -1181,7 +1178,7 @@ span {
 		width: 100%;
 		height: auto;
 		z-index: 7;
-		
+
 		// background: black;
 		&__header {
 			display: flex;
@@ -1211,7 +1208,8 @@ span {
 			}
 			&__btn {
 				width: 116px;
-				padding: 10px;margin-right: 10px;
+				padding: 10px;
+				margin-right: 10px;
 				border: 0;
 				border-radius: 5px;
 				background: #003fff;

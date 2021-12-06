@@ -20,7 +20,7 @@
 
 	&__content {
 		overflow-y: auto;
-		width: 935px;
+		width: 920px;
 		border-radius: 5px;
 		height: 90%;
 		background: #303030;
