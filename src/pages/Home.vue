@@ -196,6 +196,18 @@
 									/>
 								</v-col>
 							</v-row>
+							<v-row>
+								<v-col md="14" lg="14">
+									<vue-editor
+										type="text"
+										label="Insira questão"
+										class="modal__form__text"
+										v-model="teste"
+										hide-details
+										outlined
+									/>
+								</v-col>
+							</v-row>
 							<v-row v-if="tipoQuestao === 'MultiplaEscolha'">
 								<v-col md="12" lg="12">
 									<v-textarea
@@ -335,6 +347,7 @@ import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
+			teste: '',
 			tipoQuestao: 'MultiplaEscolha',
 			codeQuestion: '',
 			curso: '',
@@ -457,6 +470,7 @@ export default {
 				})
 			} else {
 				const { data } = await axios.post('http://localhost:3000/provas', {
+					teste: this.teste,
 					tipoQuestao: this.tipoQuestao,
 					codeQuestion: this.codeQuestion,
 					curso: this.curso.description,
@@ -481,6 +495,7 @@ export default {
 					message: 'Questão cadastrada com sucesso!',
 				})
 			}
+			this.teste = ''
 			this.curso = ''
 			this.codeQuestion = ''
 			this.disciplina1 = ''

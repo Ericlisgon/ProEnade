@@ -290,9 +290,23 @@
 						<p class="home__list__text2__paragrafo">
 							{{ prova.questao }}
 						</p>
+						<v-card  flat v-if="prova.teste">
+						<vue-editor
+							class="modal__form__text"
+							v-model="prova.teste"
+							hide-details
+							outlined
+							disabled
+						/>
+						</v-card>
+
 						<div class="container-imgs">
 							<div class="content-img">
-								<img v-if="prova.img" :src="getImage(prova.img)" class="img" />
+								<img
+									v-if="prova.img"
+									:src="getImage(prova.img)"
+									class="img"
+								/>
 							</div>
 							<div class="content-img">
 								<img
@@ -759,6 +773,7 @@ export default {
 			disciplina4: '',
 			ano: '',
 			questao: '',
+			teste: '',
 			alternativaA: '',
 			alternativaB: '',
 			alternativaC: '',
@@ -789,6 +804,7 @@ export default {
 				disciplina4: '',
 				ano: '',
 				questao: '',
+				teste: '',
 				alternativaA: '',
 				alternativaB: '',
 				alternativaC: '',
@@ -799,8 +815,8 @@ export default {
 				palavraChave: '',
 				dataAtual: '',
 				codeQuestion: '',
-				img: '',
 				img2: '',
+				img: '',
 				img3: '',
 			},
 		}
@@ -918,6 +934,7 @@ export default {
 			this.editar.disciplina3 = prova.disciplina3
 			this.editar.disciplina4 = prova.disciplina4
 			this.editar.questao = prova.questao
+			this.editar.teste = prova.teste
 			this.editar.alternativaA = prova.alternativaA
 			this.editar.alternativaB = prova.alternativaB
 			this.editar.alternativaC = prova.alternativaC
@@ -945,6 +962,7 @@ export default {
 					disciplina3: this.editar.disciplina3,
 					disciplina4: this.editar.disciplina4,
 					questao: this.editar.questao,
+					teste: this.editar.teste,
 					alternativaA: this.editar.alternativaA,
 					alternativaB: this.editar.alternativaB,
 					alternativaC: this.editar.alternativaC,
