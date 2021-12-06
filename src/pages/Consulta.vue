@@ -290,23 +290,19 @@
 						<p class="home__list__text2__paragrafo">
 							{{ prova.questao }}
 						</p>
-						<v-card  flat v-if="prova.teste">
-						<vue-editor
-							class="modal__form__text"
-							v-model="prova.teste"
-							hide-details
-							outlined
-							disabled
-						/>
+						<v-card flat v-if="prova.teste">
+							<vue-editor
+								class="modal__form__text"
+								v-model="prova.teste"
+								hide-details
+								outlined
+								disabled
+							/>
 						</v-card>
 
 						<div class="container-imgs">
 							<div class="content-img">
-								<img
-									v-if="prova.img"
-									:src="getImage(prova.img)"
-									class="img"
-								/>
+								<img v-if="prova.img" :src="getImage(prova.img)" class="img" />
 							</div>
 							<div class="content-img">
 								<img
@@ -444,8 +440,17 @@
 								hide-details
 							/>
 						</v-col>
-
 						<v-row class="modal__form__invisible">
+							<v-col md="14" lg="14">
+								<vue-editor
+									type="text"
+									class="modal__form__input"
+									v-model="editar.teste"
+									outlined
+									hide-details
+								/>
+							</v-col>
+
 							<v-col md="12" lg="4">
 								<v-text-field
 									type="text"
@@ -511,17 +516,6 @@
 										outlined
 										hide-details
 									/>
-									<!-- <v-autocomplete
-										:items="getCursos"
-										item-text="description"
-										item-value="id"
-										return-object
-										v-model="editar.curso"
-										outlined
-										label="Curso"
-										clearable
-										hide-details
-									/> -->
 								</v-col>
 								<v-col md="12" lg="6">
 									<v-text-field
@@ -545,17 +539,6 @@
 										outlined
 										hide-details
 									/>
-									<!-- <v-autocomplete
-										:items="getDisciplinas"
-										item-text="description"
-										item-value="id"
-										return-object
-										v-model="editar.disciplina1"
-										outlined
-										label="Disciplina 1"
-										clearable
-										hide-details
-									/> -->
 								</v-col>
 								<v-col md="12" lg="6">
 									<v-text-field
@@ -566,17 +549,6 @@
 										outlined
 										hide-details
 									/>
-									<!-- <v-autocomplete
-										:items="getDisciplinas"
-										item-text="description"
-										item-value="id"
-										return-object
-										v-model="editar.disciplina2"
-										outlined
-										label="Disciplina 2"
-										clearable
-										hide-details
-									/> -->
 								</v-col>
 							</v-row>
 							<v-row>
@@ -588,16 +560,6 @@
 										v-model="editar.disciplina3"
 										outlined
 									/>
-									<!-- <v-autocomplete
-										:items="getDisciplinas"
-										item-text="description"
-										item-value="id"
-										return-object
-										v-model="editar.disciplina3"
-										outlined
-										label="Disciplina 3"
-										clearable
-									/> -->
 								</v-col>
 								<v-col md="12" lg="6">
 									<v-text-field
@@ -607,16 +569,6 @@
 										v-model="editar.disciplina4"
 										outlined
 									/>
-									<!-- <v-autocomplete
-										:items="getDisciplinas"
-										item-text="description"
-										item-value="id"
-										return-object
-										v-model="editardisciplina4"
-										outlined
-										label="Disciplina 4"
-										clearable
-									/> -->
 								</v-col>
 							</v-row>
 							<div class="modal__form__coluna">

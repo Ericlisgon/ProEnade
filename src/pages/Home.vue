@@ -164,6 +164,7 @@
 									outlined
 									label="Disciplina 3"
 									clearable
+									hide-details
 								/>
 							</v-col>
 							<v-col md="12" lg="6">
@@ -180,15 +181,28 @@
 									outlined
 									label="Disciplina 4"
 									clearable
+									hide-details
 								/>
 							</v-col>
 						</v-row>
+						{{ validate }}
+						<div class="d-flex align-center justify-start">
+							<strong class="mx-4">Sua questão possui imagem?</strong>
+							<v-radio-group row v-model="validate">
+								<v-radio
+									v-for="(radio, index) in radiosValidate"
+									:key="index"
+									:label="radio.label"
+									:value="radio.value"
+								/>
+							</v-radio-group>
+						</div>
 						<div class="modal__form__coluna">
 							<v-row>
 								<v-col md="14" lg="14">
 									<v-textarea
 										type="text"
-										label="Insira questão"
+										label="Insira o Enunciado da questão"
 										class="modal__form__text"
 										v-model="questao"
 										hide-details
@@ -196,11 +210,15 @@
 									/>
 								</v-col>
 							</v-row>
-							<v-row>
+							<strong v-if="validate === 'S'" class="mt-3"
+								>Insira sua imagem no campo abaixo.</strong
+							>
+
+							<v-row v-if="validate === 'S'">
 								<v-col md="14" lg="14">
 									<vue-editor
 										type="text"
-										label="Insira questão"
+										label="Insira a imagem"
 										class="modal__form__text"
 										v-model="teste"
 										hide-details
@@ -270,14 +288,6 @@
 							</v-row>
 							<v-row>
 								<v-col md="12" lg="3" v-if="tipoQuestao === 'MultiplaEscolha'">
-									<!-- <v-text-field
-										type="text"
-										label="Alternativa Correta"
-										class="modal__form__input"
-										v-model="alternativaCorreta"
-										outlined
-										hide-details
-									/> -->
 									<v-select
 										:items="items"
 										v-model="alternativaCorreta"
@@ -349,6 +359,7 @@ export default {
 		return {
 			teste: '',
 			tipoQuestao: 'MultiplaEscolha',
+			validate: 'N',
 			codeQuestion: '',
 			curso: '',
 			disciplina1: '',
@@ -377,10 +388,15 @@ export default {
 				{ label: 'Múltipla Escolha', value: 'MultiplaEscolha' },
 				{ label: 'Discursiva', value: 'Discursiva' },
 			],
+			radiosValidate: [
+				{ label: 'Sim', value: 'S' },
+				{ label: 'Não', value: 'N' },
+			],
 			items: ['A', 'B', 'C', 'D', 'E'],
 			provas: [],
 		}
 	},
+
 	components: {
 		Modal,
 		Header,
